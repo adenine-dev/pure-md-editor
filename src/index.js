@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import "./assets/style/style.css"
 import "codemirror/lib/codemirror.css"
-// import "codemirror/mode/markdown.js"
+import "codemirror/mode/markdown/markdown.js"
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
