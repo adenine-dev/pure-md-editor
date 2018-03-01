@@ -7,7 +7,7 @@ const editorWrapperStyle = {
   width: "90%",
   margin: "32px auto",
   maxWidth: "960px",
-  fontFamily: "Roboto"
+  fontFamily: "Roboto, sans-serif",
 }
 
 export default class Editor extends Component {
@@ -31,7 +31,7 @@ export default class Editor extends Component {
     return (
       <div className="editor"
            style={{...editorWrapperStyle, ...this.props.style}}>
-
+           
         <div id="main-editor"></div>
       </div>
     );
