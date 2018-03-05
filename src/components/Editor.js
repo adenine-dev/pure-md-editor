@@ -19,12 +19,30 @@ export default class Editor extends Component {
   }
   componentDidMount() {
     let editor = CodeMirror(document.getElementById("main-editor"), {
-      mode: "markdown",
+      mode: {
+        name: "markdown",
+        highlightFormatting: true
+      },
       autofocus: true,
+      highlightFormatting: true
 
     })
+    editor.addKeyMap({
+      // bold
+      'Ctrl-B': (cm) => {
+          var s = cm.getSelection(),
+              t = s.slice(0, 2) === '**' && s.slice(-2) === '**';
+          cm.replaceSelection(t ? s.slice(2, -2) : '**' + s + '**', 'around');
+      },
+      // italic
+      'Ctrl-I': (cm) => {
+          var s = cm.getSelection(),
+              t = s.slice(0, 1) === '*' && s.slice(-1) === '*';
+          cm.replaceSelection(t ? s.slice(1, -1) : '*' + s + '*', 'around');
+      },
 
-    this.setState({editor})
+    });
+    this.setState({ editor })
 
   }
   render() {
