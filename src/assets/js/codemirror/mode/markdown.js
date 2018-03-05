@@ -5,7 +5,6 @@ import 'codemirror/addon/mode/overlay.js';
 CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   var htmlFound = CodeMirror.modes.hasOwnProperty("xml");
   var htmlMode = CodeMirror.getMode(cmCfg, htmlFound ? {name: "xml", htmlMode: true} : "text/plain");
-  console.log(modeCfg.highlightFormatting)
   function getMode(name) {
     if (CodeMirror.findModeByName) {
       var found = CodeMirror.findModeByName(name);

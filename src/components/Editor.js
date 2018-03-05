@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
+import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 
+import '../assets/js/codemirror/mode/markdown.js';
+
+import '../assets/js/codemirror/addon/continuelist.js';
+import '../assets/js/codemirror/addon/fold.js';
 
 
 const editorWrapperStyle = {
   width: "90%",
   margin: "32px auto",
   maxWidth: "960px",
-  fontFamily: "Roboto, sans-serif",
+  fontFamily: "'Roboto', sans-serif",
 }
 
 export default class Editor extends Component {
@@ -24,24 +29,17 @@ export default class Editor extends Component {
         highlightFormatting: true
       },
       autofocus: true,
-      highlightFormatting: true
-
+      highlightFormatting: true,
+      extraKeys: {
+        "Enter": "newlineAndIndentContinueMarkdownList",
+        "Ctrl-Q": "fold"
+      }
     })
-    editor.addKeyMap({
-      // bold
-      'Ctrl-B': (cm) => {
-          var s = cm.getSelection(),
-              t = s.slice(0, 2) === '**' && s.slice(-2) === '**';
-          cm.replaceSelection(t ? s.slice(2, -2) : '**' + s + '**', 'around');
-      },
-      // italic
-      'Ctrl-I': (cm) => {
-          var s = cm.getSelection(),
-              t = s.slice(0, 1) === '*' && s.slice(-1) === '*';
-          cm.replaceSelection(t ? s.slice(1, -1) : '*' + s + '*', 'around');
-      },
-
-    });
+    let keymap = {};
+    keymaps.map((map) => {
+      keymap[map.name] = map.action
+    })
+    editor.addKeyMap( keymap );
     this.setState({ editor })
 
   }
@@ -49,7 +47,7 @@ export default class Editor extends Component {
     return (
       <div className="editor"
            style={{...editorWrapperStyle, ...this.props.style}}>
-           
+
         <div id="main-editor"></div>
       </div>
     );
