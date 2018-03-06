@@ -1,11 +1,11 @@
 const style = {
   light: {
-    main: "",
-    text: "rgba(0,0,0,0.85)"
+    main: "#fafafa",
+    text: "rgba(0,0,0,0.85)",
   },
   dark: {
-    main: "",
-    text: "rgba(255,255,255,0.85)"
+    main: "#222",
+    text: "rgba(255,255,255,0.85)",
   }
 }
 
