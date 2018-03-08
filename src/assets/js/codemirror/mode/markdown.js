@@ -57,7 +57,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   ,   strong   = 'strong'
   ,   strikethrough = 'strikethrough';
 
-  var hrRE = /^([*\-=_])(?:\s*\1){2,}\s*$/
+  var hrRE = /^([\-=_])(?:\s*\1){2,}\s*$/
   ,   ulRE = /^[*\-+]\s+/
   ,   olRE = /^[0-9]+\.\s+/
   ,   taskListRE = /^\[(x| )\](?=\s)/ // Must follow ulRE or olRE

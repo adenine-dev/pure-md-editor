@@ -5,6 +5,9 @@
   box-sizing: border-box;
   outline: none; }
 
+html, body {
+  background-color: #222; }
+
 /* BASICS */
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
@@ -321,13 +324,17 @@ span.CodeMirror-selectedtext {
 
 .CodeMirror {
   background-color: #222;
-  color: rgba(255, 255, 255, 0.85); }
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 24px; }
 
 .CodeMirror-cursor {
   border-left: 2px solid rgba(204, 204, 204, 0.85); }
 
 .CodeMirror div.CodeMirror-secondarycursor {
   border-left: 2px solid rgba(153, 153, 153, 0.85); }
+
+.CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected {
+  background-color: rgba(255, 255, 255, 0.1); }
 
 .cm-formatting {
   color: rgba(255, 255, 255, 0.4); }
@@ -357,6 +364,9 @@ span.CodeMirror-selectedtext {
 .cm-header-6 {
   font-size: 1em; }
 
+.cm-formatting:not(.cm-formatting-header, .cm-formatting-quote) {
+  font-size: 0.6em; }
+
 .cm-em {
   font-style: italic; }
 
@@ -365,3 +375,16 @@ span.CodeMirror-selectedtext {
 
 .cm-formatting-list {
   padding: 0 8px 0 32px; }
+
+.cm-hr::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 1px;
+  width: calc(100% - 32px);
+  left: 16px;
+  right: 16px;
+  top: 50%; }
+
+.cm-formatting-quote {
+  padding-right: 16px; }

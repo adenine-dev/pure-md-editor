@@ -17,6 +17,8 @@
 .cm-header-6
   font-size: 1em
 
+.cm-formatting:not(.cm-formatting-header, .cm-formatting-quote)
+  font-size: 0.6em
 
 .cm-em
   font-style: italic
@@ -25,3 +27,18 @@
 
 .cm-formatting-list
   padding: 0 8px 0 32px
+
+
+.cm-hr
+  &::after
+    content: ""
+    position: absolute
+    background-color: #fff
+    height: 1px
+    width: calc(100% - 32px)
+    left: 16px
+    right: 16px
+    top: 50%
+
+.cm-formatting-quote
+  padding-right: 16px

@@ -3,12 +3,14 @@
 .CodeMirror
   background-color: $main-dark
   color: $text-dark
+  font-size: 24px
 
 .CodeMirror-cursor
   border-left: 2px solid darken($text-dark, 20%)
 .CodeMirror div.CodeMirror-secondarycursor
     border-left: 2px solid darken($text-dark, 40%)
-
+.CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected
+  background-color: rgba($text-dark, 0.1)
 
 // md theming
 .cm-formatting
