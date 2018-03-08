@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-import Editor from "./components/Editor.js"
+import AppContainer from "./components/AppContainer.js"
 
 
 
@@ -9,11 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Switch>
-            <Route path="/app/edit/" component={Editor}></Route>
-
-            <Redirect to="/app/edit/"></Redirect>
-          </Switch>
+          <AppContainer />
         </BrowserRouter>
       </div>
     );

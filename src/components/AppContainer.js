@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-import { StyleSheet, css } from 'aphrodite';
-import style from "../assets/js/style.js"
+
+import Editor from "./Editor.js"
 
 
 export default class AppContainer extends Component {
@@ -9,21 +9,20 @@ export default class AppContainer extends Component {
     super(props)
     this.state = {
       settings: {
-        theme: "dark"
+        theme: "dark",
       },
-      style: StyleSheet.create({
-        bg: {
-          backgroundColor: style[this.state.settings.theme].main
-        }
-      })
     }
   }
 
 
   render() {
     return (
-      <div className="app-container" className={css(this.state.style.bg)}>
+      <div className="app-container" className={ this.state.settings.theme }>
+        <Switch>
+          <Route path="/app/edit/" component={Editor}></Route>
 
+          <Redirect to="/app/edit/"></Redirect>
+        </Switch>
       </div>
     )
   }

@@ -10,7 +10,7 @@
   /* Set height, width, borders, and global font properties here */
   font-family: "Roboto";
   height: 300px;
-  color: black;
+  color: inherit;
   direction: ltr; }
 
 /* PADDING */
@@ -111,7 +111,7 @@
 .CodeMirror {
   position: relative;
   overflow: hidden;
-  background: white; }
+  background: inherit; }
 
 .CodeMirror-scroll {
   overflow: scroll !important;
@@ -318,3 +318,50 @@ div.CodeMirror-dragcursors {
 /* Help users use markselection to safely style text background */
 span.CodeMirror-selectedtext {
   background: none; }
+
+.CodeMirror {
+  background-color: #222;
+  color: rgba(255, 255, 255, 0.85); }
+
+.CodeMirror-cursor {
+  border-left: 2px solid rgba(204, 204, 204, 0.85); }
+
+.CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 2px solid rgba(153, 153, 153, 0.85); }
+
+.cm-formatting {
+  color: rgba(255, 255, 255, 0.4); }
+
+.cm-header {
+  font-weight: 800;
+  line-height: 1.1em; }
+
+.cm-header-1 {
+  font-size: 2.4em;
+  line-height: 1.6em; }
+
+.cm-header-2 {
+  font-size: 2em;
+  line-height: 1.4em; }
+
+.cm-header-3 {
+  font-size: 1.8em;
+  line-height: 1.2em; }
+
+.cm-header-4 {
+  font-size: 1.4em; }
+
+.cm-header-5 {
+  font-size: 1.2em; }
+
+.cm-header-6 {
+  font-size: 1em; }
+
+.cm-em {
+  font-style: italic; }
+
+.cm-strong {
+  font-weight: 800; }
+
+.cm-formatting-list {
+  padding: 0 8px 0 32px; }
