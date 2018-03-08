@@ -373,6 +373,9 @@ span.CodeMirror-selectedtext {
 .cm-strong {
   font-weight: 800; }
 
+.cm-strikethrough {
+  text-decoration: line-through; }
+
 .cm-formatting-list {
   padding: 0 8px 0 32px; }
 
