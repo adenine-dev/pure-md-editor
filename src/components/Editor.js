@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 
-import '../assets/js/codemirror/mode/markdown.js';
+import '../assets/js/codemirror/mode/gfm.js';
 
 import '../assets/js/codemirror/addon/continuelist.js';
 import '../assets/js/codemirror/addon/fold.js';
@@ -26,10 +26,12 @@ export default class Editor extends Component {
     let editor = CodeMirror(document.getElementById("main-editor"), {
       mode: {
         name: "gfm",
-        highlightFormatting: true
+        highlightFormatting: true,
+        ignoreUnderscore: true,
+        taskLists: true
       },
       autofocus: true,
-      highlightFormatting: true,
+
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
         "Ctrl-Q": "fold"

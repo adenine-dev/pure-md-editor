@@ -38,6 +38,10 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   if (modeCfg.strikethrough === undefined)
     modeCfg.strikethrough = false;
 
+  // Turn off underscore syntax
+    if (modeCfg.ignoreUnderscore === undefined)
+      modeCfg.ignoreUnderscore = false;
+      
   var codeDepth = 0;
 
   var header   = 'header'
@@ -440,8 +444,8 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
       return "tag";
     }
 
-    var ignoreUnderscore = false;
-    if (!modeCfg.underscoresBreakWords) {
+    var ignoreUnderscore = modeCfg.ignoreUnderscore;
+    if (!modeCfg.underscoresBreakWords && !ignoreUnderscore) {
       if (ch === '_' && stream.peek() !== '_' && stream.match(/(\w)/, false)) {
         var prevPos = stream.pos - 2;
         if (prevPos >= 0) {
