@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import AppContainer from "./components/AppContainer.js"
 
 
@@ -8,9 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HashRouter>
+        <BrowserRouter basename={ process.env.PUBLIC_URL }>
           <AppContainer />
-        </HashRouter>
+        </BrowserRouter>
       </div>
     );
   }

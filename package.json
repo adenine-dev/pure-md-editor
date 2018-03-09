@@ -2,6 +2,7 @@
   "name": "pure-md-editor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alex-griffin.github.io/pure-md-editor/",
   "dependencies": {
     "codemirror": "^5.35.0",
     "node-sass-chokidar": "0.0.3",
