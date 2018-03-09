@@ -25,7 +25,7 @@ export default class Editor extends Component {
   componentDidMount() {
     let editor = CodeMirror(document.getElementById("main-editor"), {
       mode: {
-        name: "markdown",
+        name: "gfm",
         highlightFormatting: true
       },
       autofocus: true,
