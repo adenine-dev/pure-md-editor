@@ -3,7 +3,8 @@
   padding: 0;
   border: none;
   box-sizing: border-box;
-  outline: none; }
+  outline: none;
+  font-family: "Roboto"; }
 
 html, body {
   background-color: #222; }
