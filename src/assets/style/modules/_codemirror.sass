@@ -3,9 +3,17 @@
 .CodeMirror
   /* Set height, width, borders, and global font properties here
   font-family: "Roboto"
-  height: 300px
+  height: auto
+  overflow: visible
   color: inherit
   direction: ltr
+  margin-bottom: 50%
+  ::-webkit-scrollbar
+    width: 0px
+    background: transparent
+
+
+
 
 /* PADDING
 
@@ -283,7 +291,7 @@ div
     z-index: 3
   &.CodeMirror-dragcursors
     visibility: visible
-    
+
 .CodeMirror-focused div.CodeMirror-cursors
   visibility: visible
 

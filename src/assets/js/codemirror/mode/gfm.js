@@ -63,6 +63,7 @@ CodeMirror.defineMode("gfm", function(config, modeConfig) {
         stream.next();
         return null;
       }
+
       // Check if space. If so, links can be formatted later on
       if (stream.eatSpace()) {
         state.ateSpace = true;
@@ -111,8 +112,8 @@ CodeMirror.defineMode("gfm", function(config, modeConfig) {
     markdownConfig[attr] = modeConfig[attr];
   }
   markdownConfig.name = "markdown";
-  return CodeMirror.overlayMode(CodeMirror.getMode(config, markdownConfig), gfmOverlay);
+  return CodeMirror.overlayMode(CodeMirror.getMode(config, markdownConfig), gfmOverlay, true);
 
 }, "markdown");
 
-  CodeMirror.defineMIME("text/x-gfm", "gfm");
+CodeMirror.defineMIME("text/x-gfm", "gfm");

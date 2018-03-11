@@ -5,14 +5,17 @@ import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import '../assets/js/codemirror/mode/gfm.js';
 
 import '../assets/js/codemirror/addon/continuelist.js';
-import '../assets/js/codemirror/addon/fold.js';
+import '../assets/js/codemirror/addon/overlay.js';
+import '../assets/js/codemirror/addon/closebrackets.js';
+
+import 'codemirror/mode/javascript/javascript.js';
+// import 'codemirror/mode/clike/clike.js';
 
 
 const editorWrapperStyle = {
   width: "90%",
   margin: "32px auto",
   maxWidth: "960px",
-  fontFamily: "'Roboto', sans-serif",
 }
 
 export default class Editor extends Component {
@@ -24,17 +27,20 @@ export default class Editor extends Component {
   }
   componentDidMount() {
     let editor = CodeMirror(document.getElementById("main-editor"), {
+      value: `\`\`\`javascript
+    let i = 0;
+\`\`\``,
       mode: {
         name: "gfm",
         highlightFormatting: true,
         ignoreUnderscore: true,
-        taskLists: true
+        taskLists: true,
+        fencedCodeBlocks: true,
       },
       autofocus: true,
-
+      autoCloseBrackets: true,
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
-        "Ctrl-Q": "fold"
       }
     })
     let keymap = {};

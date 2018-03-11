@@ -1,5 +1,5 @@
 import CodeMirror from 'codemirror';
-import 'codemirror/addon/mode/overlay.js';
+// import 'codemirror/addon/mode/overlay.js';
 
 
 CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
@@ -41,7 +41,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   // Turn off underscore syntax
     if (modeCfg.ignoreUnderscore === undefined)
       modeCfg.ignoreUnderscore = false;
-      
+
   var codeDepth = 0;
 
   var header   = 'header'
@@ -170,6 +170,8 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     } else if (modeCfg.fencedCodeBlocks && stream.match(/^```[ \t]*([\w+#]*)/, true)) {
       // try switching mode
       state.localMode = getMode(RegExp.$1);
+      console.log("state.localMode: ");
+      console.log(state.localMode);
       if (state.localMode) state.localState = state.localMode.startState();
       state.f = state.block = local;
       if (modeCfg.highlightFormatting) state.formatting = "code-block";

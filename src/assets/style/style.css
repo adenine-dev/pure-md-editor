@@ -13,9 +13,14 @@ html, body {
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: "Roboto";
-  height: 300px;
+  height: auto;
+  overflow: visible;
   color: inherit;
-  direction: ltr; }
+  direction: ltr;
+  margin-bottom: 50%; }
+  .CodeMirror ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; }
 
 /* PADDING */
 .CodeMirror-lines {
@@ -365,7 +370,7 @@ span.CodeMirror-selectedtext {
 .cm-header-6 {
   font-size: 1em; }
 
-.cm-formatting:not(.cm-formatting-header) {
+.cm-formatting:not(.cm-formatting-header):not(.cm-formatting-quote) {
   font-size: 0.6em; }
 
 .cm-em {
@@ -379,6 +384,9 @@ span.CodeMirror-selectedtext {
 
 .cm-formatting-list {
   padding: 0 8px 0 32px; }
+
+.cm-comment {
+  font-family: 'Roboto Mono', monospace; }
 
 .cm-hr::after {
   content: "";
