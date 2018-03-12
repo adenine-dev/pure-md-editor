@@ -45,7 +45,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   var codeDepth = 0;
 
   var header   = 'header'
-  ,   code     = 'comment'
+  ,   code     = 'code'
   ,   quote    = 'quote'
   ,   list1    = 'variable-2'
   ,   list2    = 'variable-3'
@@ -170,8 +170,6 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     } else if (modeCfg.fencedCodeBlocks && stream.match(/^```[ \t]*([\w+#]*)/, true)) {
       // try switching mode
       state.localMode = getMode(RegExp.$1);
-      console.log("state.localMode: ");
-      console.log(state.localMode);
       if (state.localMode) state.localState = state.localMode.startState();
       state.f = state.block = local;
       if (modeCfg.highlightFormatting) state.formatting = "code-block";
@@ -220,7 +218,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   // Inline
   function getType(state) {
     var styles = [];
-
+    console.log(state)
     if (state.formatting) {
       styles.push(formatting);
 
