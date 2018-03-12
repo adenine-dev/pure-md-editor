@@ -39,8 +39,8 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     modeCfg.strikethrough = false;
 
   // Turn off underscore syntax
-    if (modeCfg.ignoreUnderscore === undefined)
-      modeCfg.ignoreUnderscore = false;
+  if (modeCfg.ignoreUnderscore === undefined)
+    modeCfg.ignoreUnderscore = false;
 
   var codeDepth = 0;
 
@@ -218,7 +218,6 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   // Inline
   function getType(state) {
     var styles = [];
-    console.log(state)
     if (state.formatting) {
       styles.push(formatting);
 

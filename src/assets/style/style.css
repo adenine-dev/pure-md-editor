@@ -373,6 +373,9 @@ span.CodeMirror-selectedtext {
 .cm-formatting:not(.cm-formatting-header):not(.cm-formatting-quote) {
   font-size: 0.6em; }
 
+.CodeMirror *:not(.cm-m-markdown) {
+  font-family: 'Roboto Mono', monospace; }
+
 .cm-em {
   font-style: italic; }
 

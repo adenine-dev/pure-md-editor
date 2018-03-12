@@ -28,7 +28,7 @@ export default class Editor extends Component {
   componentDidMount() {
     let editor = CodeMirror(document.getElementById("main-editor"), {
       value: `\`\`\`javascript
-    let i = 0;
+  let i = 0;
 \`\`\``,
       mode: {
         name: "gfm",
@@ -38,20 +38,25 @@ export default class Editor extends Component {
         fencedCodeBlocks: true,
       },
       autofocus: true,
+      addModeClass: true,
+      indentUnit: 2,
+      tabSize: 2,
       autoCloseBrackets: true,
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
-      }
+      },
     })
     let keymap = {};
     keymaps.map((map) => {
       keymap[map.name] = map.action
     })
     editor.addKeyMap( keymap );
+    let state = {}
     this.setState({ editor })
 
   }
   render() {
+    console.log(this.state.editor);
     return (
       <div className="editor"
            style={{...editorWrapperStyle, ...this.props.style}}>
