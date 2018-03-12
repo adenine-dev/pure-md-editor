@@ -435,7 +435,8 @@ span.CodeMirror-selectedtext {
   font-family: 'Roboto Mono', monospace; }
 
 .CodeMirror-placeholder {
-  font-family: "Roboto", sans-serif !important; }
+  font-family: "Roboto", sans-serif !important;
+  opacity: 0.2; }
 
 .cm-em {
   font-style: italic; }
