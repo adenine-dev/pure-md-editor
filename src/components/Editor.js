@@ -7,6 +7,7 @@ import '../assets/js/codemirror/mode/gfm.js';
 import '../assets/js/codemirror/addon/continuelist.js';
 import '../assets/js/codemirror/addon/overlay.js';
 import '../assets/js/codemirror/addon/closebrackets.js';
+import '../assets/js/codemirror/addon/placeholder.js';
 
 import 'codemirror/mode/javascript/javascript.js';
 // import 'codemirror/mode/clike/clike.js';
@@ -34,6 +35,7 @@ export default class Editor extends Component {
         taskLists: true,
         fencedCodeBlocks: true,
       },
+      placeholder: "write something",
       autofocus: true,
       addModeClass: true,
       indentUnit: 2,

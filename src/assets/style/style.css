@@ -12,7 +12,7 @@ html, body {
 /* BASICS */
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   height: auto;
   overflow: visible;
   color: inherit;
@@ -433,6 +433,9 @@ span.CodeMirror-selectedtext {
 
 .CodeMirror *:not(.cm-m-markdown) {
   font-family: 'Roboto Mono', monospace; }
+
+.CodeMirror-placeholder {
+  font-family: "Roboto", sans-serif !important; }
 
 .cm-em {
   font-style: italic; }
