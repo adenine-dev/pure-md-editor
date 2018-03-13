@@ -6,6 +6,7 @@ import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import api from "../assets/js/api.js"
 import theme from "../assets/js/theme.js"
+import "../assets/js/globalbind.js"
 
 const style = {
   headerTitle: {
@@ -34,16 +35,24 @@ export default class Editor extends Component {
   componentWillMount() {
     keymaps.map((map) => {
       if(!map.cm) {
-        Mousetrap.bind(map.name, (e, c) => map.action(e, c, this.state))
+        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state))
       }
     })
   }
   handleCmChange(cm) {
-    this.state.project.value = cm.getValue()
+    let project = {...this.state.project};
+    project.value = cm.getValue()
+    this.setState({project})
   }
+
   handleTitleChange(e) {
-    this.state.project.name = e.target.value
+    let prevName = this.state.project.name
+    let project = {...this.state.project};
+    project.name = e.target.value;
+    api.renameProject(prevName, project.name)
+    this.setState({project})
   }
+
   render() {
     return (
       <div className="default-editor">

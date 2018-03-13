@@ -43,7 +43,6 @@ const keymaps = [
       } else {
         e.returnValue = false;
       }
-      console.log("dasf");
       api.setProject(state.project.name, state.project)
       return false;
 

@@ -31,6 +31,11 @@ const api = {
       name: "new project",
       value: ""
     }
+  },
+  renameProject: (prevName, newName) => {
+    api.getProjects();
+    api.projects[newName] = {...api.projects[prevName]};
+    delete api.projects[prevName]
   }
 }
 
