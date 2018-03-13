@@ -14,24 +14,25 @@ export default class Editor extends Component {
       this.state = {
         project: api.getProject(props.match.params.project),
       }
-    }
-    this.state = {
-      project: api.getNewProject()
+      console.log(this.state.project);
+    } else {
+      this.state = {
+        project: api.getNewProject()
+      }
     }
   }
   componentWillMount() {
     keymaps.map((map) => {
       if(!map.cm) {
-        console.log("hi from here");
-        console.log(map.name);
         Mousetrap.bind(map.name, (e, c) => map.action(e, c, this.state))
       }
     })
   }
   handleCmChange(cm) {
-    this.state.project.value = cm.getValue
+    this.state.project.value = cm.getValue()
   }
   render() {
+    console.log(this.state.project.value);
     return (
       <div className="default-editor">
         <CodeMirrorEditor defaultValue={ this.state.project.value }
