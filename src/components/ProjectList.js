@@ -24,6 +24,7 @@ export default class ProjectList extends Component {
   }
 
   render() {
+    console.log(this.state.list);
     let list = []
     for(let key in this.state.filteredList) {
       list.push((
@@ -40,7 +41,7 @@ export default class ProjectList extends Component {
         {(list.length > 0 && list) || (
           <div>
             <p>you have no projects <br/>
-              <Link to="/app/projects/new/default">Why not create one?</Link>
+              <Link to="/app/edit/new/default">Why not create one?</Link>
             </p>
           </div>
         )}

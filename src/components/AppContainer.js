@@ -22,7 +22,7 @@ export default class AppContainer extends Component {
           <Route exact path="/app/edit/:project/:editorType?/" component={ Editor }></Route>
           <Route exact path="/app/projects/" component={ ProjectList }></Route>
 
-          {/* <Redirect to="/app/projects/"></Redirect> */}
+          <Redirect to="/app/projects/" />
         </Switch>
       </div>
     )

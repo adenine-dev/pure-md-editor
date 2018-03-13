@@ -1,10 +1,10 @@
 const api = {
   projects: {},
   getProjects: () => {
-    if(api.projects.length !== 0) {
+    if(Object.keys(api.projects).length !== 0) {
       return api.projects
     } else if(localStorage.getItem("projects")) {
-      return api.setProject(JSON.parse(localStorage.getItem("projects")))
+      return api.setProjects(JSON.parse(localStorage.getItem("projects")))
     } else {
       return null
     }
@@ -12,6 +12,7 @@ const api = {
   setProjects: (projects) => {
     api.projects = projects
     localStorage.setItem("projects", JSON.stringify(projects))
+    return projects
   },
   getProject: (name) => {
     if(api.getProjects()[name]) {

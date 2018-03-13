@@ -14,7 +14,6 @@ export default class Editor extends Component {
   }
 
   render() {
-    console.log("/app/edit/" + this.state.project + "/default/");
     return (
       <Switch>
         <Route exact path="/app/edit/:project/default/" component={ DefaultEditor } />

@@ -55,7 +55,6 @@ export default class CodeMirrorEditor extends Component {
     })
     if(this.props.onChange) {
       editor.on("change", (cm) => {
-        console.log(cm)
         this.props.onChange(cm)
       })
     }

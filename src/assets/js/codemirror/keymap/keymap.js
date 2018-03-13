@@ -1,3 +1,5 @@
+import api from "../../api.js"
+
 const keymaps = [
   {
     action: (cm) => {
@@ -30,6 +32,22 @@ const keymaps = [
     name: "Ctrl-I",
     description: "toggles italics",
     cm: true
+  },
+  {
+    name: "ctrl+k",
+    description: "saves the document",
+    cm: false,
+    action: (e, c, state) => {
+      if (e.preventDefault) {
+        e.preventDefault();
+      } else {
+        e.returnValue = false;
+      }
+      console.log("dasf");
+      api.setProject(state.project.name, state.project)
+      return false;
+
+    }
   }
 ]
 
