@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
+import ProjectList from "./ProjectList.js"
 import Editor from "./Editor.js"
-import NoteList from "./NoteList.js"
-
 
 export default class AppContainer extends Component {
   constructor(props) {
@@ -20,10 +19,10 @@ export default class AppContainer extends Component {
     return (
       <div className="app-container" className={ this.state.settings.theme }>
         <Switch>
-          <Route path="/app/edit/" component={ Editor }></Route>
-          <Route path="/app/projects/" component={ NoteList }></Route>
+          <Route exact path="/app/edit/:project/:editorType?/" component={ Editor }></Route>
+          <Route exact path="/app/projects/" component={ ProjectList }></Route>
 
-          <Redirect to="/app/edit/"></Redirect>
+          {/* <Redirect to="/app/projects/"></Redirect> */}
         </Switch>
       </div>
     )

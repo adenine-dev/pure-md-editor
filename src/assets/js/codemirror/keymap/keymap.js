@@ -12,7 +12,8 @@ const keymaps = [
       }
     },
     name: "Ctrl-B",
-    description: "toggles bold"
+    description: "toggles bold",
+    cm: true
   },
   {
     action: (cm) => {
@@ -27,7 +28,8 @@ const keymaps = [
       }
     },
     name: "Ctrl-I",
-    description: "toggles italics"
+    description: "toggles italics",
+    cm: true
   }
 ]
 
