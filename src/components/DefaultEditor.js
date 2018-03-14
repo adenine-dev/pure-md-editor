@@ -5,19 +5,10 @@ import CodeMirrorEditor from "./CodeMirrorEditor.js"
 
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import api from "../assets/js/api.js"
-import theme from "../assets/js/theme.js"
+import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
 
-const style = {
-  headerTitle: {
-    color: theme.themes[theme.getTheme()].color,
-    textAlign: "center",
-    padding: "4px",
-    backgroundColor: theme.themes[theme.getTheme()].bg,
-    margin: "0 auto",
-    display: "block"
-  }
-}
+
 
 export default class Editor extends Component {
   constructor(props) {
@@ -29,6 +20,20 @@ export default class Editor extends Component {
     } else {
       this.state = {
         project: api.getNewProject()
+      }
+    }
+    this.state = {
+      ...this.state,
+      theme: this.props.theme
+    }
+    this.style = {
+      headerTitle: {
+        color: themes[this.props.theme].color,
+        textAlign: "center",
+        padding: "4px",
+        backgroundColor: themes[this.props.theme].bg,
+        margin: "0 auto",
+        display: "block"
       }
     }
   }
@@ -59,7 +64,7 @@ export default class Editor extends Component {
         <div>
           <input type="text"
                  defaultValue={ this.state.project.name }
-                 style={ style.headerTitle }
+                 style={ this.style.headerTitle }
                  onBlur={ this.handleTitleChange.bind(this) }/>
         </div>
         <CodeMirrorEditor defaultValue={ this.state.project.value }

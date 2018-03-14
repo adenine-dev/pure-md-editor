@@ -6,9 +6,6 @@
   outline: none;
   font-family: "Roboto"; }
 
-html, body {
-  background-color: #222; }
-
 /* BASICS */
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */

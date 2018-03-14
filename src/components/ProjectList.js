@@ -15,7 +15,8 @@ export default class ProjectList extends Component {
     super(props)
     this.state = {
       list: api.getProjects(),
-      filteredList: api.getProjects()
+      filteredList: api.getProjects(),
+      theme: this.props.theme || "dark"
     }
   }
 
@@ -37,7 +38,8 @@ export default class ProjectList extends Component {
     return (
       <div className={"note-list " + this.props.className}
            style={{...this.props.style, ...style}}>
-        <SearchBar onChange={ this.filterList.bind(this) }/>
+        <SearchBar onChange={ this.filterList.bind(this) }
+                   theme={ this.state.theme }/>
         {(list.length > 0 && list) || (
           <div>
             <p>you have no projects <br/>
