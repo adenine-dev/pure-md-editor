@@ -92,20 +92,36 @@ export default class Menu extends Component {
             <div style={ this.style.flex }>
               <div className="side">
                 <ul>
-                  <li className="hover-effect">Settings<span style={ this.style.hover }></span></li>
-                  <li className="hover-effect">I don't know<span style={ this.style.hover }></span></li>
-                  <li className="hover-effect">what to put<span style={ this.style.hover }></span></li>
-                  <li className="hover-effect">here<span style={ this.style.hover }></span></li>
+                  <li className="hover-effect"
+                      onClick={ this.toggleNav.bind(this)}>
+                        Settings<span style={ this.style.hover }></span>
+                  </li>
+                  <li className="hover-effect"
+                      onClick={ this.toggleNav.bind(this)}>
+                        I don't know<span style={ this.style.hover }></span>
+                  </li>
+                  <li className="hover-effect"
+                      onClick={ this.toggleNav.bind(this)}>
+                        what to put<span style={ this.style.hover }></span>
+                  </li>
+                  <li className="hover-effect"
+                      onClick={ this.toggleNav.bind(this)}>
+                        here<span style={ this.style.hover }></span>
+                  </li>
                 </ul>
               </div>
               <div className="important" style={ this.style.important }>
                 <span className="separator" style={ this.style.separator }></span>
                 <h2><Link className="hover-effect"
-                        to="/app/projects/">Projects <span style={ this.style.hover }></span>
+                          to="/app/projects/"
+                          onClick={ this.toggleNav.bind(this) }>Projects
+                          <span style={ this.style.hover }></span>
                     </Link>
                   </h2>
                 <h2><Link className="hover-effect"
-                        to="/app/edit/new/default/">New Document <span style={ this.style.hover }></span>
+                          to="/app/edit/new/default/"
+                          onClick={ this.toggleNav.bind(this) }>New Document
+                          <span style={ this.style.hover }></span>
                     </Link>
                   </h2>
               </div>

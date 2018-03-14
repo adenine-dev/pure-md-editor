@@ -20,6 +20,8 @@ export default class AppContainer extends Component {
 
   componentWillMount() {
     document.body.style.backgroundColor = themes[this.state.settings.theme].bg
+    document.body.classList.add(this.state.settings.theme)
+
   }
 
   render() {
