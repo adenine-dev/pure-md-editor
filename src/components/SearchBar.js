@@ -10,7 +10,7 @@ class SearchBar extends Component {
     super(props);
     this.state = {
       showPlaceholder: true,
-      theme: props.theme
+      theme: this.props.theme
     }
     this.style = {
       base: {
@@ -57,18 +57,17 @@ class SearchBar extends Component {
     return (
       <div className={"search-bar " + (this.props.className || "")}
            style={{ ...this.style.base, ...this.props.style }}>
-        <div style={{...this.style.placeholder,
+        <div style={{ ...this.style.placeholder,
                      display: this.state.showPlaceholder ? "block" : "none"}} >
           { this.props.placeholder || (
             <p>
-              <i className="material-icons"
-                 style={{ ...this.style.innerPlaceholder }}>search</i>
-              <span style={{ ...this.style.innerPlaceholder }}>Search</span>
+              <i className="material-icons" style={this.style.innerPlaceholder}>search</i>
+              <span style={this.style.innerPlaceholder}>Search</span>
             </p>
           )}
         </div>
         <input id="search"
-               style={{ ...this.style.input }}
+               style={this.style.input}
                onChange={ this.handleChange.bind(this) }
                type="text"/>
       </div>

@@ -24,14 +24,14 @@ export default class Editor extends Component {
     }
     this.state = {
       ...this.state,
-      theme: this.props.theme
+      theme: api.getSetting("theme")
     }
     this.style = {
       headerTitle: {
-        color: themes[this.props.theme].color,
+        color: themes[this.state.theme].color,
         textAlign: "center",
         padding: "4px",
-        backgroundColor: themes[this.props.theme].bg,
+        backgroundColor: themes[this.state.theme].bg,
         margin: "0 auto",
         display: "block"
       }

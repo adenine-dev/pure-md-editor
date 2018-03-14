@@ -16,7 +16,7 @@ export default class ProjectList extends Component {
     this.state = {
       list: api.getProjects(),
       filteredList: api.getProjects(),
-      theme: this.props.theme || "dark"
+      theme: api.getSetting("theme")
     }
   }
 
@@ -25,7 +25,6 @@ export default class ProjectList extends Component {
   }
 
   render() {
-    console.log(this.state.list);
     let list = []
     for(let key in this.state.filteredList) {
       list.push((
