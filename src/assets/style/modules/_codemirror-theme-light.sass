@@ -1,22 +1,22 @@
 // codemirror theming
 
-.dark
+.light
   .CodeMirror
-    background-color: $main-dark
-    color: $text-dark
+    background-color: $main-light
+    color: $text-light
 
   .CodeMirror-cursor
-    border-left: 2px solid darken($text-dark, 20%)
+    border-left: 2px solid lighten($text-light, 20%)
   .CodeMirror div.CodeMirror-secondarycursor
-      border-left: 2px solid darken($text-dark, 40%)
+      border-left: 2px solid lighten($text-light, 40%)
   .CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected
-    background-color: rgba($text-dark, 0.1)
+    background-color: rgba($text-light, 0.1)
 
   // md theming
   .cm-formatting
-    color: rgba($text-dark, 0.4)
+    color: rgba($text-light, 0.4)
 
-  .CodeMirror-line *:not(.cm-m-markdown)
+  .CodeMirror-line * *:not(.cm-m-markdown)
     color: rgba(233, 237, 237, 1)
     .CodeMirror-cursor
       border-left: 1px solid #f8f8f0

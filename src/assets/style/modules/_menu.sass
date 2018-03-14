@@ -1,5 +1,35 @@
 $ham-size: 48px
 
+.menu
+  .hover-effect
+    position: relative
+    display: table
+    cursor: pointer
+    span
+      width: 0
+    &:hover
+      span
+        width: 100%
+  .nav
+    height: 100vh
+    .side
+      flex: 1
+      padding: 16px
+      ul
+        list-style: none
+        li
+          margin-bottom: 16px
+    .important
+      padding: 64px
+      position: relative
+      flex: 4
+      height: 100%
+      display: flex
+      justify-content: center
+      flex-direction: column
+      h2
+        font-weight: 300
+        font-size: 64px
 .ham
   position: absolute
   top: 16px

@@ -24,7 +24,8 @@ export default class CodeMirrorEditor extends Component {
     super(props);
     this.state = {
       editor: null,
-      value: props.defaultValue
+      value: props.defaultValue,
+      theme: props.theme
     }
   }
   componentDidMount() {
@@ -65,10 +66,12 @@ export default class CodeMirrorEditor extends Component {
   }
   render() {
     return (
-      <div className={"editor" + this.props.className}
+      <div className={"editor " + this.props.className || ""}
            style={{...editorWrapperStyle, ...this.props.style}}>
 
-        <div id="main-editor" ref={(cm) => { this.cm = cm }}></div>
+        <div id="main-editor"
+             className={ this.state.theme }
+             ref={(cm) => { this.cm = cm }}></div>
       </div>
     );
   }

@@ -40,12 +40,14 @@ const api = {
   settings: {},
   initSettings: () => {
     if(localStorage.getItem("settings")) {
-      api.settings = localStorage.getItem("settings")
+      api.settings = JSON.parse(localStorage.getItem("settings"))
     } else {
       api.settings = {
         theme: "dark"
       }
     }
+    localStorage.setItem("settings", JSON.stringify(api.settings))
+    return api.settings
   },
   getSettings: () => {
     if(Object.keys(api.settings).length !== 0) {

@@ -12,23 +12,19 @@ export default class Menu extends Component {
     }
     this.style = {
       menu: {
-        color: "rgba(#fff, 0.85)",
         height: "100vh",
         width: "0",
-        display: "flex",
-        alignItems: "center",
-        position: "absolute",
         top: "0",
         left: "100%",
+        position: "absolute",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
         backgroundColor: themes[this.state.theme].bg,
         borderTop: "8px solid" + themes[this.state.theme].accent,
         overflow: "hidden",
-
+        zIndex: "10",
         active: {
           left: "0",
           width: "100%",
-
         }
       },
       important: {
@@ -44,6 +40,34 @@ export default class Menu extends Component {
       },
       hamIcoSpans: {
         backgroundColor: themes[this.state.theme].color,
+      },
+      hover: {
+        position: "absolute",
+        display: "block",
+        height: "40%",
+        opacity: "0.4",
+        top: "60%",
+        left: "0",
+        backgroundColor: themes[this.state.theme].accent,
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+      },
+      separator: {
+        position: "absolute",
+        height: "80%",
+        width: "1px",
+        top: "10%",
+        left: "0",
+        opacity: "0.2",
+        backgroundColor: themes[this.state.theme].accent,
+      },
+      flex: {
+        color: themes[this.state.theme].color,
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        position: "relative",
+
       }
     }
   }
@@ -65,18 +89,25 @@ export default class Menu extends Component {
              style={{ ...this.style.menu,
                       ...(this.state.showNav ? this.style.menu.active : {}) }}>
           {this.state.showNav && (
-            <div>
+            <div style={ this.style.flex }>
               <div className="side">
                 <ul>
-                  <li>Settings</li>
-                  <li>I don't know</li>
-                  <li>what to put</li>
-                  <li>here</li>
+                  <li className="hover-effect">Settings<span style={ this.style.hover }></span></li>
+                  <li className="hover-effect">I don't know<span style={ this.style.hover }></span></li>
+                  <li className="hover-effect">what to put<span style={ this.style.hover }></span></li>
+                  <li className="hover-effect">here<span style={ this.style.hover }></span></li>
                 </ul>
               </div>
               <div className="important" style={ this.style.important }>
-                <h2><Link to="/app/projects/">Projects</Link></h2>
-                <h2><Link to="/app/edit/new/default/">New Document</Link></h2>
+                <span className="separator" style={ this.style.separator }></span>
+                <h2><Link className="hover-effect"
+                        to="/app/projects/">Projects <span style={ this.style.hover }></span>
+                    </Link>
+                  </h2>
+                <h2><Link className="hover-effect"
+                        to="/app/edit/new/default/">New Document <span style={ this.style.hover }></span>
+                    </Link>
+                  </h2>
               </div>
             </div>
           )}
