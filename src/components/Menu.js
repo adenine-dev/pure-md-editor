@@ -120,7 +120,7 @@ export default class Menu extends Component {
                   </h2>
                 <h2><Link className="hover-effect"
                           to="/app/edit/new/default/"
-                          onClick={ this.toggleNav.bind(this) }>New Document
+                          onClick={ this.toggleNav.bind(this) }>New Project
                           <span style={ this.style.hover }></span>
                     </Link>
                   </h2>
