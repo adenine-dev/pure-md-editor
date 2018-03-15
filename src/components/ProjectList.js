@@ -21,13 +21,15 @@ export default class ProjectList extends Component {
       },
       listItem: {
         color: themes[this.state.theme].color,
+        backgroundColor: themes[this.state.theme].bgAlt,
+        borderLeft: themes[this.state.theme].accent + " 8px solid",
+        padding: "16px 32px",
+      },
+      gridItem: {
         margin: "8px auto",
         width: "90%",
         maxWidth: "960px",
         padding: "8px 16px",
-        backgroundColor: themes[this.state.theme].bgAlt,
-        borderLeft: themes[this.state.theme].accent + " 8px solid",
-
       },
       header: {
         width: "100%",
@@ -49,7 +51,7 @@ export default class ProjectList extends Component {
       list.push((
         <div className="list-item" key={ list.length } >
           <Link to={ "/app/edit/" + key + "/default/" }>
-            <p style={ this.style.listItem }>
+            <p style={{ ...this.style.gridItem, ...this.style.listItem }}>
               { key }
             </p>
           </Link>
@@ -64,7 +66,8 @@ export default class ProjectList extends Component {
          <h1 style={{ fontWeight: "300" }}>Projects</h1>
        </header>
         <SearchBar onChange={ this.filterList.bind(this) }
-                   theme={ this.state.theme } />
+                   theme={ this.state.theme }
+                   style={ this.style.gridItem }/>
         {(list.length > 0 && list) || (
           <div>
             <p>you have no projects <br/>

@@ -58,7 +58,7 @@ class SearchBar extends Component {
       <div className={"search-bar " + (this.props.className || "")}
            style={{ ...this.style.base, ...this.props.style }}>
         <div style={{ ...this.style.placeholder,
-                     display: this.state.showPlaceholder ? "block" : "none"}} >
+                      display: this.state.showPlaceholder ? "block" : "none"}} >
           { this.props.placeholder || (
             <p>
               <i className="material-icons" style={this.style.innerPlaceholder}>search</i>
