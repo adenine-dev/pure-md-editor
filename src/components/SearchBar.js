@@ -39,8 +39,9 @@ class SearchBar extends Component {
       innerPlaceholder: {
         verticalAlign: "middle",
         padding: "0 2px",
-        color: themes[this.state.theme].color
-
+        color: themes[this.state.theme].color,
+        opacity: "0.4",
+        
       },
     }
   }
