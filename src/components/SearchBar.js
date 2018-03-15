@@ -32,9 +32,9 @@ class SearchBar extends Component {
         position: "absolute",
         fontSize: "16px",
         width: "100%",
-        padding: "16px 32px",
+        padding: "8px 2px 2px 2px",
         pointerEvents: "none",
-
+        zIndex: "1"
       },
       innerPlaceholder: {
         verticalAlign: "middle",
