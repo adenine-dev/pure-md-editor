@@ -13,8 +13,8 @@ class ProjectList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      list: api.getProjects(),
-      filteredList: api.getProjects(),
+      list: api.getProjects() || {},
+      filteredList: api.getProjects() || {},
       theme: api.getSetting("theme")
     }
     this.style = {
