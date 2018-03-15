@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Radium from 'radium'
 
 import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
@@ -7,7 +8,7 @@ import themes from "../assets/js/theme.js"
 import SearchBar from "./SearchBar.js"
 
 
-export default class ProjectList extends Component {
+class ProjectList extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,6 +25,11 @@ export default class ProjectList extends Component {
         backgroundColor: themes[this.state.theme].bgAlt,
         borderLeft: themes[this.state.theme].accent + " 8px solid",
         padding: "16px 32px",
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        ':hover': {
+          backgroundColor: themes[this.state.theme].accent,
+
+        }
       },
       gridItem: {
         margin: "8px auto",
@@ -51,7 +57,7 @@ export default class ProjectList extends Component {
       list.push((
         <div className="list-item" key={ list.length } >
           <Link to={ "/app/edit/" + key + "/default/" }>
-            <p style={{ ...this.style.gridItem, ...this.style.listItem }}>
+            <p style={{ ...this.style.gridItem, ...this.style.listItem }} key={"RADIUM_" + key + list.length}>
               { key }
             </p>
           </Link>
@@ -79,3 +85,6 @@ export default class ProjectList extends Component {
     );
   }
 }
+
+
+export default Radium(ProjectList);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Mousetrap from "mousetrap"
 
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
@@ -47,9 +48,8 @@ export default class Editor extends Component {
   handleCmChange(cm) {
     let project = {...this.state.project};
     project.value = cm.getValue()
-    this.setState({project})
+    this.setState({ project })
   }
-
   handleTitleChange(e) {
     let prevName = this.state.project.name
     let project = {...this.state.project};
@@ -59,6 +59,11 @@ export default class Editor extends Component {
   }
 
   render() {
+    if(this.props.match.params.project !== this.state.project.name) {
+      return (
+        <Redirect to={ "/app/edit/" + this.state.project.name + "/default/" }/>
+      )
+    }
     return (
       <div className="default-editor">
         <div>

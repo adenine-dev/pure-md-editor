@@ -27,6 +27,8 @@ const api = {
     localStorage.setItem("projects", JSON.stringify(api.projects))
   },
   getNewProject: () => {
+    let name = "new project";
+    let projects = api.getProjects()
     return {
       name: "new project",
       value: ""
