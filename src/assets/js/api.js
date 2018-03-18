@@ -40,8 +40,8 @@ const api = {
   renameProject: (prevName, newName) => {
     api.getProjects();
     console.log(api.projects[prevName]);
-    api.projects[prevName].name = newName;
     api.projects[newName] = { ...api.projects[prevName] };
+    api.projects[newName].name = newName;
     delete api.projects[prevName]
     localStorage.setItem("projects", JSON.stringify(api.projects))
   },
