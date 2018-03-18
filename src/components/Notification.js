@@ -7,26 +7,29 @@ export default class Notification extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: true,
+      show: props.show,
       theme: api.getSetting("theme")
     }
     this.style = {
       base: {
         position: "fixed",
         width: "480px",
-        top: "0",
         left: "calc(50% - 240px)",
         backgroundColor: themes[this.state.theme].accent,
         padding: "8px 16px",
         zIndex: "10",
         overflow: "hidden",
-        opacity: "1",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
         hide: {
           opacity: "0",
           top: "-50px",
           pointerEvents: "none",
-        }
+        },
+        show: {
+          opacity: "1",
+          top: "0",
+          pointerEvents: "auto",
+        },
       },
       close: {
         position: "absolute",
@@ -46,10 +49,15 @@ export default class Notification extends Component {
       this.props.onClose(e)
     }
   }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ show: !!nextProps.show })
+  }
   render() {
     return (
       <div className={"notification " + this.props.className}
-           style={this.state.show ? {...this.style.base, ...this.props.style} : {...this.style.base, ...this.props.style, ...this.style.base.hide}} >
+           style={this.state.show ?
+                 {...this.style.base, ...this.props.style, ...this.style.base.show} :
+                 {...this.style.base, ...this.props.style, ...this.style.base.hide}} >
         { this.props.children }
         <button onClick={ this.handleClose.bind(this) } style={this.style.close} >
           <i className="material-icons">clear</i>

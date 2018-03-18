@@ -8,6 +8,7 @@ import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
+import Notification from "./Notification.js"
 
 
 
@@ -28,6 +29,9 @@ export default class Editor extends Component {
         margin: "0 auto",
         display: "block",
         width: "100%",
+      },
+      error: {
+        // backgroundColor: themes[this.state.theme].error
       }
     }
   }
@@ -55,17 +59,21 @@ export default class Editor extends Component {
     this.setState({ project })
   }
   handleTitleChange(e) {
-    let prevName = this.state.project.name
-    let project = {...this.state.project};
-    project.name = e.target.value;
-    api.renameProject(prevName, project.name)
-    this.setState({ project })
+    if(api.renameProject(this.state.project.name, e.target.value)) {
+      this.setState({ project: api.getProject(e.target.value) })
+    } else {
+      this.setState({ errorText: "the project failed to be renamed" })
+      e.target.value = this.state.project.name
+    }
   }
   componentWillReceiveProps(nextProps) {
     console.log(api.getProjects())
     console.log(nextProps);
     console.log(this.getProject(nextProps));
     this.setState(this.getProject(nextProps))
+  }
+  modalClose(e) {
+    this.setState({ errorText: "" })
   }
   render() {
     if(this.props.match.params.project !== this.state.project.name) {
@@ -75,6 +83,11 @@ export default class Editor extends Component {
     }
     return (
       <div className="default-editor">
+        <Notification style={ this.style.error }
+                      onClose={ this.modalClose.bind(this) }
+                      show={ this.state.errorText }>
+          { this.state.errorText }
+        </Notification>
         <div>
           <input type="text"
                  defaultValue={ this.state.project.name }
