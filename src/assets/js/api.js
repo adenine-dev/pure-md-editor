@@ -25,19 +25,25 @@ const api = {
     api.getProjects();
     api.projects[name] = project;
     localStorage.setItem("projects", JSON.stringify(api.projects))
+    return project
   },
   getNewProject: () => {
-    let name = "new project";
+    // TODO: make this generate an unused project name better
+    let name = "new project" + Math.random();
     let projects = api.getProjects()
-    return {
-      name: "new project",
+    let project = {
+      name: name,
       value: ""
     }
+    return api.setProject(name, project)
   },
   renameProject: (prevName, newName) => {
     api.getProjects();
-    api.projects[newName] = {...api.projects[prevName]};
+    console.log(api.projects[prevName]);
+    api.projects[prevName].name = newName;
+    api.projects[newName] = { ...api.projects[prevName] };
     delete api.projects[prevName]
+    localStorage.setItem("projects", JSON.stringify(api.projects))
   },
   settings: {},
   initSettings: () => {

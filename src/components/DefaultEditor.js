@@ -14,17 +14,9 @@ import "../assets/js/globalbind.js"
 export default class Editor extends Component {
   constructor(props) {
     super(props);
-    if(props.match.params.project !== "new") {
-      this.state = {
-        project: api.getProject(props.match.params.project),
-      }
-    } else {
-      this.state = {
-        project: api.getNewProject()
-      }
-    }
+
     this.state = {
-      ...this.state,
+      ...this.getProject(props),
       theme: api.getSetting("theme")
     }
     this.style = {
@@ -35,6 +27,17 @@ export default class Editor extends Component {
         backgroundColor: themes[this.state.theme].bg,
         margin: "0 auto",
         display: "block"
+      }
+    }
+  }
+  getProject(props) {
+    if(props.match.params.project !== "new") {
+      return {
+        project: api.getProject(props.match.params.project),
+      }
+    } else {
+      return {
+        project: api.getNewProject()
       }
     }
   }
@@ -55,9 +58,14 @@ export default class Editor extends Component {
     let project = {...this.state.project};
     project.name = e.target.value;
     api.renameProject(prevName, project.name)
-    this.setState({project})
+    this.setState({ project })
   }
-
+  componentWillReceiveProps(nextProps) {
+    console.log(api.getProjects())
+    console.log(nextProps);
+    console.log(this.getProject(nextProps));
+    this.setState(this.getProject(nextProps))
+  }
   render() {
     if(this.props.match.params.project !== this.state.project.name) {
       return (
