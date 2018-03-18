@@ -7,7 +7,6 @@ import Menu from "./Menu.js"
 import themes from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
 
-
 export default class AppContainer extends Component {
   constructor(props) {
     super(props)

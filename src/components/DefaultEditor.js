@@ -26,7 +26,8 @@ export default class Editor extends Component {
         padding: "4px",
         backgroundColor: themes[this.state.theme].bg,
         margin: "0 auto",
-        display: "block"
+        display: "block",
+        width: "100%",
       }
     }
   }

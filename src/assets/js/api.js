@@ -9,9 +9,12 @@ const api = {
       return null
     }
   },
+  setLocalProjects: (projects) => {
+    localStorage.setItem("projects", JSON.stringify(projects || api.projects))
+  },
   setProjects: (projects) => {
     api.projects = projects
-    localStorage.setItem("projects", JSON.stringify(projects))
+    api.setLocalProjects()
     return projects
   },
   getProject: (name) => {
@@ -24,7 +27,7 @@ const api = {
   setProject: (name, project) => {
     api.getProjects();
     api.projects[name] = project;
-    localStorage.setItem("projects", JSON.stringify(api.projects))
+    api.setLocalProjects()
     return project
   },
   getNewProject: () => {
@@ -38,12 +41,16 @@ const api = {
     return api.setProject(name, project)
   },
   renameProject: (prevName, newName) => {
-    api.getProjects();
-    console.log(api.projects[prevName]);
-    api.projects[newName] = { ...api.projects[prevName] };
-    api.projects[newName].name = newName;
-    delete api.projects[prevName]
-    localStorage.setItem("projects", JSON.stringify(api.projects))
+    if(newName !== "") {
+      api.getProjects();
+      api.projects[newName] = { ...api.projects[prevName] };
+      api.projects[newName].name = newName;
+      delete api.projects[prevName]
+      api.setLocalProjects()
+      return true
+    } else {
+      return false
+    }
   },
   settings: {},
   initSettings: () => {
