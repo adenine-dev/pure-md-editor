@@ -49,11 +49,11 @@ export default class CodeMirrorEditor extends Component {
       },
     })
     let keymap = {};
-    keymaps.map((map) => {
-      if(map.cm) {
-        keymap[map.name] = map.action
+    for(let i = 0; i < keymaps.length; i++) {
+      if(keymaps[i].cm) {
+        keymap[keymaps[i].name] = keymaps[i].action
       }
-    })
+    }
     if(this.props.onChange) {
       editor.on("change", (cm) => {
         this.props.onChange(cm)

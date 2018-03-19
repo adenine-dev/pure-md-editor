@@ -51,16 +51,22 @@ export default class Notification extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ show: !!nextProps.show })
+    this.displayTimer = setTimeout(() => {
+      this.setState({ show: false })
+    }, 1000);
+  }
+  componentWillMount() {
+    this.displayTimer = setTimeout(() => {
+      this.setState({ show: false })
+    }, 1000);
   }
   render() {
     return (
       <div className={"notification " + this.props.className}
-           style={this.state.show ?
-                 {...this.style.base, ...this.props.style, ...this.style.base.show} :
-                 {...this.style.base, ...this.props.style, ...this.style.base.hide}} >
+           style={{ ...this.style.base, ...this.props.style, ...(this.state.show ? this.style.base.show : this.style.base.hide)}} >
         { this.props.children }
         <button onClick={ this.handleClose.bind(this) } style={this.style.close} >
-          <i className="material-icons">clear</i>
+          <i className="material-icons" style={{ color: this.props.style.color }}>clear</i>
         </button>
       </div>
     )

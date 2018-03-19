@@ -34,15 +34,20 @@ const keymaps = [
     cm: true
   },
   {
-    name: "ctrl+k",
+    name: "ctrl+s",
     description: "saves the document",
     cm: false,
-    action: (e, c, state) => {
+    action: (e, c, state, that) => {
       if (e.preventDefault) {
         e.preventDefault();
       } else {
         e.returnValue = false;
       }
+      that.setState({notification: {
+        value: "the project was saved",
+        show: true,
+        name: "success"
+      }})
       api.setProject(state.project.name, state.project)
       return false;
 

@@ -18,7 +18,8 @@ export default class Editor extends Component {
 
     this.state = {
       ...this.getProject(props),
-      theme: api.getSetting("theme")
+      theme: api.getSetting("theme"),
+      notification: false
     }
     this.style = {
       headerTitle: {
@@ -31,7 +32,12 @@ export default class Editor extends Component {
         width: "100%",
       },
       error: {
-        // backgroundColor: themes[this.state.theme].error
+        backgroundColor: themes[this.state.theme].error,
+        color: themes[this.state.theme].color,
+      },
+      success: {
+        backgroundColor: themes[this.state.theme].success,
+        color: themes[this.state.theme].color,
       }
     }
   }
@@ -49,31 +55,36 @@ export default class Editor extends Component {
   componentWillMount() {
     keymaps.map((map) => {
       if(!map.cm) {
-        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state))
+        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state, this))
       }
     })
   }
   handleCmChange(cm) {
-    let project = {...this.state.project};
-    project.value = cm.getValue()
-    this.setState({ project })
+    // let project = {...this.state.project};
+    // project.value = cm.getValue()
+    // this.setState({ project })
   }
   handleTitleChange(e) {
-    if(api.renameProject(this.state.project.name, e.target.value)) {
-      this.setState({ project: api.getProject(e.target.value) })
-    } else {
-      this.setState({ errorText: "the project failed to be renamed" })
-      e.target.value = this.state.project.name
+    if(this.state.project.name !== e.target.value) {
+      if(api.renameProject(this.state.project.name, e.target.value)) {
+        this.setState({ project: api.getProject(e.target.value) })
+      } else {
+        this.setState({notification: {
+          value: "the project failed to be renamed",
+          show: true,
+          name: "error"
+        }})
+        e.target.value = this.state.project.name
+      }
     }
   }
   componentWillReceiveProps(nextProps) {
-    console.log(api.getProjects())
-    console.log(nextProps);
-    console.log(this.getProject(nextProps));
     this.setState(this.getProject(nextProps))
   }
   modalClose(e) {
-    this.setState({ errorText: "" })
+    let notification = {...this.state.notification};
+    notification.show = false
+    this.setState({ notification })
   }
   render() {
     if(this.props.match.params.project !== this.state.project.name) {
@@ -81,13 +92,19 @@ export default class Editor extends Component {
         <Redirect to={ "/app/edit/" + this.state.project.name + "/default/" }/>
       )
     }
+    let notification
+    if(this.state.notification){
+      notification = (
+        <Notification style={ this.style[this.state.notification.name] }
+                      onClose={ this.modalClose.bind(this) }
+                      show={ this.state.notification.show }>
+          { this.state.notification.value }
+        </Notification>
+      )
+    }
     return (
       <div className="default-editor">
-        <Notification style={ this.style.error }
-                      onClose={ this.modalClose.bind(this) }
-                      show={ this.state.errorText }>
-          { this.state.errorText }
-        </Notification>
+        { notification }
         <div>
           <input type="text"
                  defaultValue={ this.state.project.name }
