@@ -2,6 +2,9 @@ import api from "../../api.js"
 
 const keymaps = [
   {
+    name: "Ctrl-B",
+    description: "toggles bold",
+    cm: true,
     action: (cm) => {
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 2) === '**' && selection.slice(-2) === '**';
@@ -13,11 +16,11 @@ const keymaps = [
         })
       }
     },
-    name: "Ctrl-B",
-    description: "toggles bold",
-    cm: true
   },
   {
+    name: "Ctrl-I",
+    description: "toggles italics",
+    cm: true,
     action: (cm) => {
       let selection = cm.getSelection(),
           innerText = selection.slice(0, 1) === '*' && selection.slice(-1) === '*';
@@ -29,9 +32,6 @@ const keymaps = [
         })
       }
     },
-    name: "Ctrl-I",
-    description: "toggles italics",
-    cm: true
   },
   {
     name: "ctrl+s",
@@ -43,14 +43,13 @@ const keymaps = [
       } else {
         e.returnValue = false;
       }
+      api.setProject(state.project.name, state.project)
       that.setState({notification: {
         value: "the project was saved",
         show: true,
         name: "success"
       }})
-      api.setProject(state.project.name, state.project)
       return false;
-
     }
   }
 ]

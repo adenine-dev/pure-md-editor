@@ -60,9 +60,9 @@ export default class Editor extends Component {
     })
   }
   handleCmChange(cm) {
-    // let project = {...this.state.project};
-    // project.value = cm.getValue()
-    // this.setState({ project })
+    let project = {...this.state.project};
+    project.value = cm.getValue()
+    this.setState({ project })
   }
   handleTitleChange(e) {
     if(this.state.project.name !== e.target.value) {
