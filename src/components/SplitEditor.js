@@ -9,10 +9,11 @@ import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
 import Notification from "./Notification.js"
+import MarkdownRenderer from "./MarkdownRenderer.js"
 
 
 
-export default class DefaultEditor extends Component {
+export default class SplitEditor extends Component {
   constructor(props) {
     super(props);
 
@@ -30,6 +31,20 @@ export default class DefaultEditor extends Component {
         margin: "0 auto",
         display: "block",
         width: "100%",
+      },
+      splitter: {
+        display: "flex",
+        justifyContent: "space-around",
+        overflow: "hidden",
+        position: "relative"
+      },
+      splitItem: {
+        width: "50%",
+      },
+      divBar: {
+        width: "1px",
+        height: "80%",
+        backgroundColor: themes[this.state.theme].accent,
       },
       error: {
         backgroundColor: themes[this.state.theme].error,
@@ -111,8 +126,14 @@ export default class DefaultEditor extends Component {
                  style={ this.style.headerTitle }
                  onBlur={ this.handleTitleChange.bind(this) }/>
         </div>
-        <CodeMirrorEditor defaultValue={ this.state.project.value }
-                          onChange={ this.handleCmChange.bind(this) }/>
+        <div className="spit-view" style={ this.style.splitter }>
+          <CodeMirrorEditor defaultValue={ this.state.project.value }
+                            onChange={ this.handleCmChange.bind(this) }
+                            style={ this.style.splitItem }/>
+          <div style={ this.style.divBar }></div>
+          <MarkdownRenderer markdown={ this.state.project.value }
+                            style={ this.style.splitItem }/>
+        </div>
       </div>
     )
   }
