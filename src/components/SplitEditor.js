@@ -20,18 +20,8 @@ export default class SplitEditor extends Component {
     this.state = {
       ...this.getProject(props),
       theme: api.getSetting("theme"),
-      notification: false
     }
     this.style = {
-      headerTitle: {
-        color: themes[this.state.theme].color,
-        textAlign: "center",
-        padding: "4px",
-        backgroundColor: themes[this.state.theme].bg,
-        margin: "0 auto",
-        display: "block",
-        width: "100%",
-      },
       splitter: {
         display: "flex",
         justifyContent: "space-around",
@@ -45,14 +35,6 @@ export default class SplitEditor extends Component {
         width: "1px",
         height: "80%",
         backgroundColor: themes[this.state.theme].accent,
-      },
-      error: {
-        backgroundColor: themes[this.state.theme].error,
-        color: themes[this.state.theme].color,
-      },
-      success: {
-        backgroundColor: themes[this.state.theme].success,
-        color: themes[this.state.theme].color,
       }
     }
   }
@@ -79,20 +61,7 @@ export default class SplitEditor extends Component {
     project.value = cm.getValue()
     this.setState({ project })
   }
-  handleTitleChange(e) {
-    if(this.state.project.name !== e.target.value) {
-      if(api.renameProject(this.state.project.name, e.target.value)) {
-        this.setState({ project: api.getProject(e.target.value) })
-      } else {
-        this.setState({notification: {
-          value: "the project failed to be renamed",
-          show: true,
-          name: "error"
-        }})
-        e.target.value = this.state.project.name
-      }
-    }
-  }
+
   componentWillReceiveProps(nextProps) {
     this.setState(this.getProject(nextProps))
   }
@@ -102,30 +71,8 @@ export default class SplitEditor extends Component {
     this.setState({ notification })
   }
   render() {
-    if(this.props.match.params.project !== this.state.project.name) {
-      return (
-        <Redirect to={ "/app/edit/" + this.state.project.name + "/default/" }/>
-      )
-    }
-    let notification
-    if(this.state.notification){
-      notification = (
-        <Notification style={ this.style[this.state.notification.name] }
-                      onClose={ this.modalClose.bind(this) }
-                      show={ this.state.notification.show }>
-          { this.state.notification.value }
-        </Notification>
-      )
-    }
     return (
-      <div className="default-editor">
-        { notification }
-        <div>
-          <input type="text"
-                 defaultValue={ this.state.project.name }
-                 style={ this.style.headerTitle }
-                 onBlur={ this.handleTitleChange.bind(this) }/>
-        </div>
+      <div className="split-editor">
         <div className="spit-view" style={ this.style.splitter }>
           <CodeMirrorEditor defaultValue={ this.state.project.value }
                             onChange={ this.handleCmChange.bind(this) }

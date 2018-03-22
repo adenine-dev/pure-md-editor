@@ -24,11 +24,6 @@ export default class AppContainer extends Component {
   }
 
   render() {
-
-
-    const theme = {
-      theme: this.state.theme
-    }
     return (
       <div className="app-container" className={ this.state.settings.theme }
            style={{ position: "relaitve" }}>

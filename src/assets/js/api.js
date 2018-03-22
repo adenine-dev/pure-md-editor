@@ -21,7 +21,7 @@ const api = {
     if(api.getProjects()[name]) {
       return api.projects[name]
     } else {
-      return null
+      return api.getNewProject(name)
     }
   },
   setProject: (name, project) => {
@@ -30,9 +30,9 @@ const api = {
     api.setLocalProjects()
     return project
   },
-  getNewProject: () => {
+  getNewProject: (newName) => {
     // TODO: make this generate an unused project name better
-    let name = "new project" + Math.random();
+    let name = newName || "new project" + Math.random();
     let projects = api.getProjects()
     let project = {
       name: name,
