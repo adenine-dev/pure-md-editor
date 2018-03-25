@@ -596,6 +596,9 @@ span.CodeMirror-selectedtext {
 .cm-strikethrough {
   text-decoration: line-through; }
 
+.cm-underline {
+  text-decoration: underline; }
+
 .cm-formatting-list {
   padding: 0 8px 0 32px; }
 

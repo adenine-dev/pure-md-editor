@@ -42,6 +42,10 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   if (modeCfg.ignoreUnderscore === undefined)
     modeCfg.ignoreUnderscore = false;
 
+  // Turn on underline syntax
+  if (modeCfg.underline === undefined)
+    modeCfg.underline = false;
+
   var codeDepth = 0;
 
   var header   = 'header'
@@ -59,7 +63,8 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   ,   linkhref = 'string'
   ,   em       = 'em'
   ,   strong   = 'strong'
-  ,   strikethrough = 'strikethrough';
+  ,   strikethrough = 'strikethrough'
+  ,   underline = 'underline';
 
   var hrRE = /^([\-=_])(?:\s*\1){2,}\s*$/
   ,   ulRE = /^[*\-+]\s+/
@@ -91,6 +96,8 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     state.strong = false;
     // Reset strikethrough state
     state.strikethrough = false;
+    // Reset underline state
+    state.underline = false;
     // Reset state.quote
     state.quote = 0;
     if (!htmlFound && state.f == htmlBlock) {
@@ -259,6 +266,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     if (state.strong) { styles.push(strong); }
     if (state.em) { styles.push(em); }
     if (state.strikethrough) { styles.push(strikethrough); }
+    if (state.underline) { styles.push(underline); }
 
     if (state.linkText) { styles.push(linktext); }
 
@@ -509,7 +517,28 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
         }
       }
     }
-
+    if (modeCfg.underline) {
+      if (ch === '_' && stream.eatWhile(ch)) {
+        if (state.underline) {// Remove underline
+          if (modeCfg.highlightFormatting) state.formatting = "underline";
+          var t = getType(state);
+          state.underline = false;
+          return t;
+        } else if (stream.match(/^[^\s]/, false)) {// Add underline
+          state.underline = true;
+          if (modeCfg.highlightFormatting) state.formatting = "underline";
+          return getType(state);
+        }
+      } else if (ch === ' ') {
+        if (stream.match(/^__/, true)) { // Probably surrounded by space
+          if (stream.peek() === ' ') { // Surrounded by spaces, ignore
+            return getType(state);
+          } else { // Not surrounded by spaces, back up pointer
+            stream.backUp(2);
+          }
+        }
+      }
+    }
     if (ch === ' ') {
       if (stream.match(/ +$/, false)) {
         state.trailingSpace++;
@@ -659,7 +688,9 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
         quote: 0,
         trailingSpace: 0,
         trailingSpaceNewLine: false,
-        strikethrough: false
+        strikethrough: false,
+        underline: false
+
       };
     },
 
@@ -684,6 +715,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
         em: s.em,
         strong: s.strong,
         strikethrough: s.strikethrough,
+        underline: s.underline,
         header: s.header,
         taskList: s.taskList,
         list: s.list,

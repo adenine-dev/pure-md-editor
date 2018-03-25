@@ -36,6 +36,8 @@ export default class CodeMirrorEditor extends Component {
         ignoreUnderscore: true,
         taskLists: true,
         fencedCodeBlocks: true,
+        underline: true,
+        
       },
       value: this.state.value,
       placeholder: "write something",
