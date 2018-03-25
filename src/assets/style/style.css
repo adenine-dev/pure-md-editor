@@ -11,7 +11,8 @@ a {
   text-decoration: none; }
 
 ::-webkit-scrollbar {
-  width: 4px; }
+  width: 4px;
+  height: 4px; }
 
 ::-webkit-scrollbar-track {
   background-color: transparent; }
@@ -657,8 +658,46 @@ span.CodeMirror-selectedtext {
     margin: 8px 0; }
     .markdown-renderer.dark pre code, .markdown-renderer.dark blockquote code {
       font-family: "Roboto-Mono", monospace; }
+      .markdown-renderer.dark pre code > *, .markdown-renderer.dark blockquote code > * {
+        font-family: "Roboto-Mono", monospace; }
+      .markdown-renderer.dark pre code .hljs-keyword, .markdown-renderer.dark blockquote code .hljs-keyword {
+        color: #c792ea; }
+      .markdown-renderer.dark pre code .hljs-operator, .markdown-renderer.dark blockquote code .hljs-operator {
+        color: #e9eded; }
+      .markdown-renderer.dark pre code .hljs-variable-2, .markdown-renderer.dark blockquote code .hljs-variable-2 {
+        color: #80CBC4; }
+      .markdown-renderer.dark pre code .hljs-variable-3, .markdown-renderer.dark pre code .hljs-type, .markdown-renderer.dark blockquote code .hljs-variable-3, .markdown-renderer.dark blockquote code .hljs-type {
+        color: #82B1FF; }
+      .markdown-renderer.dark pre code .hljs-builtin, .markdown-renderer.dark blockquote code .hljs-builtin {
+        color: #DECB6B; }
+      .markdown-renderer.dark pre code .hljs-atom, .markdown-renderer.dark pre code .hljs-number, .markdown-renderer.dark blockquote code .hljs-atom, .markdown-renderer.dark blockquote code .hljs-number {
+        color: #F77669; }
+      .markdown-renderer.dark pre code .hljs-def, .markdown-renderer.dark blockquote code .hljs-def {
+        color: #e9eded; }
+      .markdown-renderer.dark pre code .hljs-string, .markdown-renderer.dark blockquote code .hljs-string {
+        color: #C3E88D; }
+      .markdown-renderer.dark pre code .hljs-string-2, .markdown-renderer.dark blockquote code .hljs-string-2 {
+        color: #80CBC4; }
+      .markdown-renderer.dark pre code .hljs-comment, .markdown-renderer.dark blockquote code .hljs-comment {
+        color: #546E7A; }
+      .markdown-renderer.dark pre code .hljs-variable, .markdown-renderer.dark pre code .hljs-built_in, .markdown-renderer.dark blockquote code .hljs-variable, .markdown-renderer.dark blockquote code .hljs-built_in {
+        color: #82B1FF; }
+      .markdown-renderer.dark pre code .hljs-tag, .markdown-renderer.dark pre code .hljs-meta, .markdown-renderer.dark blockquote code .hljs-tag, .markdown-renderer.dark blockquote code .hljs-meta {
+        color: #80CBC4; }
+      .markdown-renderer.dark pre code .hljs-attribute, .markdown-renderer.dark blockquote code .hljs-attribute {
+        color: #FFCB6B; }
+      .markdown-renderer.dark pre code .hljs-property, .markdown-renderer.dark blockquote code .hljs-property {
+        color: #80CBAE; }
+      .markdown-renderer.dark pre code .hljs-qualifier, .markdown-renderer.dark pre code .hljs-variable-3, .markdown-renderer.dark pre code .hljs-type, .markdown-renderer.dark blockquote code .hljs-qualifier, .markdown-renderer.dark blockquote code .hljs-variable-3, .markdown-renderer.dark blockquote code .hljs-type {
+        color: #DECB6B; }
+      .markdown-renderer.dark pre code .hljs-tag, .markdown-renderer.dark blockquote code .hljs-tag {
+        color: #ff5370; }
+      .markdown-renderer.dark pre code .hljs-error, .markdown-renderer.dark blockquote code .hljs-error {
+        color: white;
+        background-color: #EC5F67; }
   .markdown-renderer.dark hr {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.4); }
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 8px 0; }
   .markdown-renderer.dark ul, .markdown-renderer.dark ol {
     margin-left: 32px; }
