@@ -3,12 +3,11 @@ import { Redirect } from 'react-router-dom';
 import Mousetrap from "mousetrap"
 
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
+import MarkdownRenderer from "./MarkdownRenderer.js"
 
 import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
-import Notification from "./Notification.js"
-import MarkdownRenderer from "./MarkdownRenderer.js"
 
 
 
@@ -39,7 +38,8 @@ export default class SplitEditor extends Component {
         height: "80%",
         backgroundColor: themes[this.state.theme].accent,
         position: "absolute",
-        opacity: "0.2"
+        opacity: "0.2",
+        top: "64px",
       }
     }
   }

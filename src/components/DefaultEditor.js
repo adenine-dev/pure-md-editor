@@ -6,7 +6,6 @@ import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
-import Notification from "./Notification.js"
 
 
 
@@ -17,7 +16,6 @@ export default class DefaultEditor extends Component {
     this.state = {
       ...this.getProject(props),
       theme: api.getSetting("theme"),
-      notification: false
     }
     this.style = {
       error: {

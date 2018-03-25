@@ -53,11 +53,17 @@ export default class Notification extends Component {
     this.setState({ show: !!nextProps.show })
     this.displayTimer = setTimeout(() => {
       this.setState({ show: false })
+      if(this.props.onClose) {
+        this.props.onClose(false)
+      }
     }, 1000);
   }
   componentWillMount() {
     this.displayTimer = setTimeout(() => {
       this.setState({ show: false })
+      if(this.props.onClose) {
+        this.props.onClose(false)
+      }
     }, 1000);
   }
   render() {
