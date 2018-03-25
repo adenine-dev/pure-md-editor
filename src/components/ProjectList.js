@@ -72,6 +72,10 @@ class ProjectList extends Component {
     this.setState({filteredList})
   }
 
+  deleteProject(e, id) {
+    console.log(id);
+  }
+
   render() {
     let list = []
     for(let key in this.state.filteredList) {
@@ -79,7 +83,12 @@ class ProjectList extends Component {
         <div className="list-item" key={ list.length } >
           <Link to={ "/app/edit/" + key + "/default/" }>
             <p style={{ ...this.style.gridItem, ...this.style.listItem }} key={"RADIUM_" + key + list.length}>
-              { key }
+              <span>{ key }</span>
+              <div className="actions">
+                <button onClick={ this.deleteProject.bind(this, key) }>
+                  <i class="material-icons">delete_forever</i>
+                </button>
+              </div>
             </p>
           </Link>
         </div>

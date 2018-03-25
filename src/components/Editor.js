@@ -17,7 +17,11 @@ export default class Editor extends Component {
     this.state = {
       ...this.getProject(props),
       editorType: props.match.params.editorType,
-      notification: false,
+      notification: {
+        value: "",
+        show: false,
+        name: "error",
+      },
       theme: api.getSetting("theme"),
 
     }

@@ -56,7 +56,8 @@ export default class Notification extends Component {
       if(this.props.onClose) {
         this.props.onClose(false)
       }
-    }, 1000);
+      this.displayTimer = null
+    }, 4000);
   }
   componentWillMount() {
     this.displayTimer = setTimeout(() => {
@@ -64,7 +65,8 @@ export default class Notification extends Component {
       if(this.props.onClose) {
         this.props.onClose(false)
       }
-    }, 1000);
+      this.displayTimer = null
+    }, 4000);
   }
   render() {
     return (
