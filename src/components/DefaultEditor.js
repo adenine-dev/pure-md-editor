@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Mousetrap from "mousetrap"
 
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
 
-import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
@@ -32,6 +30,7 @@ export default class DefaultEditor extends Component {
       }
     }
   }
+
   getProject(props) {
     if(props.match.params.project !== "new") {
       return {
@@ -43,21 +42,17 @@ export default class DefaultEditor extends Component {
       }
     }
   }
-  componentWillMount() {
-    keymaps.map((map) => {
-      if(!map.cm) {
-        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state, this))
-      }
-    })
-  }
+
   handleCmChange(cm) {
-    let project = {...this.state.project};
-    project.value = cm.getValue()
-    this.setState({ project })
+    if(this.props.onChange) {
+      this.props.onChange(cm)
+    }
   }
+  
   componentWillReceiveProps(nextProps) {
     this.setState(this.getProject(nextProps))
   }
+  
   render() {
     return (
       <div className="default-editor">

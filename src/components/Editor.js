@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect} from 'react-router-dom';
+import Mousetrap from "mousetrap"
 
 import DefaultEditor from "./DefaultEditor.js"
 import SplitEditor from "./SplitEditor.js"
@@ -7,6 +8,7 @@ import Notification from "./Notification.js"
 
 import themes from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
+import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 
 
 export default class Editor extends Component {
@@ -78,6 +80,20 @@ export default class Editor extends Component {
     }
   }
 
+  handleChange(cm) {
+    let project = {...this.state.project};
+    project.value = cm.getValue()
+    this.setState({ project })
+  }
+
+  componentWillMount() {
+    keymaps.map((map) => {
+      if(!map.cm) {
+        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state, this))
+      }
+    })
+  }
+  
   render() {
     if(this.props.match.params.project !== this.state.project.name) {
       return (
@@ -104,8 +120,12 @@ export default class Editor extends Component {
                  onBlur={ this.handleTitleChange.bind(this) }/>
         </div>
         <Switch>
-          <Route exact path="/app/edit/:project/default/" component={ DefaultEditor } />
-          <Route exact path="/app/edit/:project/split/" component={ SplitEditor } />
+          <Route exact path="/app/edit/:project/default/" render={ (props) => (
+            <DefaultEditor onChange={ this.handleChange.bind(this) } {...props}/>
+          )} />
+          <Route exact path="/app/edit/:project/split/" render={ (props) => (
+            <SplitEditor onChange={ this.handleChange.bind(this) } {...props}/>
+          )} />
           {/* <Route path="" component={  } /> */}
           <Redirect to={"/app/edit/" + this.state.project + "/default/"}/>
         </Switch>

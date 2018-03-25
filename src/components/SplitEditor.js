@@ -4,7 +4,6 @@ import Mousetrap from "mousetrap"
 
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
 
-import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import api from "../assets/js/api.js"
 import themes from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
@@ -49,13 +48,7 @@ export default class SplitEditor extends Component {
       }
     }
   }
-  componentWillMount() {
-    keymaps.map((map) => {
-      if(!map.cm) {
-        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state, this))
-      }
-    })
-  }
+
   handleCmChange(cm) {
     let project = {...this.state.project};
     project.value = cm.getValue()
@@ -65,11 +58,7 @@ export default class SplitEditor extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState(this.getProject(nextProps))
   }
-  modalClose(e) {
-    let notification = {...this.state.notification};
-    notification.show = false
-    this.setState({ notification })
-  }
+
   render() {
     return (
       <div className="split-editor">
