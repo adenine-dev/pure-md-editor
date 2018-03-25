@@ -10,6 +10,15 @@ a {
   color: inherit;
   text-decoration: none; }
 
+::-webkit-scrollbar {
+  width: 4px; }
+
+::-webkit-scrollbar-track {
+  background-color: transparent; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #89aec6; }
+
 body.dark *::selection {
   background-color: #89aec6; }
 
@@ -91,7 +100,7 @@ body.light *::selection {
   overflow: visible;
   color: inherit;
   direction: ltr;
-  margin-bottom: 50%; }
+  padding-bottom: 50vh; }
   .CodeMirror ::-webkit-scrollbar {
     width: 0px;
     background: transparent; }
@@ -644,6 +653,12 @@ span.CodeMirror-selectedtext {
     font-family: "Roboto-Mono", monospace;
     background-color: #111;
     border-left: 4px solid #89aec6;
-    padding: 8px 32px; }
+    padding: 8px 32px;
+    margin: 8px 0; }
     .markdown-renderer.dark pre code, .markdown-renderer.dark blockquote code {
       font-family: "Roboto-Mono", monospace; }
+  .markdown-renderer.dark hr {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4); }
+  .markdown-renderer.dark ul, .markdown-renderer.dark ol {
+    margin-left: 32px; }

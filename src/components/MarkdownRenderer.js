@@ -17,6 +17,8 @@ export default class Editor extends Component {
         literalMidWordUnderscores: true,
         tasklists: true,
         underline: true,
+        splitAdjacentBlockquotes: true,
+
       }),
       theme: api.getSetting("theme"),
     }

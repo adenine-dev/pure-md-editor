@@ -32,11 +32,14 @@ export default class SplitEditor extends Component {
       },
       splitItem: {
         width: "50%",
+        padding: "8px"
       },
       divBar: {
         width: "1px",
         height: "80%",
         backgroundColor: themes[this.state.theme].accent,
+        position: "absolute",
+        opacity: "0.2"
       }
     }
   }
