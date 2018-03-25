@@ -9,7 +9,17 @@ export default class Editor extends Component {
     super(props);
     this.state = {
       markdown: props.markdown,
-      converter: new showdown.Converter(),
+      converter: new showdown.Converter({
+        strikethrough: true,
+        emoji: true,
+        parseImgDimensions: true,
+        simplifiedAutoLink: true,
+        literalMidWordUnderscores: true,
+        tasklists: true,
+        underline: true,
+
+
+      }),
       theme: api.getSetting("theme"),
     }
     this.style = {
@@ -28,8 +38,15 @@ export default class Editor extends Component {
   componentDidUpdate() {
     this.renderer.innerHTML = this.state.converter.makeHtml(this.state.markdown)
   }
+  componentWillMount() {
+    let converter = {...this.state.converter}
+    converter.setFlavor('github');
+    this.setState({ converter })
+
+  }
   componentDidMount() {
     this.renderer.innerHTML = this.state.converter.makeHtml(this.state.markdown)
+    console.log(this.state.converter.getOptions());
   }
   render() {
     return (

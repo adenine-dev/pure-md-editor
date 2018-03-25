@@ -17,7 +17,7 @@ export default class SplitEditor extends Component {
     super(props);
 
     this.state = {
-      ...this.getProject(props),
+      project: props.project,
       theme: api.getSetting("theme"),
     }
     this.style = {
@@ -25,7 +25,10 @@ export default class SplitEditor extends Component {
         display: "flex",
         justifyContent: "space-around",
         overflow: "hidden",
-        position: "relative"
+        position: "relative",
+        width: "90%",
+        margin: "0 auto",
+
       },
       splitItem: {
         width: "50%",
@@ -49,14 +52,17 @@ export default class SplitEditor extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({project: nextProps.project})
+  }
+
   handleCmChange(cm) {
     let project = {...this.state.project};
     project.value = cm.getValue()
     this.setState({ project })
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState(this.getProject(nextProps))
+    if(this.props.onChange) {
+      this.props.onChange(cm)
+    }
   }
 
   render() {

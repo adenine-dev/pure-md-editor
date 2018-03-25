@@ -637,7 +637,10 @@ span.CodeMirror-selectedtext {
     font-size: 1.2em; }
   .markdown-renderer.dark h6 {
     font-size: 1em; }
-  .markdown-renderer.dark code {
+  .markdown-renderer.dark pre {
     font-family: "Roboto-Mono", monospace;
     background-color: #111;
-    border-left: 4px solid #89aec6; }
+    border-left: 4px solid #89aec6;
+    padding: 8px 32px; }
+    .markdown-renderer.dark pre code {
+      font-family: "Roboto-Mono", monospace; }

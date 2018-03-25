@@ -44,15 +44,18 @@ export default class DefaultEditor extends Component {
   }
 
   handleCmChange(cm) {
+    let project = {...this.state.project};
+    project.value = cm.getValue()
+    this.setState({ project })
     if(this.props.onChange) {
       this.props.onChange(cm)
     }
   }
-  
+
   componentWillReceiveProps(nextProps) {
     this.setState(this.getProject(nextProps))
   }
-  
+
   render() {
     return (
       <div className="default-editor">

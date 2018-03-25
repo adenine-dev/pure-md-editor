@@ -81,7 +81,8 @@ export default class Editor extends Component {
   }
 
   handleChange(cm) {
-    let project = {...this.state.project};
+    console.log("hello");
+    let project = { ...this.state.project };
     project.value = cm.getValue()
     this.setState({ project })
   }
@@ -93,7 +94,7 @@ export default class Editor extends Component {
       }
     })
   }
-  
+
   render() {
     if(this.props.match.params.project !== this.state.project.name) {
       return (
@@ -121,10 +122,12 @@ export default class Editor extends Component {
         </div>
         <Switch>
           <Route exact path="/app/edit/:project/default/" render={ (props) => (
-            <DefaultEditor onChange={ this.handleChange.bind(this) } {...props}/>
+            <DefaultEditor onChange={ this.handleChange.bind(this) }
+                           project={ this.state.project } {...props}/>
           )} />
           <Route exact path="/app/edit/:project/split/" render={ (props) => (
-            <SplitEditor onChange={ this.handleChange.bind(this) } {...props}/>
+            <SplitEditor onChange={ this.handleChange.bind(this) }
+                           project={ this.state.project } {...props}/>
           )} />
           {/* <Route path="" component={  } /> */}
           <Redirect to={"/app/edit/" + this.state.project + "/default/"}/>
