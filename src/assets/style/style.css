@@ -464,14 +464,12 @@ span.CodeMirror-selectedtext {
     color: #80CBC4; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-comment {
     color: #546E7A; }
-  .dark .CodeMirror-line *:not(.cm-m-markdown).cm-variable, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-def {
+  .dark .CodeMirror-line *:not(.cm-m-markdown).cm-variable, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-def, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-property {
     color: #82B1FF; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-tag, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-meta {
     color: #80CBC4; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-attribute {
     color: #FFCB6B; }
-  .dark .CodeMirror-line *:not(.cm-m-markdown).cm-property {
-    color: #80CBAE; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-qualifier, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-variable-3, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-type {
     color: #DECB6B; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-tag {
