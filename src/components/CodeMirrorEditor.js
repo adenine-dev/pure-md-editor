@@ -37,7 +37,7 @@ export default class CodeMirrorEditor extends Component {
         taskLists: true,
         fencedCodeBlocks: true,
         underline: true,
-        
+
       },
       value: this.state.value,
       placeholder: "write something",
@@ -58,7 +58,6 @@ export default class CodeMirrorEditor extends Component {
     }
     if(this.props.onChange) {
       editor.on("change", (cm) => {
-        console.log("hello wor")
         this.props.onChange(cm)
       })
     }

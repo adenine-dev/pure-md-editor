@@ -81,7 +81,6 @@ export default class Editor extends Component {
   }
 
   handleChange(cm) {
-    console.log("hello");
     let project = { ...this.state.project };
     project.value = cm.getValue()
     this.setState({ project })
