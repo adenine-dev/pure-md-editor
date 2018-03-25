@@ -10,8 +10,8 @@ import '../assets/js/codemirror/addon/closebrackets.js';
 import '../assets/js/codemirror/addon/placeholder.js';
 
 import 'codemirror/mode/javascript/javascript.js';
-import 'codemirror/mode/clike/clike.js';
-import 'codemirror/mode/css/css.js';
+// import 'codemirror/mode/clike/clike.js';
+// import 'codemirror/mode/css/css.js';
 
 
 

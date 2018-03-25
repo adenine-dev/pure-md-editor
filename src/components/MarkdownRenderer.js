@@ -11,6 +11,7 @@ export default class MarkdownRenderer extends Component {
     super(props);
     this.state = {
       markdown: props.markdown,
+      renderedMD: "",
       converter: new showdown.Converter({
         extensions: ['prettify'],
         strikethrough: true,
@@ -36,11 +37,12 @@ export default class MarkdownRenderer extends Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.markdown !== this.props.markdown) {
       this.setState({markdown: nextProps.markdown})
+      this.setState({renderedMD: this.state.converter.makeHtml(nextProps.markdown)})
     }
   }
 
   componentDidUpdate() {
-    this.renderer.innerHTML = this.state.converter.makeHtml(this.state.markdown)
+    this.renderer.innerHTML = this.state.renderedMD
     const codeBlocks = this.renderer.querySelectorAll("pre code");
     for(let i = 0; i < codeBlocks.length; i++) {
       Prism.highlightAllUnder(this.renderer)
@@ -51,10 +53,12 @@ export default class MarkdownRenderer extends Component {
     let converter = {...this.state.converter}
     converter.setFlavor('github');
     this.setState({ converter })
+    this.setState({renderedMD: this.state.converter.makeHtml(this.state.markdown)})
+
   }
 
   componentDidMount() {
-    this.renderer.innerHTML = this.state.converter.makeHtml(this.state.markdown)
+    this.renderer.innerHTML = this.state.renderedMD
   }
 
   render() {
