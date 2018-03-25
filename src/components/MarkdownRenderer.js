@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import showdown from 'showdown';
 import "showdown-prettify"
-import hljs from "highlight.js"
+import Prism from "prismjs"
 
 import themes from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
@@ -43,7 +43,7 @@ export default class MarkdownRenderer extends Component {
     this.renderer.innerHTML = this.state.converter.makeHtml(this.state.markdown)
     const codeBlocks = this.renderer.querySelectorAll("pre code");
     for(let i = 0; i < codeBlocks.length; i++) {
-      codeBlocks[i].innerHTML = hljs.highlight(codeBlocks[i].classList[0], codeBlocks[i].innerHTML).value
+      Prism.highlightAllUnder(this.renderer)
     }
   }
 

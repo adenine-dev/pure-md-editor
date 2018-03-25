@@ -458,15 +458,13 @@ span.CodeMirror-selectedtext {
     color: #DECB6B; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-atom, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-number {
     color: #F77669; }
-  .dark .CodeMirror-line *:not(.cm-m-markdown).cm-def {
-    color: #e9eded; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-string {
     color: #C3E88D; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-string-2 {
     color: #80CBC4; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-comment {
     color: #546E7A; }
-  .dark .CodeMirror-line *:not(.cm-m-markdown).cm-variable {
+  .dark .CodeMirror-line *:not(.cm-m-markdown).cm-variable, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-def {
     color: #82B1FF; }
   .dark .CodeMirror-line *:not(.cm-m-markdown).cm-tag, .dark .CodeMirror-line *:not(.cm-m-markdown).cm-meta {
     color: #80CBC4; }
@@ -657,42 +655,43 @@ span.CodeMirror-selectedtext {
     padding: 8px 32px;
     margin: 8px 0; }
     .markdown-renderer.dark pre code, .markdown-renderer.dark blockquote code {
-      font-family: "Roboto-Mono", monospace; }
+      font-family: "Roboto-Mono", monospace;
+      color: #82B1FF; }
       .markdown-renderer.dark pre code > *, .markdown-renderer.dark blockquote code > * {
         font-family: "Roboto-Mono", monospace; }
-      .markdown-renderer.dark pre code .hljs-keyword, .markdown-renderer.dark blockquote code .hljs-keyword {
+      .markdown-renderer.dark pre code .token.keyword, .markdown-renderer.dark blockquote code .token.keyword {
         color: #c792ea; }
-      .markdown-renderer.dark pre code .hljs-operator, .markdown-renderer.dark blockquote code .hljs-operator {
+      .markdown-renderer.dark pre code .token.operator, .markdown-renderer.dark pre code .token.punctuation, .markdown-renderer.dark blockquote code .token.operator, .markdown-renderer.dark blockquote code .token.punctuation {
         color: #e9eded; }
-      .markdown-renderer.dark pre code .hljs-variable-2, .markdown-renderer.dark blockquote code .hljs-variable-2 {
+      .markdown-renderer.dark pre code .token.variable-2, .markdown-renderer.dark blockquote code .token.variable-2 {
         color: #80CBC4; }
-      .markdown-renderer.dark pre code .hljs-variable-3, .markdown-renderer.dark pre code .hljs-type, .markdown-renderer.dark blockquote code .hljs-variable-3, .markdown-renderer.dark blockquote code .hljs-type {
+      .markdown-renderer.dark pre code .token.variable-3, .markdown-renderer.dark pre code .token.type, .markdown-renderer.dark blockquote code .token.variable-3, .markdown-renderer.dark blockquote code .token.type {
         color: #82B1FF; }
-      .markdown-renderer.dark pre code .hljs-builtin, .markdown-renderer.dark blockquote code .hljs-builtin {
+      .markdown-renderer.dark pre code .token.builtin, .markdown-renderer.dark blockquote code .token.builtin {
         color: #DECB6B; }
-      .markdown-renderer.dark pre code .hljs-atom, .markdown-renderer.dark pre code .hljs-number, .markdown-renderer.dark blockquote code .hljs-atom, .markdown-renderer.dark blockquote code .hljs-number {
+      .markdown-renderer.dark pre code .token.atom, .markdown-renderer.dark pre code .token.number, .markdown-renderer.dark blockquote code .token.atom, .markdown-renderer.dark blockquote code .token.number {
         color: #F77669; }
-      .markdown-renderer.dark pre code .hljs-def, .markdown-renderer.dark blockquote code .hljs-def {
+      .markdown-renderer.dark pre code .token.def, .markdown-renderer.dark blockquote code .token.def {
         color: #e9eded; }
-      .markdown-renderer.dark pre code .hljs-string, .markdown-renderer.dark blockquote code .hljs-string {
+      .markdown-renderer.dark pre code .token.string, .markdown-renderer.dark blockquote code .token.string {
         color: #C3E88D; }
-      .markdown-renderer.dark pre code .hljs-string-2, .markdown-renderer.dark blockquote code .hljs-string-2 {
+      .markdown-renderer.dark pre code .token.string-2, .markdown-renderer.dark blockquote code .token.string-2 {
         color: #80CBC4; }
-      .markdown-renderer.dark pre code .hljs-comment, .markdown-renderer.dark blockquote code .hljs-comment {
+      .markdown-renderer.dark pre code .token.comment, .markdown-renderer.dark blockquote code .token.comment {
         color: #546E7A; }
-      .markdown-renderer.dark pre code .hljs-variable, .markdown-renderer.dark pre code .hljs-built_in, .markdown-renderer.dark blockquote code .hljs-variable, .markdown-renderer.dark blockquote code .hljs-built_in {
+      .markdown-renderer.dark pre code .token.variable, .markdown-renderer.dark pre code .token.builtin, .markdown-renderer.dark blockquote code .token.variable, .markdown-renderer.dark blockquote code .token.builtin {
         color: #82B1FF; }
-      .markdown-renderer.dark pre code .hljs-tag, .markdown-renderer.dark pre code .hljs-meta, .markdown-renderer.dark blockquote code .hljs-tag, .markdown-renderer.dark blockquote code .hljs-meta {
+      .markdown-renderer.dark pre code .token.tag, .markdown-renderer.dark pre code .token.meta, .markdown-renderer.dark blockquote code .token.tag, .markdown-renderer.dark blockquote code .token.meta {
         color: #80CBC4; }
-      .markdown-renderer.dark pre code .hljs-attribute, .markdown-renderer.dark blockquote code .hljs-attribute {
+      .markdown-renderer.dark pre code .token.attribute, .markdown-renderer.dark blockquote code .token.attribute {
         color: #FFCB6B; }
-      .markdown-renderer.dark pre code .hljs-property, .markdown-renderer.dark blockquote code .hljs-property {
+      .markdown-renderer.dark pre code .token.property, .markdown-renderer.dark blockquote code .token.property {
         color: #80CBAE; }
-      .markdown-renderer.dark pre code .hljs-qualifier, .markdown-renderer.dark pre code .hljs-variable-3, .markdown-renderer.dark pre code .hljs-type, .markdown-renderer.dark blockquote code .hljs-qualifier, .markdown-renderer.dark blockquote code .hljs-variable-3, .markdown-renderer.dark blockquote code .hljs-type {
+      .markdown-renderer.dark pre code .token.qualifier, .markdown-renderer.dark pre code .token.variable-3, .markdown-renderer.dark pre code .token.type, .markdown-renderer.dark blockquote code .token.qualifier, .markdown-renderer.dark blockquote code .token.variable-3, .markdown-renderer.dark blockquote code .token.type {
         color: #DECB6B; }
-      .markdown-renderer.dark pre code .hljs-tag, .markdown-renderer.dark blockquote code .hljs-tag {
+      .markdown-renderer.dark pre code .token.tag, .markdown-renderer.dark blockquote code .token.tag {
         color: #ff5370; }
-      .markdown-renderer.dark pre code .hljs-error, .markdown-renderer.dark blockquote code .hljs-error {
+      .markdown-renderer.dark pre code .token.error, .markdown-renderer.dark blockquote code .token.error {
         color: white;
         background-color: #EC5F67; }
   .markdown-renderer.dark hr {
