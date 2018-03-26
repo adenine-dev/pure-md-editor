@@ -172,16 +172,14 @@ class ProjectList extends Component {
     }
 
     let notification
-    if(this.state.notification) {
-      notification = (
-        <Notification style={ this.style[this.state.notification.name] }
-                      onClose={ this.modalClose.bind(this) }
-                      timedHide={ this.state.notification.timeout }
-                      show={ this.state.notification.show }>
-          { this.state.notification.value }
-        </Notification>
-      )
-    }
+    notification = (
+      <Notification style={ this.style[this.state.notification.name] }
+                    onClose={ this.modalClose.bind(this) }
+                    timedHide={ this.state.notification.timeout }
+                    show={ this.state.notification.show }>
+        { this.state.notification.value }
+      </Notification>
+    )
 
     return (
       <div className={"note-list " + this.props.className}

@@ -9,9 +9,9 @@ export default class Notification extends Component {
     this.state = {
       show: props.show,
       theme: api.getSetting("theme"),
-      timedHide: !!props.timedHide
+      timedHide: !!props.timedHide,
+      displayTimer: null,
     }
-    this.displayTimer = null
 
     this.style = {
       base: {
@@ -55,18 +55,19 @@ export default class Notification extends Component {
   }
 
   createTimer() {
-    console.log("!this.props.timedHide: " + !this.props.timedHide);
-    console.log("!this.displayTimer: " + !this.displayTimer);
-    if(!this.props.timedHide && !this.displayTimer && this.state.show) {
-      this.displayTimer = setTimeout(() => {
+    console.log(!this.state.timedHide && !this.state.displayTimer);
+    console.log(!this.state.timedHide)
+    console.log(!this.state.displayTimer)
+    if(!this.state.timedHide && !this.state.displayTimer) {
+      this.setState({displayTimer: setTimeout(() => {
         this.setState({ show: false })
         if(this.props.onClose) {
           this.props.onClose(false)
         }
-        this.displayTimer = null
-      }, 4000);
+        this.setState({displayTimer: null})
+      }, 4000)})
     } else {
-      this.displayTimer = null
+      this.setState({displayTimer: null})
     }
   }
 
@@ -77,7 +78,7 @@ export default class Notification extends Component {
     this.createTimer()
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.createTimer()
   }
 
