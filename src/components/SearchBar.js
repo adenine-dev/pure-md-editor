@@ -12,6 +12,7 @@ class SearchBar extends Component {
       showPlaceholder: true,
       theme: this.props.theme
     }
+    console.log(props.style);
     this.style = {
       base: {
         position: "relative",
@@ -41,7 +42,7 @@ class SearchBar extends Component {
         padding: "0 2px",
         color: themes[this.state.theme].color,
         opacity: "0.4",
-        
+
       },
     }
   }
