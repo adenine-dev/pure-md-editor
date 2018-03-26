@@ -30,6 +30,13 @@ const api = {
     api.setLocalProjects()
     return project
   },
+  deleteProject: (name) => {
+    api.getProjects();
+    if(api.projects[name]) {
+      delete api.projects[name]
+    }
+    api.setLocalProjects()
+  },
   getNewProject: (newName) => {
     // TODO: make this generate an unused project name better
     let name = newName || "new project" + Math.random();

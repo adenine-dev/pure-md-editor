@@ -8,8 +8,11 @@ export default class Notification extends Component {
     super(props);
     this.state = {
       show: props.show,
-      theme: api.getSetting("theme")
+      theme: api.getSetting("theme"),
+      timedHide: !!props.timedHide
     }
+    this.displayTimer = null
+
     this.style = {
       base: {
         position: "fixed",
@@ -52,7 +55,9 @@ export default class Notification extends Component {
   }
 
   createTimer() {
-    if(!this.props.noTimedHide) {
+    console.log("!this.props.timedHide: " + !this.props.timedHide);
+    console.log("!this.displayTimer: " + !this.displayTimer);
+    if(!this.props.timedHide && !this.displayTimer && this.state.show) {
       this.displayTimer = setTimeout(() => {
         this.setState({ show: false })
         if(this.props.onClose) {
@@ -60,11 +65,15 @@ export default class Notification extends Component {
         }
         this.displayTimer = null
       }, 4000);
+    } else {
+      this.displayTimer = null
     }
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ show: !!nextProps.show })
+    this.setState({ timedHide: !!nextProps.timedHide })
+
     this.createTimer()
   }
 

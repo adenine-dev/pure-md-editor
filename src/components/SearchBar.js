@@ -12,7 +12,6 @@ class SearchBar extends Component {
       showPlaceholder: true,
       theme: this.props.theme
     }
-    console.log(props.style);
     this.style = {
       base: {
         position: "relative",

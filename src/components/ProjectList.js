@@ -7,6 +7,7 @@ import themes from "../assets/js/theme.js"
 
 import SearchBar from "./SearchBar.js"
 import EmoteError from "./EmoteError.js"
+import Notification from "./Notification.js"
 
 
 class ProjectList extends Component {
@@ -15,7 +16,13 @@ class ProjectList extends Component {
     this.state = {
       list: api.getProjects() || {},
       filteredList: api.getProjects() || {},
-      theme: api.getSetting("theme")
+      theme: api.getSetting("theme"),
+      notification: {
+        value: "",
+        show: false,
+        name: "warning",
+        timeout: false
+      },
     }
     this.style = {
       noteList: {
@@ -81,6 +88,19 @@ class ProjectList extends Component {
         marginBottom: "32px",
 
       },
+      warning: {
+        backgroundColor: themes[this.state.theme].error,
+        color: themes[this.state.theme].color,
+      },
+      deleteButton: {
+        border: "1px solid " + themes[this.state.theme].color,
+        color: themes[this.state.theme].color,
+        padding: "4px",
+        background: "transparent",
+        cursor: "pointer",
+        marginRight: "16px",
+        textAlign: "center",
+      }
     }
   }
 
@@ -95,7 +115,38 @@ class ProjectList extends Component {
   }
 
   deleteProject(e, name) {
-    console.log(name);
+    api.deleteProject(name)
+    let notification = {...this.state.notification};
+    notification.show = true
+    notification.name = "warning"
+    notification.value = "project was deleted"
+    notification.timeout = false
+    this.setState({ notification })
+  }
+
+  promptDeleteProject(e, name) {
+    let notification = {...this.state.notification};
+    notification.show = true
+    notification.name = "warning"
+    notification.timeout = true
+    notification.value = (
+      <div>
+        <p>Are you sure you want to delete { name }</p>
+        <br />
+        <button style={ this.style.deleteButton }
+                onClick={ (ev) => this.deleteProject(ev, name) }>Yes</button>
+        <button style={ this.style.deleteButton }
+                onClick={ this.modalClose.bind(this) }>No</button>
+      </div>
+    )
+    this.setState({ notification })
+
+  }
+
+  modalClose(e) {
+    let notification = {...this.state.notification};
+    notification.show = false
+    this.setState({ notification })
   }
 
   render() {
@@ -110,7 +161,7 @@ class ProjectList extends Component {
             <span>{ key }</span>
           </Link>
           <div className="actions" style={ this.style.listItem.actions }>
-            <button onClick={ (e) => this.deleteProject(e, key) }
+            <button onClick={ (e) => this.promptDeleteProject(e, key) }
                     style={ this.style.button }
                     key={ "RADIUM_BUTTON" + list.length }>
               <i className="material-icons" style={ this.style.icon }>delete_forever</i>
@@ -120,29 +171,42 @@ class ProjectList extends Component {
       ))
     }
 
+    let notification
+    if(this.state.notification) {
+      notification = (
+        <Notification style={ this.style[this.state.notification.name] }
+                      onClose={ this.modalClose.bind(this) }
+                      timedHide={ this.state.notification.timeout }
+                      show={ this.state.notification.show }>
+          { this.state.notification.value }
+        </Notification>
+      )
+    }
+
     return (
       <div className={"note-list " + this.props.className}
            style={{...this.props.style, ...this.style.noteList}}>
-       <header style={ this.style.header }>
-         <h1 style={{ fontWeight: "300" }}>Projects</h1>
-       </header>
-       <div className="note-list" style={ this.style.noteList }>
-         <SearchBar onChange={ this.filterList.bind(this) }
-                    theme={ this.state.theme }
-                    style={{ ...this.style.searchBar }} />
-         {(list.length > 0 && list) || (
-           <EmoteError style={ this.style.placeholder }>
-             <p style={this.style.placeholder}>no projects found</p>
-             <br />
-             <Link to="/app/edit/new/default">
-               <p style={{ ...this.style.placeholder,
-                           ...this.style.placeholderLink }}>
-                 why not create one?
-               </p>
-             </Link>
-           </EmoteError>
-         )}
-       </div>
+        { notification }
+        <header style={ this.style.header }>
+          <h1 style={{ fontWeight: "300" }}>Projects</h1>
+        </header>
+        <div className="note-list" style={ this.style.noteList }>
+          <SearchBar onChange={ this.filterList.bind(this) }
+                     theme={ this.state.theme }
+                     style={{ ...this.style.searchBar }} />
+          {(list.length > 0 && list) || (
+            <EmoteError style={ this.style.placeholder }>
+              <p style={this.style.placeholder}>no projects found</p>
+              <br />
+              <Link to="/app/edit/new/default">
+                <p style={{ ...this.style.placeholder,
+                            ...this.style.placeholderLink }}>
+                  why not create one?
+                </p>
+              </Link>
+            </EmoteError>
+          )}
+        </div>
       </div>
     );
   }
