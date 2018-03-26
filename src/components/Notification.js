@@ -43,31 +43,35 @@ export default class Notification extends Component {
       },
     }
   }
+
   handleClose(e) {
     this.setState({ show: false })
     if(this.props.onClose) {
       this.props.onClose(e)
     }
   }
+
+  createTimer() {
+    if(!this.props.noTimedHide) {
+      this.displayTimer = setTimeout(() => {
+        this.setState({ show: false })
+        if(this.props.onClose) {
+          this.props.onClose(false)
+        }
+        this.displayTimer = null
+      }, 4000);
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ show: !!nextProps.show })
-    this.displayTimer = setTimeout(() => {
-      this.setState({ show: false })
-      if(this.props.onClose) {
-        this.props.onClose(false)
-      }
-      this.displayTimer = null
-    }, 4000);
+    this.createTimer()
   }
+
   componentWillMount() {
-    this.displayTimer = setTimeout(() => {
-      this.setState({ show: false })
-      if(this.props.onClose) {
-        this.props.onClose(false)
-      }
-      this.displayTimer = null
-    }, 4000);
+    this.createTimer()
   }
+
   render() {
     return (
       <div className={"notification " + this.props.className}
