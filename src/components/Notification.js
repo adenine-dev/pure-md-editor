@@ -16,11 +16,12 @@ export default class Notification extends Component {
     this.style = {
       base: {
         position: "fixed",
-        width: "480px",
+        width: "100%",
+        maxWidth: "480px",
         left: "calc(50% - 240px)",
         backgroundColor: themes[this.state.theme].accent,
         padding: "8px 16px",
-        zIndex: "10",
+        zIndex: "1000",
         overflow: "hidden",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
         hide: {

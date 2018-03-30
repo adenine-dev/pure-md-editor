@@ -12,7 +12,14 @@ $ham-size: 48px
         width: 100%
   .nav
     height: 100vh
-
+    .menu-option-container
+      +max-width(600px)
+        flex-direction: column-reverse
+        .important
+          h2
+            font-size: 42px
+          .separator
+            display: none
     .side
       flex: 1
       padding: 16px
@@ -31,6 +38,7 @@ $ham-size: 48px
       h2
         font-weight: 300
         font-size: 64px
+        line-height: 1.6em
 .ham
   position: fixed
   top: 16px

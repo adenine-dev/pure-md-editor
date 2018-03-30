@@ -67,7 +67,6 @@ export default class Menu extends Component {
         display: "flex",
         alignItems: "center",
         position: "relative",
-
       }
     }
   }
@@ -89,7 +88,7 @@ export default class Menu extends Component {
              style={{ ...this.style.menu,
                       ...(this.state.showNav ? this.style.menu.active : {}) }}>
           {this.state.showNav && (
-            <div style={ this.style.flex }>
+            <div style={ this.style.flex } className="menu-option-container">
               <div className="side">
                 <ul>
                   <li className="hover-effect"

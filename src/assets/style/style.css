@@ -40,6 +40,13 @@ body.light::-webkit-scrollbar-thumb {
 
 .menu .nav {
   height: 100vh; }
+  @media screen and (max-width: 600px) {
+    .menu .nav .menu-option-container {
+      flex-direction: column-reverse; }
+      .menu .nav .menu-option-container .important h2 {
+        font-size: 42px; }
+      .menu .nav .menu-option-container .important .separator {
+        display: none; } }
   .menu .nav .side {
     flex: 1;
     padding: 16px; }
@@ -57,7 +64,8 @@ body.light::-webkit-scrollbar-thumb {
     flex-direction: column; }
     .menu .nav .important h2 {
       font-weight: 300;
-      font-size: 64px; }
+      font-size: 64px;
+      line-height: 1.6em; }
 
 .ham {
   position: fixed;

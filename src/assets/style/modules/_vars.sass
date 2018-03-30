@@ -1,16 +1,25 @@
-$main-light: #fafafa
-$text-light: rgba(0, 0, 0, 0.85)
-$bg-alt-light: #cfcfcf
-$accent-light: #c68989
-
-$main-dark: #222
-$text-dark: rgba(#fff, 0.85)
-$bg-alt-dark: #111
-$accent-dark: #89aec6
-
+// $main-light: #fafafa
+// $text-light: rgba(0, 0, 0, 0.85)
+// $bg-alt-light: #cfcfcf
+// $accent-light: #c68989
+//
+// $main-dark: #222
+// $text-dark: rgba(#fff, 0.85)
+// $bg-alt-dark: #111
+// $accent-dark: #89aec6
+//
 
 @function getTheme($scheme, $tone)
   @return map-get(map-get($themes, $scheme), $tone)
 
 @function getCodeTheme($scheme, $tone)
   @return map-get(map-get(map-get($themes, $scheme), code), $tone)
+
+
+=max-width($width)
+	@media screen and (max-width: #{$width})
+		@content
+
+=min-width($width)
+	@media screen and (min-width: #{$width})
+		@content

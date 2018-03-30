@@ -41,7 +41,7 @@ export default class Editor extends Component {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "columns",
+        flexDirection: "column",
         text: {
           textAlign: "center",
           opacity: "0.4",
