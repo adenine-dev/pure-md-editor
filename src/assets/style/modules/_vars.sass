@@ -9,5 +9,8 @@ $bg-alt-dark: #111
 $accent-dark: #89aec6
 
 
-@function getTheme($scheme, $tone: bg)
+@function getTheme($scheme, $tone)
   @return map-get(map-get($themes, $scheme), $tone)
+
+@function getCodeTheme($scheme, $tone)
+  @return map-get(map-get(map-get($themes, $scheme), code), $tone)

@@ -6,7 +6,31 @@
       "color": "rgba(255,255,255,0.85)",
       "accent": "#89aec6",
       "error": "#820e17",
-      "success": "#0d8223"
+      "success": "#0d8223",
+      "code": {
+        "base": "rgba(233, 237, 237, 1)",
+        "keyword": "rgba(199, 146, 234, 1)",
+        "operator": "rgba(233, 237, 237, 1)",
+        "variable-2": "#80CBC4",
+        "variable-3": "#82B1FF",
+        "type": "#82B1FF",
+        "builtin": "#DECB6B",
+        "atom": "#F77669",
+        "number": "#F77669",
+        "string": "#C3E88D",
+        "string-2": "#80CBC4",
+        "comment": "#546E7A",
+        "variable": "#82B1FF",
+        "def": "#82B1FF",
+        "property": "#82B1FF",
+        "tag": "#80CBC4",
+        "meta": "#80CBC4",
+        "attribute": "#FFCB6B",
+        "qualifier": "#DECB6B",
+        "type": "DECB6B",
+        "tag": "rgba(255, 83, 112, 1)",
+        "error": "#EC5F67"
+      }
     },
     "light": {
       "bg": "#fafafa",
@@ -14,7 +38,31 @@
       "color": "rgba(0,0,0,0.85)",
       "accent": "#c68989",
       "error": "#820e17",
-      "success": "#0d8223"
+      "success": "#0d8223",
+      "code": {
+        "base": "#212121",
+        "keyword": "rgba(199, 146, 234, 1)",
+        "operator": "#212121",
+        "variable-2": "#80CBC4",
+        "variable-3": "#2196f3",
+        "type": "#2196f3",
+        "builtin": "#DECB6B",
+        "atom": "#B71C1C",
+        "number": "#B71C1C",
+        "string": "#558b2f",
+        "string-2": "#00796b",
+        "comment": "#607d8b",
+        "variable": "#2196f3",
+        "def": "#2196f3",
+        "property": "#2196f3",
+        "tag": "#80CBC4",
+        "meta": "#80CBC4",
+        "attribute": "#FFCB6B",
+        "qualifier": "#DECB6B",
+        "type": "DECB6B",
+        "tag": "rgba(255, 83, 112, 1)",
+        "error": "#EC5F67"
+      }
     }
   }
 }
