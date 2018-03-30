@@ -18,9 +18,8 @@ a
 
 
 @each $name, $value in $themes
-  ::-webkit-scrollbar-thumb
-    background-color: map-get($themes, $name)
-
   body.#{$name}
     *::selection
-      background-color: getTheme($name, bg)
+      background-color: getTheme($name, accent)
+  body.#{$name}::-webkit-scrollbar-thumb
+      background-color: getTheme($name, accent)

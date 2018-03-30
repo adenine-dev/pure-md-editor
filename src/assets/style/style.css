@@ -17,6 +17,18 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent; }
 
+body.dark *::selection {
+  background-color: #89aec6; }
+
+body.dark::-webkit-scrollbar-thumb {
+  background-color: #89aec6; }
+
+body.light *::selection {
+  background-color: #c68989; }
+
+body.light::-webkit-scrollbar-thumb {
+  background-color: #c68989; }
+
 .menu .hover-effect {
   position: relative;
   display: table;
