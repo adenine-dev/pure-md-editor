@@ -21,7 +21,7 @@ const api = {
     if(api.getProjects()[name]) {
       return api.projects[name]
     } else {
-      return api.getNewProject(name)
+      return null
     }
   },
   setProject: (name, project) => {

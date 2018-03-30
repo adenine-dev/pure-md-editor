@@ -14,7 +14,7 @@ export default class DefaultEditor extends Component {
     super(props);
 
     this.state = {
-      ...this.getProject(props),
+      project: props.project,
       theme: api.getSetting("theme"),
     }
     this.style = {
@@ -29,18 +29,6 @@ export default class DefaultEditor extends Component {
     }
   }
 
-  getProject(props) {
-    if(props.match.params.project !== "new") {
-      return {
-        project: api.getProject(props.match.params.project),
-      }
-    } else {
-      return {
-        project: api.getNewProject()
-      }
-    }
-  }
-
   handleCmChange(cm) {
     let project = {...this.state.project};
     project.value = cm.getValue()
@@ -51,7 +39,7 @@ export default class DefaultEditor extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(this.getProject(nextProps))
+    this.setState({project: nextProps.project})
   }
 
   render() {

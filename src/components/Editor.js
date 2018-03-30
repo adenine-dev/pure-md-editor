@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect} from 'react-router-dom';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Mousetrap from "mousetrap"
 
 import DefaultEditor from "./DefaultEditor.js"
 import SplitEditor from "./SplitEditor.js"
 import Notification from "./Notification.js"
+import EmoteError from "./EmoteError.js"
 
 import themes from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
@@ -35,6 +36,13 @@ export default class Editor extends Component {
         display: "block",
         width: "100%",
       },
+      placeholder: {
+        textAlign: "center",
+        opacity: "0.4",
+        color: themes[this.state.theme].color,
+        fontSize: "48px",
+        fontWeight: "300"
+      },
       error: {
         backgroundColor: themes[this.state.theme].error,
         color: themes[this.state.theme].color,
@@ -48,8 +56,13 @@ export default class Editor extends Component {
 
   getProject(props) {
     if(props.match.params.project !== "new") {
-      return {
-        project: api.getProject(props.match.params.project),
+      const project = api.getProject(props.match.params.project)
+      if(!project) {
+        return false
+      } else {
+        return {
+          project
+        }
       }
     } else {
       return {
@@ -99,6 +112,16 @@ export default class Editor extends Component {
   }
 
   render() {
+    if(!this.state.project) {
+      return (
+        <EmoteError style={ this.style.placeholder }>
+          <div style={ this.style.placeholder }>
+            <p>A project with that name does not exist</p>
+            <Link to={ "/app/edit/new/default/" }>Why not make a new one</Link>
+          </div>
+        </EmoteError>
+      )
+    }
     if(this.props.match.params.project !== this.state.project.name) {
       return (
         <Redirect to={ "/app/edit/" + this.state.project.name + "/default/" }/>

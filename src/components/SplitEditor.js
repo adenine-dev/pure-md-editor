@@ -43,17 +43,6 @@ export default class SplitEditor extends Component {
       }
     }
   }
-  getProject(props) {
-    if(props.match.params.project !== "new") {
-      return {
-        project: api.getProject(props.match.params.project),
-      }
-    } else {
-      return {
-        project: api.getNewProject()
-      }
-    }
-  }
 
   componentWillReceiveProps(nextProps) {
     this.setState({project: nextProps.project})
