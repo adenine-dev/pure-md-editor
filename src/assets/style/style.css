@@ -60,7 +60,7 @@ body.light::-webkit-scrollbar-thumb {
       font-size: 64px; }
 
 .ham {
-  position: absolute;
+  position: fixed;
   top: 16px;
   right: 16px;
   height: 48px;
