@@ -37,11 +37,18 @@ export default class Editor extends Component {
         width: "100%",
       },
       placeholder: {
-        textAlign: "center",
-        opacity: "0.4",
-        color: themes[this.state.theme].color,
-        fontSize: "48px",
-        fontWeight: "300"
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "columns",
+        text: {
+          textAlign: "center",
+          opacity: "0.4",
+          color: themes[this.state.theme].color,
+          fontSize: "48px",
+          fontWeight: "300",
+        }
       },
       error: {
         backgroundColor: themes[this.state.theme].error,
@@ -58,16 +65,12 @@ export default class Editor extends Component {
     if(props.match.params.project !== "new") {
       const project = api.getProject(props.match.params.project)
       if(!project) {
-        return false
+        return { project: null }
       } else {
-        return {
-          project
-        }
+        return { project }
       }
     } else {
-      return {
-        project: api.getNewProject()
-      }
+      return { project: api.getNewProject() }
     }
   }
 
@@ -114,12 +117,14 @@ export default class Editor extends Component {
   render() {
     if(!this.state.project) {
       return (
-        <EmoteError style={ this.style.placeholder }>
-          <div style={ this.style.placeholder }>
-            <p>A project with that name does not exist</p>
-            <Link to={ "/app/edit/new/default/" }>Why not make a new one</Link>
-          </div>
-        </EmoteError>
+        <div style={ this.style.placeholder }>
+          <EmoteError style={ this.style.placeholder.text }>
+            <div style={ this.style.placeholder.text }>
+              <p>A project with that name does not exist</p>
+              <Link to={ "/app/edit/new/default/" }>Why not make a new one</Link>
+            </div>
+          </EmoteError>
+        </div>
       )
     }
     if(this.props.match.params.project !== this.state.project.name) {
