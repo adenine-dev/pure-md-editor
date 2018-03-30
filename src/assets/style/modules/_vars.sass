@@ -7,3 +7,7 @@ $main-dark: #222
 $text-dark: rgba(#fff, 0.85)
 $bg-alt-dark: #111
 $accent-dark: #89aec6
+
+
+@function getTheme($scheme, $tone: bg)
+  @return map-get(map-get($themes, $scheme), $tone)
