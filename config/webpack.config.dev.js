@@ -192,13 +192,13 @@ module.exports = {
           {
             test: /\.(scss|sass)$/,
             use: [
-              'style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1
-                },
-              },
+              // 'style-loader',
+              // {
+              //   loader: 'css-loader',
+              //   options: {
+              //     importLoaders: 1
+              //   },
+              // },
               {
                 loader: 'sass-loader',
                 // Apply the JSON importer via sass-loader's options.

@@ -15,16 +15,21 @@ a
   height: 4px
 ::-webkit-scrollbar-track
   background-color: transparent
-::-webkit-scrollbar-thumb
-  background-color: $accent-dark
 
+body
+  background-color: $purple
 
-body.dark
-  *::selection
-    background-color: $accent-dark
-
-
-
-body.light
-  *::selection
-    background-color: $accent-light
+// @each $name, $value in $themes
+//   ::-webkit-scrollbar-thumb
+//     background-color: $accent-dark
+//
+//
+//   body.#{$name}
+//     *::selection
+//       background-color: $accent-dark
+//
+//
+//
+//   body.#{$name}
+//     *::selection
+//       background-color: $accent-light
