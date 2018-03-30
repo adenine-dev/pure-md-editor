@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import Radium from 'radium'
 import themes from "../assets/js/theme.js"
+import { StyleSheet, css } from 'aphrodite';
 
 
 
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showPlaceholder: true,
       theme: this.props.theme
     }
-    this.style = {
+    this.style = StyleSheet.create({
       base: {
         position: "relative",
         display: "flex",
@@ -43,7 +43,7 @@ class SearchBar extends Component {
         opacity: "0.4",
 
       },
-    }
+    })
   }
 
   handleChange(e) {
@@ -56,19 +56,19 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className={"search-bar " + (this.props.className || "")}
-           style={{ ...this.style.base, ...this.props.style }}>
-        <div style={{ ...this.style.placeholder,
-                      display: this.state.showPlaceholder ? "block" : "none"}} >
+      <div className={"search-bar " + (this.props.className || "") + " " +
+                      css([this.style.base, this.props.style])} >
+        <div style={{ display: this.state.showPlaceholder ? "block" : "none" }}
+             className={ css(this.style.placeholder) }>
           { this.props.placeholder || (
             <p>
-              <i className="material-icons" style={this.style.innerPlaceholder}>search</i>
-              <span style={this.style.innerPlaceholder}>Search</span>
+              <i className={ css(this.style.innerPlaceholder) + " material-icons" }>search</i>
+              <span className={ css(this.style.innerPlaceholder) }>Search</span>
             </p>
           )}
         </div>
         <input id="search"
-               style={this.style.input}
+               className={ css(this.style.input) }
                onChange={ this.handleChange.bind(this) }
                type="text"/>
       </div>
@@ -76,5 +76,3 @@ class SearchBar extends Component {
     )
   }
 }
-
-export default Radium(SearchBar)
