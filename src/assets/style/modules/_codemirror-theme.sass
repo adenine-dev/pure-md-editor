@@ -22,39 +22,39 @@
       color: rgba(getTheme($name, "color"), 0.3)
       &.cm-formatting-underline, &.cm-formatting-strikethrough
       text-decoration: none
-    .CodeMirror-line * *:not(.cm-m-markdown)
+    .CodeMirror-line * *:not(.cm-m-markdown), .markdown-renderer.#{$name} .token
       color: getCodeTheme($name, "base")
       &.CodeMirror-activeline-background
         background: rgba(0, 0, 0, 0)
-      &.cm-keyword
+      &.cm-keyword, &.keyword
         color: getCodeTheme($name, "keyword")
-      &.cm-operator
+      &.cm-operator, &.operator
         color: getCodeTheme($name, "operator")
-      &.cm-variable-2
+      &.cm-variable-2, &.variable-2
         color: getCodeTheme($name, "variable-2")
-      &.cm-variable-3, &.cm-type
+      &.cm-variable-3, &.cm-type, &.variable-3, &.type
         color: getCodeTheme($name, "type")
-      &.cm-builtin
+      &.cm-builtin, &.builtin
         color: getCodeTheme($name, "builtin")
-      &.cm-atom, &.cm-number
+      &.cm-atom, &.cm-number, &.atom, &.number
         color: getCodeTheme($name, "number")
-      &.cm-string
+      &.cm-string, &.string
         color: getCodeTheme($name, "string")
-      &.cm-string-2
+      &.cm-string-2, &.string-2
         color: getCodeTheme($name, "string-2")
-      &.cm-comment
+      &.cm-comment, &.comment
         color: getCodeTheme($name, "comment")
-      &.cm-variable, &.cm-def, &.cm-property
+      &.cm-variable, &.cm-def, &.cm-property, &.variable, &.def, &.property
         color: getCodeTheme($name, "variable")
-      &.cm-tag, &.cm-meta
+      &.cm-tag, &.cm-meta, &.tag, &.meta
         color: getCodeTheme($name, "tag")
-      &.cm-attribute
+      &.cm-attribute, &.attribute
         color: getCodeTheme($name, "attribute")
-      &.cm-qualifier, &.cm-variable-3, &.cm-type
+      &.cm-qualifier, &.cm-variable-3, &.cm-type, &.qualifier, &.variable-3, &.type
         color: getCodeTheme($name, "qualifier")
-      &.cm-tag
+      &.cm-tag, &.tag
         color: getCodeTheme($name, "tag")
-      &.cm-error
+      &.cm-error, &.error
         color: getCodeTheme($name, "error")
       &.CodeMirror-matchingbracket
         text-decoration: underline

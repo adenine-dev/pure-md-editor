@@ -1,5 +1,4 @@
-.markdown-renderer.dark
-  color: $text-dark
+.markdown-renderer
   font-size: 24px
   padding: 4px 0
   h1, h2, h3, h4, h5, h6
@@ -21,56 +20,29 @@
   h6
     font-size: 1em
   pre, blockquote
-    font-family: "Roboto-Mono", monospace
-    background-color: $bg-alt-dark
-    border-left: 4px solid $accent-dark
+    // font-family: "Roboto-Mono", monospace
     padding: 8px 32px
     margin: 8px 0
     code
       font-family: "Roboto-Mono", monospace
-      color: #82B1FF
-      > *
-        font-family: "Roboto-Mono", monospace
       .token
-        &.keyword
-          color: rgba(199, 146, 234, 1)
-        &.operator, &.punctuation
-          color: rgba(233, 237, 237, 1)
-        &.variable-2
-          color: #80CBC4
-        &.variable-3, &.type
-          color: #82B1FF
-        &.builtin
-          color: #DECB6B
-        &.atom, &.number
-          color: #F77669
-        &.def
-          color: rgba(233, 237, 237, 1)
-        &.string
-          color: #C3E88D
-        &.string-2
-          color: #80CBC4
-        &.comment
-          color: #546E7A
-        &.variable, &.builtin
-          color: #82B1FF
-        &.tag, &.meta
-          color: #80CBC4
-        &.attribute
-          color: #FFCB6B
-        &.property
-          color: #80CBAE
-        &.qualifier, &.variable-3, &.type
-          color: #DECB6B
-        &.tag
-          color: rgba(255, 83, 112, 1)
-        &.error
-          color: rgba(255, 255, 255, 1)
-          background-color: #EC5F67
+        font-family: inherit
 
   hr
     height: 1px
-    background-color: rgba($text-dark, 0.4)
     margin: 8px 0
   ul, ol
     margin-left: 32px
+
+
+@each $name, $value in $themes
+  body.#{$name}
+    .markdown-renderer.#{$name}
+      color: getTheme($name, "color")
+      pre, blockquote
+        background-color: getTheme($name, "bgAlt")
+        border-left: 4px solid getTheme($name, "accent")
+        code
+          color: getCodeTheme($name, "variable")
+      hr
+        background-color: rgba(getTheme($name, "color"), 0.4)

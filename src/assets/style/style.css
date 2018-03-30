@@ -436,41 +436,41 @@ body.dark .cm-formatting {
   color: rgba(255, 255, 255, 0.3);
   text-decoration: none; }
 
-body.dark .CodeMirror-line * *:not(.cm-m-markdown) {
+body.dark .CodeMirror-line * *:not(.cm-m-markdown), body.dark .markdown-renderer.dark .token {
   color: #e9eded; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-activeline-background {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-activeline-background, body.dark .markdown-renderer.dark .token.CodeMirror-activeline-background {
     background: transparent; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-keyword {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-keyword, body.dark .CodeMirror-line * *:not(.cm-m-markdown).keyword, body.dark .markdown-renderer.dark .token.cm-keyword, body.dark .markdown-renderer.dark .token.keyword {
     color: #c792ea; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-operator {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-operator, body.dark .CodeMirror-line * *:not(.cm-m-markdown).operator, body.dark .markdown-renderer.dark .token.cm-operator, body.dark .markdown-renderer.dark .token.operator {
     color: #e9eded; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-2 {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-2, body.dark .CodeMirror-line * *:not(.cm-m-markdown).variable-2, body.dark .markdown-renderer.dark .token.cm-variable-2, body.dark .markdown-renderer.dark .token.variable-2 {
     color: #80CBC4; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-type {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-type, body.dark .CodeMirror-line * *:not(.cm-m-markdown).variable-3, body.dark .CodeMirror-line * *:not(.cm-m-markdown).type, body.dark .markdown-renderer.dark .token.cm-variable-3, body.dark .markdown-renderer.dark .token.cm-type, body.dark .markdown-renderer.dark .token.variable-3, body.dark .markdown-renderer.dark .token.type {
     color: DECB6B; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-builtin {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-builtin, body.dark .CodeMirror-line * *:not(.cm-m-markdown).builtin, body.dark .markdown-renderer.dark .token.cm-builtin, body.dark .markdown-renderer.dark .token.builtin {
     color: #DECB6B; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-atom, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-number {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-atom, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-number, body.dark .CodeMirror-line * *:not(.cm-m-markdown).atom, body.dark .CodeMirror-line * *:not(.cm-m-markdown).number, body.dark .markdown-renderer.dark .token.cm-atom, body.dark .markdown-renderer.dark .token.cm-number, body.dark .markdown-renderer.dark .token.atom, body.dark .markdown-renderer.dark .token.number {
     color: #F77669; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-string {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-string, body.dark .CodeMirror-line * *:not(.cm-m-markdown).string, body.dark .markdown-renderer.dark .token.cm-string, body.dark .markdown-renderer.dark .token.string {
     color: #C3E88D; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-string-2 {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-string-2, body.dark .CodeMirror-line * *:not(.cm-m-markdown).string-2, body.dark .markdown-renderer.dark .token.cm-string-2, body.dark .markdown-renderer.dark .token.string-2 {
     color: #80CBC4; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-comment {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-comment, body.dark .CodeMirror-line * *:not(.cm-m-markdown).comment, body.dark .markdown-renderer.dark .token.cm-comment, body.dark .markdown-renderer.dark .token.comment {
     color: #546E7A; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-def, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-property {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-def, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-property, body.dark .CodeMirror-line * *:not(.cm-m-markdown).variable, body.dark .CodeMirror-line * *:not(.cm-m-markdown).def, body.dark .CodeMirror-line * *:not(.cm-m-markdown).property, body.dark .markdown-renderer.dark .token.cm-variable, body.dark .markdown-renderer.dark .token.cm-def, body.dark .markdown-renderer.dark .token.cm-property, body.dark .markdown-renderer.dark .token.variable, body.dark .markdown-renderer.dark .token.def, body.dark .markdown-renderer.dark .token.property {
     color: #82B1FF; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-meta {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-meta, body.dark .CodeMirror-line * *:not(.cm-m-markdown).tag, body.dark .CodeMirror-line * *:not(.cm-m-markdown).meta, body.dark .markdown-renderer.dark .token.cm-tag, body.dark .markdown-renderer.dark .token.cm-meta, body.dark .markdown-renderer.dark .token.tag, body.dark .markdown-renderer.dark .token.meta {
     color: #ff5370; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-attribute {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-attribute, body.dark .CodeMirror-line * *:not(.cm-m-markdown).attribute, body.dark .markdown-renderer.dark .token.cm-attribute, body.dark .markdown-renderer.dark .token.attribute {
     color: #FFCB6B; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-qualifier, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-type {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-qualifier, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-type, body.dark .CodeMirror-line * *:not(.cm-m-markdown).qualifier, body.dark .CodeMirror-line * *:not(.cm-m-markdown).variable-3, body.dark .CodeMirror-line * *:not(.cm-m-markdown).type, body.dark .markdown-renderer.dark .token.cm-qualifier, body.dark .markdown-renderer.dark .token.cm-variable-3, body.dark .markdown-renderer.dark .token.cm-type, body.dark .markdown-renderer.dark .token.qualifier, body.dark .markdown-renderer.dark .token.variable-3, body.dark .markdown-renderer.dark .token.type {
     color: #DECB6B; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-tag {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.dark .CodeMirror-line * *:not(.cm-m-markdown).tag, body.dark .markdown-renderer.dark .token.cm-tag, body.dark .markdown-renderer.dark .token.tag {
     color: #ff5370; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-error {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).cm-error, body.dark .CodeMirror-line * *:not(.cm-m-markdown).error, body.dark .markdown-renderer.dark .token.cm-error, body.dark .markdown-renderer.dark .token.error {
     color: #EC5F67; }
-  body.dark .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-matchingbracket {
+  body.dark .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-matchingbracket, body.dark .markdown-renderer.dark .token.CodeMirror-matchingbracket {
     text-decoration: underline;
     color: white !important; }
 
@@ -494,41 +494,41 @@ body.light .cm-formatting {
   color: rgba(0, 0, 0, 0.3);
   text-decoration: none; }
 
-body.light .CodeMirror-line * *:not(.cm-m-markdown) {
+body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-renderer.light .token {
   color: #212121; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-activeline-background {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-activeline-background, body.light .markdown-renderer.light .token.CodeMirror-activeline-background {
     background: transparent; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-keyword {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-keyword, body.light .CodeMirror-line * *:not(.cm-m-markdown).keyword, body.light .markdown-renderer.light .token.cm-keyword, body.light .markdown-renderer.light .token.keyword {
     color: #c792ea; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-operator {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-operator, body.light .CodeMirror-line * *:not(.cm-m-markdown).operator, body.light .markdown-renderer.light .token.cm-operator, body.light .markdown-renderer.light .token.operator {
     color: #212121; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-2 {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-2, body.light .CodeMirror-line * *:not(.cm-m-markdown).variable-2, body.light .markdown-renderer.light .token.cm-variable-2, body.light .markdown-renderer.light .token.variable-2 {
     color: #80CBC4; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-type {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-type, body.light .CodeMirror-line * *:not(.cm-m-markdown).variable-3, body.light .CodeMirror-line * *:not(.cm-m-markdown).type, body.light .markdown-renderer.light .token.cm-variable-3, body.light .markdown-renderer.light .token.cm-type, body.light .markdown-renderer.light .token.variable-3, body.light .markdown-renderer.light .token.type {
     color: DECB6B; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-builtin {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-builtin, body.light .CodeMirror-line * *:not(.cm-m-markdown).builtin, body.light .markdown-renderer.light .token.cm-builtin, body.light .markdown-renderer.light .token.builtin {
     color: #DECB6B; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-atom, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-number {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-atom, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-number, body.light .CodeMirror-line * *:not(.cm-m-markdown).atom, body.light .CodeMirror-line * *:not(.cm-m-markdown).number, body.light .markdown-renderer.light .token.cm-atom, body.light .markdown-renderer.light .token.cm-number, body.light .markdown-renderer.light .token.atom, body.light .markdown-renderer.light .token.number {
     color: #B71C1C; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-string {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-string, body.light .CodeMirror-line * *:not(.cm-m-markdown).string, body.light .markdown-renderer.light .token.cm-string, body.light .markdown-renderer.light .token.string {
     color: #558b2f; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-string-2 {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-string-2, body.light .CodeMirror-line * *:not(.cm-m-markdown).string-2, body.light .markdown-renderer.light .token.cm-string-2, body.light .markdown-renderer.light .token.string-2 {
     color: #00796b; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-comment {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-comment, body.light .CodeMirror-line * *:not(.cm-m-markdown).comment, body.light .markdown-renderer.light .token.cm-comment, body.light .markdown-renderer.light .token.comment {
     color: #607d8b; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-def, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-property {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-def, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-property, body.light .CodeMirror-line * *:not(.cm-m-markdown).variable, body.light .CodeMirror-line * *:not(.cm-m-markdown).def, body.light .CodeMirror-line * *:not(.cm-m-markdown).property, body.light .markdown-renderer.light .token.cm-variable, body.light .markdown-renderer.light .token.cm-def, body.light .markdown-renderer.light .token.cm-property, body.light .markdown-renderer.light .token.variable, body.light .markdown-renderer.light .token.def, body.light .markdown-renderer.light .token.property {
     color: #2196f3; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-meta {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-meta, body.light .CodeMirror-line * *:not(.cm-m-markdown).tag, body.light .CodeMirror-line * *:not(.cm-m-markdown).meta, body.light .markdown-renderer.light .token.cm-tag, body.light .markdown-renderer.light .token.cm-meta, body.light .markdown-renderer.light .token.tag, body.light .markdown-renderer.light .token.meta {
     color: #ff5370; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-attribute {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-attribute, body.light .CodeMirror-line * *:not(.cm-m-markdown).attribute, body.light .markdown-renderer.light .token.cm-attribute, body.light .markdown-renderer.light .token.attribute {
     color: #FFCB6B; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-qualifier, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-type {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-qualifier, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-type, body.light .CodeMirror-line * *:not(.cm-m-markdown).qualifier, body.light .CodeMirror-line * *:not(.cm-m-markdown).variable-3, body.light .CodeMirror-line * *:not(.cm-m-markdown).type, body.light .markdown-renderer.light .token.cm-qualifier, body.light .markdown-renderer.light .token.cm-variable-3, body.light .markdown-renderer.light .token.cm-type, body.light .markdown-renderer.light .token.qualifier, body.light .markdown-renderer.light .token.variable-3, body.light .markdown-renderer.light .token.type {
     color: #DECB6B; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-tag {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.light .CodeMirror-line * *:not(.cm-m-markdown).tag, body.light .markdown-renderer.light .token.cm-tag, body.light .markdown-renderer.light .token.tag {
     color: #ff5370; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-error {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).cm-error, body.light .CodeMirror-line * *:not(.cm-m-markdown).error, body.light .markdown-renderer.light .token.cm-error, body.light .markdown-renderer.light .token.error {
     color: #EC5F67; }
-  body.light .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-matchingbracket {
+  body.light .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-matchingbracket, body.light .markdown-renderer.light .token.CodeMirror-matchingbracket {
     text-decoration: underline;
     color: white !important; }
 
@@ -601,77 +601,56 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown) {
 .cm-formatting-quote {
   padding-right: 16px; }
 
-.markdown-renderer.dark {
-  color: rgba(255, 255, 255, 0.85);
+.markdown-renderer {
   font-size: 24px;
   padding: 4px 0; }
-  .markdown-renderer.dark h1, .markdown-renderer.dark h2, .markdown-renderer.dark h3, .markdown-renderer.dark h4, .markdown-renderer.dark h5, .markdown-renderer.dark h6 {
+  .markdown-renderer h1, .markdown-renderer h2, .markdown-renderer h3, .markdown-renderer h4, .markdown-renderer h5, .markdown-renderer h6 {
     font-weight: 800;
     line-height: 1.1em; }
-  .markdown-renderer.dark h1 {
+  .markdown-renderer h1 {
     font-size: 2.4em;
     line-height: 1.6em; }
-  .markdown-renderer.dark h2 {
+  .markdown-renderer h2 {
     font-size: 2em;
     line-height: 1.4em; }
-  .markdown-renderer.dark h3 {
+  .markdown-renderer h3 {
     font-size: 1.8em;
     line-height: 1.2em; }
-  .markdown-renderer.dark h4 {
+  .markdown-renderer h4 {
     font-size: 1.4em; }
-  .markdown-renderer.dark h5 {
+  .markdown-renderer h5 {
     font-size: 1.2em; }
-  .markdown-renderer.dark h6 {
+  .markdown-renderer h6 {
     font-size: 1em; }
-  .markdown-renderer.dark pre, .markdown-renderer.dark blockquote {
-    font-family: "Roboto-Mono", monospace;
-    background-color: #111;
-    border-left: 4px solid #89aec6;
+  .markdown-renderer pre, .markdown-renderer blockquote {
     padding: 8px 32px;
     margin: 8px 0; }
-    .markdown-renderer.dark pre code, .markdown-renderer.dark blockquote code {
-      font-family: "Roboto-Mono", monospace;
-      color: #82B1FF; }
-      .markdown-renderer.dark pre code > *, .markdown-renderer.dark blockquote code > * {
-        font-family: "Roboto-Mono", monospace; }
-      .markdown-renderer.dark pre code .token.keyword, .markdown-renderer.dark blockquote code .token.keyword {
-        color: #c792ea; }
-      .markdown-renderer.dark pre code .token.operator, .markdown-renderer.dark pre code .token.punctuation, .markdown-renderer.dark blockquote code .token.operator, .markdown-renderer.dark blockquote code .token.punctuation {
-        color: #e9eded; }
-      .markdown-renderer.dark pre code .token.variable-2, .markdown-renderer.dark blockquote code .token.variable-2 {
-        color: #80CBC4; }
-      .markdown-renderer.dark pre code .token.variable-3, .markdown-renderer.dark pre code .token.type, .markdown-renderer.dark blockquote code .token.variable-3, .markdown-renderer.dark blockquote code .token.type {
-        color: #82B1FF; }
-      .markdown-renderer.dark pre code .token.builtin, .markdown-renderer.dark blockquote code .token.builtin {
-        color: #DECB6B; }
-      .markdown-renderer.dark pre code .token.atom, .markdown-renderer.dark pre code .token.number, .markdown-renderer.dark blockquote code .token.atom, .markdown-renderer.dark blockquote code .token.number {
-        color: #F77669; }
-      .markdown-renderer.dark pre code .token.def, .markdown-renderer.dark blockquote code .token.def {
-        color: #e9eded; }
-      .markdown-renderer.dark pre code .token.string, .markdown-renderer.dark blockquote code .token.string {
-        color: #C3E88D; }
-      .markdown-renderer.dark pre code .token.string-2, .markdown-renderer.dark blockquote code .token.string-2 {
-        color: #80CBC4; }
-      .markdown-renderer.dark pre code .token.comment, .markdown-renderer.dark blockquote code .token.comment {
-        color: #546E7A; }
-      .markdown-renderer.dark pre code .token.variable, .markdown-renderer.dark pre code .token.builtin, .markdown-renderer.dark blockquote code .token.variable, .markdown-renderer.dark blockquote code .token.builtin {
-        color: #82B1FF; }
-      .markdown-renderer.dark pre code .token.tag, .markdown-renderer.dark pre code .token.meta, .markdown-renderer.dark blockquote code .token.tag, .markdown-renderer.dark blockquote code .token.meta {
-        color: #80CBC4; }
-      .markdown-renderer.dark pre code .token.attribute, .markdown-renderer.dark blockquote code .token.attribute {
-        color: #FFCB6B; }
-      .markdown-renderer.dark pre code .token.property, .markdown-renderer.dark blockquote code .token.property {
-        color: #80CBAE; }
-      .markdown-renderer.dark pre code .token.qualifier, .markdown-renderer.dark pre code .token.variable-3, .markdown-renderer.dark pre code .token.type, .markdown-renderer.dark blockquote code .token.qualifier, .markdown-renderer.dark blockquote code .token.variable-3, .markdown-renderer.dark blockquote code .token.type {
-        color: #DECB6B; }
-      .markdown-renderer.dark pre code .token.tag, .markdown-renderer.dark blockquote code .token.tag {
-        color: #ff5370; }
-      .markdown-renderer.dark pre code .token.error, .markdown-renderer.dark blockquote code .token.error {
-        color: white;
-        background-color: #EC5F67; }
-  .markdown-renderer.dark hr {
+    .markdown-renderer pre code, .markdown-renderer blockquote code {
+      font-family: "Roboto-Mono", monospace; }
+      .markdown-renderer pre code .token, .markdown-renderer blockquote code .token {
+        font-family: inherit; }
+  .markdown-renderer hr {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.4);
     margin: 8px 0; }
-  .markdown-renderer.dark ul, .markdown-renderer.dark ol {
+  .markdown-renderer ul, .markdown-renderer ol {
     margin-left: 32px; }
+
+body.dark .markdown-renderer.dark {
+  color: rgba(255, 255, 255, 0.85); }
+  body.dark .markdown-renderer.dark pre, body.dark .markdown-renderer.dark blockquote {
+    background-color: #111;
+    border-left: 4px solid #89aec6; }
+    body.dark .markdown-renderer.dark pre code, body.dark .markdown-renderer.dark blockquote code {
+      color: #82B1FF; }
+  body.dark .markdown-renderer.dark hr {
+    background-color: rgba(255, 255, 255, 0.4); }
+
+body.light .markdown-renderer.light {
+  color: rgba(0, 0, 0, 0.85); }
+  body.light .markdown-renderer.light pre, body.light .markdown-renderer.light blockquote {
+    background-color: #cfcfcf;
+    border-left: 4px solid #c68989; }
+    body.light .markdown-renderer.light pre code, body.light .markdown-renderer.light blockquote code {
+      color: #2196f3; }
+  body.light .markdown-renderer.light hr {
+    background-color: rgba(0, 0, 0, 0.4); }
