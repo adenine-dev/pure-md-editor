@@ -6,7 +6,7 @@ import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import MarkdownRenderer from "./MarkdownRenderer.js"
 
 import api from "../assets/js/api.js"
-import themes from "../assets/js/theme.js"
+import { themes } from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
 
 

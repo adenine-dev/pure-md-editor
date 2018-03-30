@@ -62,10 +62,6 @@ body.light::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     flex-direction: column; }
-    .menu .nav .important h2 {
-      font-weight: 300;
-      font-size: 64px;
-      line-height: 1.6em; }
 
 .ham {
   position: fixed;

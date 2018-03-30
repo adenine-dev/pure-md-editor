@@ -64,5 +64,13 @@
         "error": "#EC5F67"
       }
     }
+  },
+  
+  "breakpoints": {
+    "wideScreen": "@media only screen and (max-width : 1200px)",
+    "desktop": "@media only screen and (max-width : 992px)",
+    "tablet": "@media only screen and (max-width : 768px)",
+    "phone": "@media only screen and (max-width : 480px)",
+    "small": "@media only screen and (max-width : 320px)"
   }
 }

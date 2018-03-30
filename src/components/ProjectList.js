@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
 
 import api from "../assets/js/api.js"
-import themes from "../assets/js/theme.js"
+import { themes } from "../assets/js/theme.js"
 
 import SearchBar from "./SearchBar.js"
 import EmoteError from "./EmoteError.js"

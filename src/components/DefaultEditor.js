@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
 
 import api from "../assets/js/api.js"
-import themes from "../assets/js/theme.js"
+import { themes } from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
 
 

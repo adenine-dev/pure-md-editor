@@ -7,7 +7,7 @@ import SplitEditor from "./SplitEditor.js"
 import Notification from "./Notification.js"
 import EmoteError from "./EmoteError.js"
 
-import themes from "../assets/js/theme.js"
+import { themes } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 

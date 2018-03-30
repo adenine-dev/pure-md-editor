@@ -3,7 +3,7 @@ import showdown from 'showdown';
 import "showdown-prettify"
 import Prism from "prismjs"
 
-import themes from "../assets/js/theme.js"
+import { themes } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
 
 export default class MarkdownRenderer extends Component {

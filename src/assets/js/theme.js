@@ -1,3 +1,6 @@
-import themes from "../style/style.json"
+import style from "../style/style.json"
 
-export default themes.themes
+const themes = style.themes
+const breakpoints = style.breakpoints
+
+export { themes, breakpoints }

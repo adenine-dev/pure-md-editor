@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { StyleSheet, css } from 'aphrodite';
 
-import themes from "../assets/js/theme.js"
+import { themes } from "../assets/js/theme.js"
 
 export default class Menu extends Component {
   constructor(props) {
@@ -10,22 +11,23 @@ export default class Menu extends Component {
       theme: this.props.theme,
       showNav: false
     }
-    this.style = {
+    this.style = StyleSheet.create({
       menu: {
         height: "100vh",
-        width: "0",
+        width: "100%",
         top: "0",
-        left: "100%",
         position: "fixed",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
         backgroundColor: themes[this.state.theme].bg,
         borderTop: "8px solid" + themes[this.state.theme].accent,
         overflow: "hidden",
         zIndex: "10",
-        active: {
-          left: "0",
-          width: "100%",
-        }
+      },
+      active: {
+        left: "0",
+      },
+      hidden: {
+        left: "100%",
       },
       important: {
         after: {
@@ -37,6 +39,14 @@ export default class Menu extends Component {
           left: "0",
           backgroundColor: "rgba(" + themes[this.state.theme].accent + ", 0.2)",
         }
+      },
+      menuContentContainer: {
+
+      },
+      importantH2: {
+        fontWeight: "300",
+        fontSize: "64px",
+        lineHeight: "1.6em",
       },
       hamIcoSpans: {
         backgroundColor: themes[this.state.theme].color,
@@ -68,7 +78,7 @@ export default class Menu extends Component {
         alignItems: "center",
         position: "relative",
       }
-    }
+    })
   }
 
   toggleNav(e) {
@@ -80,13 +90,11 @@ export default class Menu extends Component {
       <div className={ "menu " + this.state.theme } >
         <div className={"ham " + (this.state.showNav ? "active" : "")}
              onClick={ this.toggleNav.bind(this) }>
-          <span style={ this.style.hamIcoSpans }></span>
-          <span style={ this.style.hamIcoSpans }></span>
-          <span style={ this.style.hamIcoSpans }></span>
+          <span className={ css(this.style.hamIcoSpans) }></span>
+          <span className={ css(this.style.hamIcoSpans) }></span>
+          <span className={ css(this.style.hamIcoSpans) }></span>
         </div>
-        <div className="nav"
-             style={{ ...this.style.menu,
-                      ...(this.state.showNav ? this.style.menu.active : {}) }}>
+        <div className={ css([this.style.menu, (this.state.showNav ? this.style.active : this.style.hidden)]) + " nav"} >
           {this.state.showNav && (
             <div style={ this.style.flex } className="menu-option-container">
               <div className="side">
@@ -110,17 +118,21 @@ export default class Menu extends Component {
                 </ul>
               </div>
               <div className="important" style={ this.style.important }>
-                <span className="separator" style={ this.style.separator }></span>
-                <h2><Link className="hover-effect"
+                <span className={ "separator" + css(this.style.separator) }></span>
+                <h2 className={ css(this.style.importantH2) }>
+                  <Link className="hover-effect"
                           to="/app/projects/"
-                          onClick={ this.toggleNav.bind(this) }>Projects
-                          <span style={ this.style.hover }></span>
+                          onClick={ this.toggleNav.bind(this) }>
+                          Projects
+                          <span className={ css(this.style.hover) }></span>
                     </Link>
                   </h2>
-                <h2><Link className="hover-effect"
+                <h2 className={ css(this.style.importantH2) }>
+                  <Link className="hover-effect"
                           to="/app/edit/new/default/"
-                          onClick={ this.toggleNav.bind(this) }>New Project
-                          <span style={ this.style.hover }></span>
+                          onClick={ this.toggleNav.bind(this) }>
+                          New Project
+                          <span className={ css(this.style.hover) }></span>
                     </Link>
                   </h2>
               </div>
