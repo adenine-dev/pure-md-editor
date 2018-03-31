@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import showdown from 'showdown';
 import "showdown-prettify"
 import Prism from "prismjs"
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 import { themes } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
@@ -25,13 +26,13 @@ export default class MarkdownRenderer extends Component {
       }),
       theme: api.getSetting("theme"),
     }
-    this.style = {
+    this.style = StyleSheet.create({
       renderer: {
         width: "90%",
         margin: "32px auto",
         maxWidth: "960px",
       }
-    }
+    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,8 +64,7 @@ export default class MarkdownRenderer extends Component {
 
   render() {
     return (
-      <div className={"markdown-renderer " + this.state.theme}
-           style={{ ...this.style.renderer, ...this.props.style }}
+      <div className={"markdown-renderer " + this.state.theme + " " + css([this.style.renderer, this.props.style])}
            ref={(renderer) => {this.renderer = renderer}}>
       </div>
     )

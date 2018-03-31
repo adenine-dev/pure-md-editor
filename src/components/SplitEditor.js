@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Mousetrap from "mousetrap"
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import MarkdownRenderer from "./MarkdownRenderer.js"
@@ -19,7 +20,7 @@ export default class SplitEditor extends Component {
       project: props.project,
       theme: api.getSetting("theme"),
     }
-    this.style = {
+    this.style = StyleSheet.create({
       splitter: {
         display: "flex",
         justifyContent: "space-around",
@@ -27,11 +28,11 @@ export default class SplitEditor extends Component {
         position: "relative",
         width: "90%",
         margin: "0 auto",
-
       },
       splitItem: {
         width: "50%",
-        padding: "8px"
+        padding: "8px",
+        overflow: "scroll"
       },
       divBar: {
         width: "1px",
@@ -41,7 +42,7 @@ export default class SplitEditor extends Component {
         opacity: "0.2",
         top: "64px",
       }
-    }
+    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -60,11 +61,11 @@ export default class SplitEditor extends Component {
   render() {
     return (
       <div className="split-editor">
-        <div className="spit-view" style={ this.style.splitter }>
+        <div className={"spit-view " + css(this.style.splitter) }>
           <CodeMirrorEditor defaultValue={ this.state.project.value }
                             onChange={ this.handleCmChange.bind(this) }
                             style={ this.style.splitItem }/>
-          <div style={ this.style.divBar }></div>
+          <div className={ css(this.style.divBar) }></div>
           <MarkdownRenderer markdown={ this.state.project.value }
                             style={ this.style.splitItem }/>
         </div>

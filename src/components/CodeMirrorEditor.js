@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 import '../assets/js/codemirror/mode/gfm.js';
 
@@ -15,11 +16,7 @@ import 'codemirror/mode/javascript/javascript.js';
 
 
 
-const editorWrapperStyle = {
-  width: "90%",
-  margin: "32px auto",
-  maxWidth: "960px",
-}
+
 
 export default class CodeMirrorEditor extends Component {
   constructor(props) {
@@ -29,6 +26,13 @@ export default class CodeMirrorEditor extends Component {
       value: props.defaultValue,
       theme: props.theme
     }
+    this.style = StyleSheet.create({
+      editorWrapperStyle: {
+        width: "90%",
+        margin: "32px auto",
+        maxWidth: "960px",
+      }
+    })
   }
   componentDidMount() {
     let editor = CodeMirror(this.cm, {
@@ -70,9 +74,7 @@ export default class CodeMirrorEditor extends Component {
   }
   render() {
     return (
-      <div className={"editor " + this.props.className || ""}
-           style={{...editorWrapperStyle, ...this.props.style}}>
-
+      <div className={ css([this.props.style, this.style.editorWrapperStyle]) + " editor " + (this.props.className || "")} >
         <div id="main-editor"
              className={ this.state.theme }
              ref={(cm) => { this.cm = cm }}></div>

@@ -17,16 +17,6 @@ export default class DefaultEditor extends Component {
       project: props.project,
       theme: api.getSetting("theme"),
     }
-    this.style = {
-      error: {
-        backgroundColor: themes[this.state.theme].error,
-        color: themes[this.state.theme].color,
-      },
-      success: {
-        backgroundColor: themes[this.state.theme].success,
-        color: themes[this.state.theme].color,
-      }
-    }
   }
 
   handleCmChange(cm) {
