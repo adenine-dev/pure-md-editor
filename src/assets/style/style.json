@@ -71,6 +71,6 @@
     "desktop": "992px",
     "tablet": "600px",
     "phone": "480px",
-    "small": "320px"
+    "small": "380px"
   }
 }

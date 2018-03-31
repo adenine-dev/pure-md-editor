@@ -37,7 +37,7 @@ export default class Menu extends Component {
         display: "flex",
         justifyContent: "center",
         flexDirection: "column",
-      [breakpoints.tablet]: {
+        [breakpoints.tablet]: {
           flex: "1"
         },
       },
@@ -60,6 +60,15 @@ export default class Menu extends Component {
         fontWeight: "300",
         fontSize: "64px",
         lineHeight: "1.6em",
+        [breakpoints.tablet]: {
+          fontSize: "56px"
+        },
+        [breakpoints.phone]: {
+          fontSize: "48px"
+        },
+        [breakpoints.small]: {
+          fontSize: "32px"
+        },
       },
       hamIcoSpans: {
         backgroundColor: themes[this.state.theme].color,
