@@ -16,6 +16,9 @@ a
 ::-webkit-scrollbar-track
   background-color: transparent
 
+ul:not(.CodeMirror *)
+  list-style: none
+
 
 @each $name, $value in $themes
   body.#{$name}

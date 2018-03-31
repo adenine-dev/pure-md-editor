@@ -68,8 +68,8 @@
 
   "breakpoints": {
     "wideScreen": "1200px",
-    "desktop": "992px",
-    "tablet": "600px",
+    "desktop": "950px",
+    "tablet": "680px",
     "phone": "480px",
     "small": "380px"
   }

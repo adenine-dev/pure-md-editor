@@ -17,6 +17,9 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent; }
 
+ul:not(.CodeMirror *) {
+  list-style: none; }
+
 body.dark *::selection {
   background-color: #89aec6; }
 
@@ -28,18 +31,6 @@ body.light *::selection {
 
 body.light::-webkit-scrollbar-thumb {
   background-color: #c68989; }
-
-.menu .hover-effect {
-  position: relative;
-  display: table;
-  cursor: pointer; }
-
-.menu .nav {
-  height: 100vh; }
-  .menu .nav .side ul {
-    list-style: none; }
-    .menu .nav .side ul li {
-      margin-bottom: 16px; }
 
 .ham {
   position: fixed;

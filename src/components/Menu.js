@@ -38,12 +38,34 @@ export default class Menu extends Component {
         justifyContent: "center",
         flexDirection: "column",
         [breakpoints.tablet]: {
+          width: "100%",
           flex: "1"
+        },
+        ":after": {
+          content: "''",
+          position: "absolute",
+          height: "80%",
+          width: "1px",
+          bottom: "10%",
+          left: "0",
+          opacity: "0.2",
+          backgroundColor: themes[this.state.theme].accent,
+          [breakpoints.tablet]: {
+            width: "80%",
+            height: "1px",
+            left: "10%",
+            bottom: "0",
+          },
         },
       },
       side: {
-        flex: "1",
+        // flex: "1",
         padding: "16px",
+        width: "200px",
+        [breakpoints.tablet]: {
+          width: "100%",
+          padding: "64px"
+        },
       },
       menuContentContainer: {
         color: themes[this.state.theme].color,
@@ -70,10 +92,19 @@ export default class Menu extends Component {
           fontSize: "32px"
         },
       },
+      li: {
+        marginBottom: "16px",
+        fontSize: "16px",
+        [breakpoints.tablet]: {
+          fontSize: "24px",
+        },
+        [breakpoints.small]: {
+          fontSize: "16px",
+        },
+      },
       hamIcoSpans: {
         backgroundColor: themes[this.state.theme].color,
       },
-      hover: {},
       hoverItem: {
         position: "relative",
         display: "table",
@@ -96,15 +127,6 @@ export default class Menu extends Component {
           }
         }
       },
-      separator: {
-        position: "absolute",
-        height: "80%",
-        width: "1px",
-        top: "10%",
-        left: "0",
-        opacity: "0.2",
-        backgroundColor: themes[this.state.theme].accent,
-      },
     })
   }
 
@@ -121,26 +143,26 @@ export default class Menu extends Component {
           <span className={ css(this.style.hamIcoSpans) }></span>
           <span className={ css(this.style.hamIcoSpans) }></span>
         </div>
-        <div className={ css([this.style.menu, (this.state.showNav ? this.style.active : this.style.hidden)]) + " nav"} >
+        <div className={ css([this.style.menu, (this.state.showNav ? this.style.active : this.style.hidden)])} >
           {this.state.showNav && (
             <div className={ "menu-option-container " + css(this.style.menuContentContainer)}>
               <div className={"side " + css(this.style.side)}>
                 <ul>
-                  <li className={"hover-effect " + css(this.style.hoverItem)}
+                  <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
-                        Settings<span className={ css(this.style.hover) }></span>
+                        Settings
                   </li>
-                  <li className={"hover-effect " + css(this.style.hoverItem)}
+                  <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
-                        Markdown cheetsheet<span className={ css(this.style.hover) }></span>
+                        Markdown cheetsheet
                   </li>
-                  <li className={"hover-effect " + css(this.style.hoverItem)}
+                  <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
-                        Hotkeys<span className={ css(this.style.hover) }></span>
+                        Hotkeys
                   </li>
-                  <li className={"hover-effect " + css(this.style.hoverItem)}
+                  <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
-                        here<span className={ css(this.style.hover) }></span>
+                        here
                   </li>
                 </ul>
               </div>
@@ -150,18 +172,16 @@ export default class Menu extends Component {
                   <Link className={"hover-effect " + css(this.style.hoverItem)}
                           to="/app/projects/"
                           onClick={ this.toggleNav.bind(this) }>
-                          Projects
-                          <span className={ css(this.style.hover) }></span>
-                    </Link>
-                  </h2>
+                    Projects
+                  </Link>
+                </h2>
                 <h2 className={ css(this.style.importantH2) }>
                   <Link className={"hover-effect " + css(this.style.hoverItem)}
                           to="/app/edit/new/default/"
                           onClick={ this.toggleNav.bind(this) }>
-                          New Project
-                          <span className={ css(this.style.hover) }></span>
-                    </Link>
-                  </h2>
+                    New Project
+                  </Link>
+                </h2>
               </div>
             </div>
           )}
