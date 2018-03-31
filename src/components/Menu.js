@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { StyleSheet, css } from 'aphrodite';
+import { StyleSheet, css } from 'aphrodite/no-important';
 
-import { themes } from "../assets/js/theme.js"
+import { themes, breakpoints } from "../assets/js/theme.js"
 
 export default class Menu extends Component {
   constructor(props) {
@@ -30,18 +30,31 @@ export default class Menu extends Component {
         left: "100%",
       },
       important: {
-        after: {
-          content: "",
-          position: "absolute",
-          height: "80%",
-          width: "1px",
-          top: "10%",
-          left: "0",
-          backgroundColor: "rgba(" + themes[this.state.theme].accent + ", 0.2)",
-        }
+        padding: "64px",
+        position: "relative",
+        flex: "4",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      [breakpoints.tablet]: {
+          flex: "1"
+        },
+      },
+      side: {
+        flex: "1",
+        padding: "16px",
       },
       menuContentContainer: {
-
+        color: themes[this.state.theme].color,
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        position: "relative",
+      [breakpoints.tablet]: {
+          flexDirection: "column-reverse"
+        }
       },
       importantH2: {
         fontWeight: "300",
@@ -70,14 +83,6 @@ export default class Menu extends Component {
         opacity: "0.2",
         backgroundColor: themes[this.state.theme].accent,
       },
-      flex: {
-        color: themes[this.state.theme].color,
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-      }
     })
   }
 
@@ -96,8 +101,8 @@ export default class Menu extends Component {
         </div>
         <div className={ css([this.style.menu, (this.state.showNav ? this.style.active : this.style.hidden)]) + " nav"} >
           {this.state.showNav && (
-            <div style={ this.style.flex } className="menu-option-container">
-              <div className="side">
+            <div className={ "menu-option-container " + css(this.style.menuContentContainer)}>
+              <div className={"side " + css(this.style.side)}>
                 <ul>
                   <li className="hover-effect"
                       onClick={ this.toggleNav.bind(this)}>
@@ -117,7 +122,7 @@ export default class Menu extends Component {
                   </li>
                 </ul>
               </div>
-              <div className="important" style={ this.style.important }>
+              <div className={ "important " + css(this.style.important) } >
                 <span className={ "separator" + css(this.style.separator) }></span>
                 <h2 className={ css(this.style.importantH2) }>
                   <Link className="hover-effect"

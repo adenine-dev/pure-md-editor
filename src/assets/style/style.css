@@ -40,28 +40,10 @@ body.light::-webkit-scrollbar-thumb {
 
 .menu .nav {
   height: 100vh; }
-  @media screen and (max-width: 600px) {
-    .menu .nav .menu-option-container {
-      flex-direction: column-reverse; }
-      .menu .nav .menu-option-container .important h2 {
-        font-size: 42px; }
-      .menu .nav .menu-option-container .important .separator {
-        display: none; } }
-  .menu .nav .side {
-    flex: 1;
-    padding: 16px; }
-    .menu .nav .side ul {
-      list-style: none; }
-      .menu .nav .side ul li {
-        margin-bottom: 16px; }
-  .menu .nav .important {
-    padding: 64px;
-    position: relative;
-    flex: 4;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column; }
+  .menu .nav .side ul {
+    list-style: none; }
+    .menu .nav .side ul li {
+      margin-bottom: 16px; }
 
 .ham {
   position: fixed;
