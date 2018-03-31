@@ -74,7 +74,7 @@ export default class CodeMirrorEditor extends Component {
   }
   render() {
     return (
-      <div className={ css([this.props.style, this.style.editorWrapperStyle]) + " editor " + (this.props.className || "")} >
+      <div className={ css([this.style.editorWrapperStyle, this.props.style]) + " editor"} >
         <div id="main-editor"
              className={ this.state.theme }
              ref={(cm) => { this.cm = cm }}></div>

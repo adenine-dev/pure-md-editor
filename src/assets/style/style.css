@@ -597,7 +597,8 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-render
     font-size: 1em; }
   .markdown-renderer pre, .markdown-renderer blockquote {
     padding: 8px 32px;
-    margin: 8px 0; }
+    margin: 8px 0;
+    width: fit-content; }
     .markdown-renderer pre code, .markdown-renderer blockquote code {
       font-family: "Roboto-Mono", monospace; }
       .markdown-renderer pre code .token, .markdown-renderer blockquote code .token {
