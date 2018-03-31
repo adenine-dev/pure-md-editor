@@ -14,7 +14,7 @@ export default class Notification extends Component {
       displayTimer: null,
     }
 
-    this.style = {
+    this.style = StyleSheet.create({
       base: {
         position: "fixed",
         width: "100%",
@@ -25,16 +25,16 @@ export default class Notification extends Component {
         zIndex: "1000",
         overflow: "hidden",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-        hide: {
-          opacity: "0",
-          top: "-50px",
-          pointerEvents: "none",
-        },
-        show: {
-          opacity: "1",
-          top: "0",
-          pointerEvents: "auto",
-        },
+      },
+      hide: {
+        opacity: "0",
+        top: "-50px",
+        pointerEvents: "none",
+      },
+      show: {
+        opacity: "1",
+        top: "0",
+        pointerEvents: "auto",
       },
       close: {
         position: "absolute",
@@ -44,9 +44,10 @@ export default class Notification extends Component {
         right: "8px",
         backgroundColor: "transparent",
         verticalAlign: "middle",
-        cursor: "pointer"
+        cursor: "pointer",
+        color: "inherit"
       },
-    }
+    })
   }
 
   handleClose(e) {
@@ -57,9 +58,9 @@ export default class Notification extends Component {
   }
 
   createTimer() {
-    console.log(!this.state.timedHide && !this.state.displayTimer);
-    console.log(!this.state.timedHide)
-    console.log(!this.state.displayTimer)
+    // console.log(!this.state.timedHide && !this.state.displayTimer);
+    // console.log(!this.state.timedHide)
+    // console.log(!this.state.displayTimer)
     if(!this.state.timedHide && !this.state.displayTimer) {
       this.setState({displayTimer: setTimeout(() => {
         this.setState({ show: false })
@@ -86,11 +87,10 @@ export default class Notification extends Component {
 
   render() {
     return (
-      <div className={"notification " + this.props.className}
-           style={{ ...this.style.base, ...this.props.style, ...(this.state.show ? this.style.base.show : this.style.base.hide)}} >
+      <div className={ css([this.style.base, this.props.style, (this.state.show ? this.style.show : this.style.hide)]) } >
         { this.props.children }
-        <button onClick={ this.handleClose.bind(this) } style={this.style.close} >
-          <i className="material-icons" style={{ color: this.props.style.color }}>clear</i>
+        <button onClick={ this.handleClose.bind(this) } className={ css(this.style.close) } >
+          <i className="material-icons" >clear</i>
         </button>
       </div>
     )
