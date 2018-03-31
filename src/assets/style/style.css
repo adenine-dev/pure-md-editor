@@ -33,10 +33,6 @@ body.light::-webkit-scrollbar-thumb {
   position: relative;
   display: table;
   cursor: pointer; }
-  .menu .hover-effect span {
-    width: 0; }
-  .menu .hover-effect:hover span {
-    width: 100%; }
 
 .menu .nav {
   height: 100vh; }

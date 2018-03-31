@@ -73,15 +73,28 @@ export default class Menu extends Component {
       hamIcoSpans: {
         backgroundColor: themes[this.state.theme].color,
       },
-      hover: {
-        position: "absolute",
-        display: "block",
-        height: "40%",
-        opacity: "0.4",
-        top: "60%",
-        left: "0",
-        backgroundColor: themes[this.state.theme].accent,
-        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+      hover: {},
+      hoverItem: {
+        position: "relative",
+        display: "table",
+        cursor: "pointer",
+        ":after": {
+          content: "''",
+          position: "absolute",
+          display: "block",
+          height: "40%",
+          opacity: "0.4",
+          top: "60%",
+          left: "0",
+          backgroundColor: themes[this.state.theme].accent,
+          transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+          width: "0",
+        },
+        ":hover": {
+          ":after": {
+            width: "100%"
+          }
+        }
       },
       separator: {
         position: "absolute",
@@ -113,28 +126,28 @@ export default class Menu extends Component {
             <div className={ "menu-option-container " + css(this.style.menuContentContainer)}>
               <div className={"side " + css(this.style.side)}>
                 <ul>
-                  <li className="hover-effect"
+                  <li className={"hover-effect " + css(this.style.hoverItem)}
                       onClick={ this.toggleNav.bind(this)}>
-                        Settings<span style={ this.style.hover }></span>
+                        Settings<span className={ css(this.style.hover) }></span>
                   </li>
-                  <li className="hover-effect"
+                  <li className={"hover-effect " + css(this.style.hoverItem)}
                       onClick={ this.toggleNav.bind(this)}>
-                        I don't know<span style={ this.style.hover }></span>
+                        Markdown cheetsheet<span className={ css(this.style.hover) }></span>
                   </li>
-                  <li className="hover-effect"
+                  <li className={"hover-effect " + css(this.style.hoverItem)}
                       onClick={ this.toggleNav.bind(this)}>
-                        what to put<span style={ this.style.hover }></span>
+                        Hotkeys<span className={ css(this.style.hover) }></span>
                   </li>
-                  <li className="hover-effect"
+                  <li className={"hover-effect " + css(this.style.hoverItem)}
                       onClick={ this.toggleNav.bind(this)}>
-                        here<span style={ this.style.hover }></span>
+                        here<span className={ css(this.style.hover) }></span>
                   </li>
                 </ul>
               </div>
               <div className={ "important " + css(this.style.important) } >
                 <span className={ "separator" + css(this.style.separator) }></span>
                 <h2 className={ css(this.style.importantH2) }>
-                  <Link className="hover-effect"
+                  <Link className={"hover-effect " + css(this.style.hoverItem)}
                           to="/app/projects/"
                           onClick={ this.toggleNav.bind(this) }>
                           Projects
@@ -142,7 +155,7 @@ export default class Menu extends Component {
                     </Link>
                   </h2>
                 <h2 className={ css(this.style.importantH2) }>
-                  <Link className="hover-effect"
+                  <Link className={"hover-effect " + css(this.style.hoverItem)}
                           to="/app/edit/new/default/"
                           onClick={ this.toggleNav.bind(this) }>
                           New Project
