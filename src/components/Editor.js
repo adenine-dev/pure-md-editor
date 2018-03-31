@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Mousetrap from "mousetrap"
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 import DefaultEditor from "./DefaultEditor.js"
 import SplitEditor from "./SplitEditor.js"
@@ -26,7 +27,7 @@ export default class Editor extends Component {
       theme: api.getSetting("theme"),
 
     }
-    this.style = {
+    this.style = StyleSheet.create({
       headerTitle: {
         color: themes[this.state.theme].color,
         textAlign: "center",
@@ -42,13 +43,13 @@ export default class Editor extends Component {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        text: {
-          textAlign: "center",
-          opacity: "0.4",
-          color: themes[this.state.theme].color,
-          fontSize: "48px",
-          fontWeight: "300",
-        }
+      },
+      placeholderText: {
+        textAlign: "center",
+        opacity: "0.4",
+        color: themes[this.state.theme].color,
+        fontSize: "48px",
+        fontWeight: "300",
       },
       error: {
         backgroundColor: themes[this.state.theme].error,
@@ -58,7 +59,7 @@ export default class Editor extends Component {
         backgroundColor: themes[this.state.theme].success,
         color: themes[this.state.theme].color,
       }
-    }
+    })
   }
 
   getProject(props) {
@@ -87,7 +88,6 @@ export default class Editor extends Component {
   handleTitleChange(e) {
     if(this.state.project.name !== e.target.value) {
       if(api.renameProject(this.state.project.name, e.target.value)) {
-        console.log(api.getProject(e.target.value));
         this.setState({ project: api.getProject(e.target.value) })
       } else {
         this.setState({notification: {
@@ -107,19 +107,19 @@ export default class Editor extends Component {
   }
 
   componentWillMount() {
-    keymaps.map((map) => {
-      if(!map.cm) {
-        Mousetrap.bindGlobal(map.name, (e, c) => map.action(e, c, this.state, this))
+    for(let i = 0; i < keymaps.length; i++) {
+      if(!keymaps[i].cm) {
+        Mousetrap.bindGlobal(keymaps[i].name, (e, c) => keymaps[i].action(e, c, this.state, this))
       }
-    })
+    }
   }
 
   render() {
     if(!this.state.project) {
       return (
-        <div style={ this.style.placeholder }>
-          <EmoteError style={ this.style.placeholder.text }>
-            <div style={ this.style.placeholder.text }>
+        <div className={ css(this.style.placeholder) }>
+          <EmoteError style={ this.style.placeholderText }>
+            <div className={ css(this.style.placeholderText) }>
               <p>A project with that name does not exist</p>
               <Link to={ "/app/edit/new/default/" }>Why not make a new one</Link>
             </div>
@@ -148,7 +148,7 @@ export default class Editor extends Component {
         <div>
           <input type="text"
                  defaultValue={ this.state.project.name }
-                 style={ this.style.headerTitle }
+                 className={ css(this.style.headerTitle) }
                  onBlur={ this.handleTitleChange.bind(this) }/>
         </div>
         <Switch>

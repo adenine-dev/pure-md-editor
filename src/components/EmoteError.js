@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { css } from 'aphrodite/no-important';
 
 import { themes } from "../assets/js/theme.js"
 
@@ -23,7 +24,7 @@ export default class EmoteError extends Component {
   render() {
     return (
       <div className="error">
-        <p style={{ ...this.props.style }}>
+        <p className={ css(this.props.style) }>
           { this.emotes[Math.floor(Math.random() * this.emotes.length)] }
         </p>
         { this.props.children }
