@@ -7,7 +7,7 @@ import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import MarkdownRenderer from "./MarkdownRenderer.js"
 
 import api from "../assets/js/api.js"
-import { themes } from "../assets/js/theme.js"
+import { themes, breakpoints } from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
 
 
@@ -29,14 +29,19 @@ export default class SplitEditor extends Component {
         width: "90%",
         margin: "0 auto",
         flex: "1",
-        height: "calc(100vh - 24px)"
+        height: "calc(100vh - 24px)",
+        [breakpoints.tablet]: {
+          flexDirection: "column",
+        }
       },
       splitItem: {
         width: "50%",
         margin: "40px 0",
-        overflow: "scroll",
+        overflowY: "scroll",
         height: "100%",
-
+        [breakpoints.tablet]: {
+          width: "100%"
+        }
       },
       divBar: {
         width: "1px",
@@ -44,7 +49,13 @@ export default class SplitEditor extends Component {
         backgroundColor: themes[this.state.theme].accent,
         position: "absolute",
         opacity: "0.2",
-        top: "64px",
+        bottom: "64px",
+        [breakpoints.tablet]: {
+          width: "80%",
+          left: "10%",
+          height: "1px",
+          bottom: "50%"
+        }
       }
     })
   }
@@ -62,16 +73,22 @@ export default class SplitEditor extends Component {
     }
   }
 
+  handleScrollSync(e) {
+    console.log(e)
+  }
+
   render() {
     return (
       <div className="split-editor">
         <div className={"spit-view " + css(this.style.splitter) }>
-          <div className={ css(this.style.splitItem) }>
+          <div className={ css(this.style.splitItem) }
+               onScroll={ this.handleScrollSync.bind(this) }>
             <CodeMirrorEditor defaultValue={ this.state.project.value }
                               onChange={ this.handleCmChange.bind(this) } />
           </div>
-          <div className={ css(this.style.divBar) }></div>
-          <div className={ css(this.style.splitItem) }>
+          <div className={ css(this.style.divBar) } ></div>
+          <div className={ css(this.style.splitItem) }
+               onScroll={ this.handleScrollSync.bind(this) }>
             <MarkdownRenderer markdown={ this.state.project.value } />
           </div>
         </div>

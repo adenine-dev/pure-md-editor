@@ -31,6 +31,7 @@ export default class MarkdownRenderer extends Component {
         width: "90%",
         margin: "32px auto",
         maxWidth: "960px",
+        height: "auto",
       }
     })
   }
