@@ -36,6 +36,7 @@ export default class Editor extends Component {
         margin: "0 auto",
         display: "block",
         width: "100%",
+        height: "24px"
       },
       placeholder: {
         height: "100vh",
@@ -58,7 +59,7 @@ export default class Editor extends Component {
       success: {
         backgroundColor: themes[this.state.theme].success,
         color: themes[this.state.theme].color,
-      }
+      },
     })
   }
 

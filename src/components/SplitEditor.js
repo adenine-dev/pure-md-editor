@@ -28,11 +28,15 @@ export default class SplitEditor extends Component {
         position: "relative",
         width: "90%",
         margin: "0 auto",
+        flex: "1",
+        height: "calc(100vh - 24px)"
       },
       splitItem: {
         width: "50%",
-        padding: "8px",
-        overflow: "scroll"
+        margin: "40px 0",
+        overflow: "scroll",
+        height: "100%",
+
       },
       divBar: {
         width: "1px",
@@ -62,12 +66,14 @@ export default class SplitEditor extends Component {
     return (
       <div className="split-editor">
         <div className={"spit-view " + css(this.style.splitter) }>
-          <CodeMirrorEditor defaultValue={ this.state.project.value }
-                            onChange={ this.handleCmChange.bind(this) }
-                            style={ this.style.splitItem }/>
+          <div className={ css(this.style.splitItem) }>
+            <CodeMirrorEditor defaultValue={ this.state.project.value }
+                              onChange={ this.handleCmChange.bind(this) } />
+          </div>
           <div className={ css(this.style.divBar) }></div>
-          <MarkdownRenderer markdown={ this.state.project.value }
-                            style={ this.style.splitItem }/>
+          <div className={ css(this.style.splitItem) }>
+            <MarkdownRenderer markdown={ this.state.project.value } />
+          </div>
         </div>
       </div>
     )

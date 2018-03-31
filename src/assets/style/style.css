@@ -23,13 +23,13 @@ ul:not(.CodeMirror *) {
 body.dark *::selection {
   background-color: #89aec6; }
 
-body.dark::-webkit-scrollbar-thumb {
+body.dark *::-webkit-scrollbar-thumb {
   background-color: #89aec6; }
 
 body.light *::selection {
   background-color: #c68989; }
 
-body.light::-webkit-scrollbar-thumb {
+body.light *::-webkit-scrollbar-thumb {
   background-color: #c68989; }
 
 .ham {
@@ -576,7 +576,8 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-render
 
 .markdown-renderer {
   font-size: 24px;
-  padding: 4px 0; }
+  padding: 4px 0;
+  padding-bottom: 50vh; }
   .markdown-renderer h1, .markdown-renderer h2, .markdown-renderer h3, .markdown-renderer h4, .markdown-renderer h5, .markdown-renderer h6 {
     font-weight: 800;
     line-height: 1.1em; }
