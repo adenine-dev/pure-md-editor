@@ -52,6 +52,16 @@ export default class Editor extends Component {
         fontSize: "48px",
         fontWeight: "300",
       },
+      placeholderLink: {
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        border: "3px solid " + themes[this.state.theme].color,
+        padding: "8px 16px",
+        display: "table",
+        margin: "0 auto",
+        ":hover": {
+          opacity: "1",
+        }
+      },
       error: {
         backgroundColor: themes[this.state.theme].error,
         color: themes[this.state.theme].color,
@@ -120,9 +130,14 @@ export default class Editor extends Component {
       return (
         <div className={ css(this.style.placeholder) }>
           <EmoteError style={ this.style.placeholderText }>
-            <div className={ css(this.style.placeholderText) }>
-              <p>A project with that name does not exist</p>
-              <Link to={ "/app/edit/new/default/" }>Why not make a new one</Link>
+            <div>
+              <p className={ css(this.style.placeholderText) }>A project with that name does not exist</p>
+              <br />
+              <Link to="/app/edit/new/default">
+                <p className={ css(this.style.placeholderText, this.style.placeholderLink) }>
+                  create one?
+                </p>
+              </Link>
             </div>
           </EmoteError>
         </div>

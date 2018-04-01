@@ -72,9 +72,12 @@ const style = StyleSheet.create({
   },
   placeholderLink: {
     transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+    border: "3px solid " + themes[theme].color,
+    padding: "8px 16px",
+    display: "table",
+    margin: "0 auto",
     ":hover": {
       opacity: "1",
-
     }
   },
   searchBar: {
@@ -207,7 +210,7 @@ export default class ProjectList extends Component {
               <br />
               <Link to="/app/edit/new/default">
                 <p className={ css(style.placeholder, style.placeholderLink) }>
-                  why not create one?
+                  create one?
                 </p>
               </Link>
             </EmoteError>
