@@ -8,7 +8,7 @@ import SplitEditor from "./SplitEditor.js"
 import Notification from "./Notification.js"
 import EmoteError from "./EmoteError.js"
 
-import { themes } from "../assets/js/theme.js"
+import { themes, breakpoints } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 
@@ -50,7 +50,14 @@ export default class Editor extends Component {
         opacity: "0.4",
         color: themes[this.state.theme].color,
         fontSize: "48px",
+        padding: "0 16px",
         fontWeight: "300",
+        [breakpoints.phone]: {
+          fontSize: "32px"
+        },
+        [breakpoints.small]: {
+          fontSize: "24px"
+        }
       },
       placeholderLink: {
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
 import api from "../assets/js/api.js"
-import { themes } from "../assets/js/theme.js"
+import { themes, breakpoints } from "../assets/js/theme.js"
 
 import SearchBar from "./SearchBar.js"
 import EmoteError from "./EmoteError.js"
@@ -62,13 +62,20 @@ const style = StyleSheet.create({
     padding: "16px 32px",
     marginBottom: "16px",
     fontSize: "32px",
+    [breakpoints.phone]: {
+      padding: "8px 16px",
+      fontSize: "24px"
+    }
   },
   placeholder: {
     textAlign: "center",
     opacity: "0.4",
     color: themes[theme].color,
     fontSize: "48px",
-    fontWeight: "300"
+    fontWeight: "300",
+    [breakpoints.phone]: {
+      fontSize: "32px"
+    }
   },
   placeholderLink: {
     transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
