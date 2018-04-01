@@ -9,103 +9,6 @@ import SearchBar from "./SearchBar.js"
 import EmoteError from "./EmoteError.js"
 import Notification from "./Notification.js"
 
-const theme = api.getSetting("theme")
-
-const style = StyleSheet.create({
-  noteList: {
-    margin: "8px auto",
-    width: "90%",
-    maxWidth: "960px",
-    padding: "8px 16px",
-  },
-  listItem: {
-    marginBottom: "16px",
-    display: "flex",
-    alignItems: "center",
-  },
-  li: {
-    flex: "3",
-  },
-  a: {
-    color: themes[theme].color,
-    padding: "8px",
-    opacity: "0.8",
-    display: "block",
-    transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-    ":hover": {
-      opacity: "1"
-    }
-  },
-  actions: {
-    flex: "1",
-    padding: "0 16px",
-    borderLeft: "1px solid " + themes[theme].accent,
-    display: "flex",
-    justifyContent: "space-around",
-  },
-  button: {
-    background: "transparent",
-    color: themes[theme].color,
-    opacity: "0.4",
-    transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-    cursor: "pointer",
-    ":hover": {
-      opacity: "0.8"
-    }
-  },
-  icon: {
-    verticalAlign: "middle",
-  },
-  header: {
-    width: "100%",
-    color: themes[theme].color,
-    padding: "16px 32px",
-    marginBottom: "16px",
-    fontSize: "32px",
-    [breakpoints.phone]: {
-      padding: "8px 16px",
-      fontSize: "24px"
-    }
-  },
-  placeholder: {
-    textAlign: "center",
-    opacity: "0.4",
-    color: themes[theme].color,
-    fontSize: "48px",
-    fontWeight: "300",
-    [breakpoints.phone]: {
-      fontSize: "32px"
-    }
-  },
-  placeholderLink: {
-    transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-    border: "3px solid " + themes[theme].color,
-    padding: "8px 16px",
-    display: "table",
-    margin: "0 auto",
-    ":hover": {
-      opacity: "1",
-    }
-  },
-  searchBar: {
-    borderBottom: "1px solid " + themes[theme].color,
-    marginBottom: "32px",
-
-  },
-  warning: {
-    backgroundColor: themes[theme].error,
-    color: themes[theme].color,
-  },
-  deleteButton: {
-    border: "1px solid " + themes[theme].color,
-    color: themes[theme].color,
-    padding: "4px",
-    background: "transparent",
-    cursor: "pointer",
-    marginRight: "16px",
-    textAlign: "center",
-  }
-})
 
 export default class ProjectList extends Component {
   constructor(props) {
@@ -121,6 +24,120 @@ export default class ProjectList extends Component {
         timeout: false
       },
     }
+    this.style = StyleSheet.create({
+      noteList: {
+        margin: "8px auto",
+        width: "90%",
+        maxWidth: "960px",
+        padding: "8px 16px",
+      },
+      listItem: {
+        marginBottom: "16px",
+        display: "flex",
+        alignItems: "center",
+      },
+      li: {
+        flex: "3",
+      },
+      a: {
+        color: themes[this.state.theme].color,
+        padding: "8px",
+        opacity: "0.8",
+        display: "block",
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        ":hover": {
+          opacity: "1"
+        }
+      },
+      actions: {
+        flex: "1",
+        padding: "0 16px",
+        borderLeft: "1px solid " + themes[this.state.theme].accent,
+        display: "flex",
+        justifyContent: "space-around",
+      },
+      button: {
+        background: "transparent",
+        color: themes[this.state.theme].color,
+        opacity: "0.4",
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        cursor: "pointer",
+        ":hover": {
+          opacity: "0.8"
+        }
+      },
+      icon: {
+        verticalAlign: "middle",
+      },
+      header: {
+        width: "100%",
+        color: themes[this.state.theme].color,
+        padding: "16px 32px",
+        marginBottom: "16px",
+        fontSize: "32px",
+        [breakpoints.phone]: {
+          padding: "8px 16px",
+          fontSize: "24px"
+        }
+      },
+      placeholder: {
+        textAlign: "center",
+        opacity: "0.4",
+        color: themes[this.state.theme].color,
+        fontSize: "48px",
+        fontWeight: "300",
+        [breakpoints.phone]: {
+          fontSize: "32px"
+        }
+      },
+      placeholderLink: {
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        border: "3px solid " + themes[this.state.theme].color,
+        padding: "8px 16px",
+        display: "table",
+        margin: "0 auto",
+        ":hover": {
+          opacity: "1",
+        }
+      },
+      searchBar: {
+        borderBottom: "1px solid " + themes[this.state.theme].color,
+        marginBottom: "32px",
+
+      },
+      warning: {
+        backgroundColor: themes[this.state.theme].error,
+        color: themes[this.state.theme].color,
+      },
+      deleteButton: {
+        border: "1px solid " + themes[this.state.theme].color,
+        color: themes[this.state.theme].color,
+        padding: "4px",
+        background: "transparent",
+        cursor: "pointer",
+        marginRight: "16px",
+        textAlign: "center",
+      },
+      addButton: {
+        backgroundColor: themes[this.state.theme].accent,
+        position: "fixed",
+        bottom: "8px",
+        right: "8px",
+        height: "52px",
+        width: "52px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "50%",
+
+      },
+      addIcon: {
+        color: themes[this.state.theme].color,
+        verticalAlign: "middle",
+        fontSize: "32px",
+
+      }
+    })
   }
 
   filterList(e) {
@@ -152,9 +169,9 @@ export default class ProjectList extends Component {
       <div>
         <p>Are you sure you want to delete { name }</p>
         <br />
-        <button className={ css(style.deleteButton) }
+        <button className={ css(this.style.deleteButton) }
                 onClick={ (ev) => this.deleteProject(ev, name) }>Yes</button>
-        <button className={ css(style.deleteButton) }
+        <button className={ css(this.style.deleteButton) }
                 onClick={ this.modalClose.bind(this) }>No</button>
       </div>
     )
@@ -173,17 +190,17 @@ export default class ProjectList extends Component {
     for(let key in this.state.filteredList) {
       list.push((
         <div key={ list.length }
-             className={ css(style.listItem) + " list-item" } >
-             <span className={ css(style.li)}>
+             className={ css(this.style.listItem) + " list-item" } >
+             <span className={ css(this.style.li)}>
                <Link to={ "/app/edit/" + key + "/default/" } >
-                 <span className={ css(style.a) }>{ key }</span>
+                 <span className={ css(this.style.a) }>{ key }</span>
                </Link>
              </span>
-          <div className={"actions " + css(style.actions) }>
+          <div className={"actions " + css(this.style.actions) }>
             <button onClick={ (e) => this.promptDeleteProject(e, key) }
-                    className={ css(style.button) }
+                    className={ css(this.style.button) }
                     key={ list.length }>
-              <i className={"material-icons " + css(style.icon) }>delete_forever</i>
+              <i className={"material-icons " + css(this.style.icon) }>delete_forever</i>
             </button>
           </div>
         </div>
@@ -192,7 +209,7 @@ export default class ProjectList extends Component {
 
     let notification
     notification = (
-      <Notification style={ style[this.state.notification.name] }
+      <Notification style={ this.style[this.state.notification.name] }
                     onClose={ this.modalClose.bind(this) }
                     timedHide={ this.state.notification.timeout }
                     show={ this.state.notification.show }>
@@ -201,28 +218,33 @@ export default class ProjectList extends Component {
     )
 
     return (
-      <div className={css(style.noteList) + " note-list " + this.props.className}
+      <div className={css(this.style.noteList) + " note-list " + this.props.className}
            style={{...this.props.style}}>
         { notification }
-        <header className={ css(style.header) }>
+        <header className={ css(this.style.header) }>
           <h1 style={{ fontWeight: "300" }}>Projects</h1>
         </header>
-        <div className={"note-list" + css(style.noteList) }>
+        <div className={"note-list" + css(this.style.noteList) }>
           <SearchBar onChange={ this.filterList.bind(this) }
                      theme={ this.state.theme }
-                     style={{ ...style.searchBar }} />
+                     style={{ ...this.style.searchBar }} />
           {(list.length > 0 && list) || (
-            <EmoteError style={ style.placeholder }>
-              <p className={ css(style.placeholder) }>no projects found</p>
+            <EmoteError style={ this.style.placeholder }>
+              <p className={ css(this.style.placeholder) }>no projects found</p>
               <br />
               <Link to="/app/edit/new/default">
-                <p className={ css(style.placeholder, style.placeholderLink) }>
+                <p className={ css(this.style.placeholder, this.style.placeholderLink) }>
                   create one?
                 </p>
               </Link>
             </EmoteError>
           )}
         </div>
+        <Link to="/app/edit/new/default">
+          <button className={ css(this.style.addButton) }>
+            <i className={"material-icons " + css(this.style.addIcon)}>add</i>
+          </button>
+        </Link>
       </div>
     );
   }
