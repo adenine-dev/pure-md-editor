@@ -77,7 +77,7 @@ const api = {
     } else if(localStorage.getItem("settings")) {
       return api.setSettings(JSON.parse(localStorage.getItem("settings")))
     } else {
-      return null
+      return api.initSettings()
     }
   },
   setSettings: (settings) => {

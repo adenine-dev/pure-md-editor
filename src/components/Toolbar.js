@@ -22,7 +22,7 @@ export default class Toolbar extends Component {
         overflowX: "scroll",
         height: "42px",
         whiteSpace: "nowrap",
-        
+
       }
     })
   }
@@ -32,11 +32,11 @@ export default class Toolbar extends Component {
     return check;
   }
   render() {
-    // if(this.isMobile()) {
-    //   return (
-    //     <div></div>
-    //   )
-    // }
+    if(!this.isMobile()) {
+      return (
+        <div></div>
+      )
+    }
     return (
       <div className={ css(this.style.base) }>
         { this.props.children }

@@ -59,7 +59,10 @@ export default class DefaultEditor extends Component {
   render() {
     const actions = keymaps.map((action, i) => (
       <button key={ i }
-              onClick={ (e) => {e.preventDefault(); action.action(this.state.cm, this.state, this, {}, {})} }
+              onClick={ (e) => {
+                this.state.cm.focus();
+                action.action(this.state.cm, this.state, this, {}, {})
+              } }
               className={ css(this.style.toobarButton) }>
         <i className={"material-icons " + css(this.style.toobarIcon)}>
           { action.icon }

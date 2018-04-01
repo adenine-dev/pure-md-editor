@@ -52,6 +52,7 @@ export default class CodeMirrorEditor extends Component {
       indentUnit: 2,
       tabSize: 2,
       autoCloseBrackets: true,
+      lineWrapping: true,
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
       },
