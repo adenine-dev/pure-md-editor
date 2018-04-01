@@ -8,6 +8,7 @@ const keymaps = [
     toolbar: true,
     icon: "format_bold",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 2) === '**' && selection.slice(-2) === '**';
       cm.replaceSelection(curActive ? selection.slice(2, -2) : '**' + selection + '**', 'around');
@@ -26,6 +27,7 @@ const keymaps = [
     toolbar: true,
     icon: "format_italic",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           innerText = selection.slice(0, 1) === '*' && selection.slice(-1) === '*';
       cm.replaceSelection(innerText ? selection.slice(1, -1) : '*' + selection + '*', 'around');
@@ -44,6 +46,7 @@ const keymaps = [
     toolbar: true,
     icon: "format_underlined",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 2) === '__' && selection.slice(-2) === '__';
       cm.replaceSelection(curActive ? selection.slice(2, -2) : '__' + selection + '__', 'around');
@@ -62,6 +65,7 @@ const keymaps = [
     toolbar: true,
     icon: "format_strikethrough",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 2) === '~~' && selection.slice(-2) === '~~';
       cm.replaceSelection(curActive ? selection.slice(2, -2) : '~~' + selection + '~~', 'around');
@@ -80,6 +84,7 @@ const keymaps = [
     toolbar: true,
     icon: "strikethrough_s",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 4) === "<!--" && selection.slice(-3) === "-->"
       cm.replaceSelection(curActive ? selection.slice(4, -3) : "<!--" + selection + "-->", 'around');
@@ -98,6 +103,7 @@ const keymaps = [
     toolbar: true,
     icon: "insert_link",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 1) === "[" && selection.slice(-1) === ")" && (selection.indexOf("](") !== -1)
       cm.replaceSelection(curActive ? selection.slice(1, selection.indexOf("](")) : "[" + selection + "]()", 'around');
@@ -116,6 +122,7 @@ const keymaps = [
     toolbar: true,
     icon: "format_quote",
     action: (cm) => {
+      cm.focus()
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 1) === ">"
       cm.replaceSelection(curActive ? selection.slice(1) : ">" + selection, 'around');
