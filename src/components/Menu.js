@@ -19,9 +19,9 @@ export default class Menu extends Component {
         position: "fixed",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
         backgroundColor: themes[this.state.theme].bg,
-        borderTop: "8px solid" + themes[this.state.theme].accent,
+        borderTop: "8px solid " + themes[this.state.theme].accent,
         overflow: "hidden",
-        zIndex: "10",
+        zIndex: "100",
       },
       active: {
         left: "0",

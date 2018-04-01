@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import Toolbar from "./Toolbar.js"
@@ -18,8 +19,23 @@ export default class DefaultEditor extends Component {
       project: props.project,
       theme: api.getSetting("theme"),
       cm: null,
-
     }
+    this.style = StyleSheet.create({
+      toobarButton: {
+        color: themes[this.state.theme].color,
+        width: "56px",
+        backgroundColor: "transparent",
+        verticalAlign: "middle",
+        height: "100%",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+
+      },
+      toobarIcon: {
+        verticalAlign: "middle"
+      }
+    })
   }
 
   handleCmChange(cm) {
@@ -41,8 +57,12 @@ export default class DefaultEditor extends Component {
 
   render() {
     const actions = keymaps.map((action, i) => (
-      <button key={ i } onClick={ () => action.action(this.state.cm, this.state, this, {}, {}) }>
-        <i className="material-icons">{ action.icon }</i>
+      <button key={ i }
+              onClick={ () => action.action(this.state.cm, this.state, this, {}, {}) }
+              className={ css(this.style.toobarButton) }>
+        <i className={"material-icons " + css(this.style.toobarIcon)}>
+          { action.icon }
+        </i>
       </button>
     ))
     return (
