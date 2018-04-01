@@ -21,6 +21,7 @@ export default class Toolbar extends Component {
         zIndex: "10",
         overflowX: "scroll",
         height: "42px",
+        whiteSpace: "nowrap",
         
       }
     })

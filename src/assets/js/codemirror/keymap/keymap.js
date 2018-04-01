@@ -92,6 +92,42 @@ const keymaps = [
     },
   },
   {
+    name: "Ctrl-K",
+    description: "inserts a link",
+    cm: true,
+    toolbar: true,
+    icon: "insert_link",
+    action: (cm) => {
+      let selection = cm.getSelection(),
+          curActive = selection.slice(0, 1) === "[" && selection.slice(-1) === ")" && (selection.indexOf("](") !== -1)
+      cm.replaceSelection(curActive ? selection.slice(1, selection.indexOf("](")) : "[" + selection + "]()", 'around');
+      if(selection.length === 0) {
+        cm.setCursor({
+          line: cm.getCursor().line,
+          ch: cm.getCursor().ch - 1
+        })
+      }
+    },
+  },
+  {
+    name: "Ctrl-Q",
+    description: "inserts a blockquote",
+    cm: true,
+    toolbar: true,
+    icon: "format_quote",
+    action: (cm) => {
+      let selection = cm.getSelection(),
+          curActive = selection.slice(0, 1) === ">"
+      cm.replaceSelection(curActive ? selection.slice(1) : ">" + selection, 'around');
+      if(selection.length === 0) {
+        cm.setCursor({
+          line: cm.getCursor().line,
+          ch: cm.getCursor().ch
+        })
+      }
+    },
+  },
+  {
     name: "ctrl+s",
     description: "saves the document",
     cm: false,

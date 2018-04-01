@@ -33,7 +33,8 @@ export default class DefaultEditor extends Component {
 
       },
       toobarIcon: {
-        verticalAlign: "middle"
+        verticalAlign: "middle",
+        height: "100%"
       }
     })
   }
