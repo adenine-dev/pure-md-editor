@@ -78,7 +78,7 @@ const keymaps = [
     description: "toggles comments",
     cm: true,
     toolbar: true,
-    icon: "strikethrough_s",
+    icon: "visibility_off",
     action: (cm) => {
       let selection = cm.getSelection(),
           curActive = selection.slice(0, 4) === "<!--" && selection.slice(-3) === "-->"
