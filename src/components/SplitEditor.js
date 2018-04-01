@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Mousetrap from "mousetrap"
 import { StyleSheet, css } from 'aphrodite/no-important';
-
+import { ScrollSync, ScrollSyncPane } from "react-scroll-sync"
 import CodeMirrorEditor from "./CodeMirrorEditor.js"
 import MarkdownRenderer from "./MarkdownRenderer.js"
 
 import api from "../assets/js/api.js"
+import "../assets/js/syncScroll.js"
+
 import { themes, breakpoints } from "../assets/js/theme.js"
 import "../assets/js/globalbind.js"
 
@@ -74,24 +76,35 @@ export default class SplitEditor extends Component {
   }
 
   handleScrollSync(e) {
-    console.log(e)
+    // const el = document.getElementsByClassName("split-item");
+    // for(let i = 0; i < el.length; i++) {
+    //   if(e.target !== el[i]) {
+    //     el[i].scrollY = e.target.scrollY
+    //   }
+    // }
   }
 
   render() {
     return (
       <div className="split-editor">
-        <div className={"spit-view " + css(this.style.splitter) }>
-          <div className={ css(this.style.splitItem) }
-               onScroll={ this.handleScrollSync.bind(this) }>
-            <CodeMirrorEditor defaultValue={ this.state.project.value }
-                              onChange={ this.handleCmChange.bind(this) } />
+        <ScrollSync>
+          <div className={"spit-view " + css(this.style.splitter) }>
+            <ScrollSyncPane>
+              <div className={ "syncscroll " + css(this.style.splitItem) }
+                   onScroll={ this.handleScrollSync.bind(this) }>
+                <CodeMirrorEditor defaultValue={ this.state.project.value }
+                                  onChange={ this.handleCmChange.bind(this) } />
+              </div>
+            </ScrollSyncPane>
+            <div className={ css(this.style.divBar) } ></div>
+            <ScrollSyncPane>
+              <div className={ "syncscroll " + css(this.style.splitItem) }
+                onScroll={ this.handleScrollSync.bind(this) }>
+                <MarkdownRenderer markdown={ this.state.project.value } />
+              </div>
+            </ScrollSyncPane>
           </div>
-          <div className={ css(this.style.divBar) } ></div>
-          <div className={ css(this.style.splitItem) }
-               onScroll={ this.handleScrollSync.bind(this) }>
-            <MarkdownRenderer markdown={ this.state.project.value } />
-          </div>
-        </div>
+        </ScrollSync>
       </div>
     )
   }
