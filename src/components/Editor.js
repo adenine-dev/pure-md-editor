@@ -5,6 +5,8 @@ import { StyleSheet, css } from 'aphrodite/no-important';
 
 import DefaultEditor from "./DefaultEditor.js"
 import SplitEditor from "./SplitEditor.js"
+import DistractionEditor from "./DistractionEditor.js"
+
 import Notification from "./Notification.js"
 import EmoteError from "./EmoteError.js"
 
@@ -168,6 +170,7 @@ export default class Editor extends Component {
     return (
       <div>
         { notification }
+
         <div>
           <input type="text"
                  defaultValue={ this.state.project.name }
@@ -181,10 +184,14 @@ export default class Editor extends Component {
           )} />
           <Route exact path="/app/edit/:project/split/" render={ (props) => (
             <SplitEditor onChange={ this.handleChange.bind(this) }
-                           project={ this.state.project } {...props}/>
+                         project={ this.state.project } {...props}/>
           )} />
-          {/* <Route path="" component={  } /> */}
-          <Redirect to={"/app/edit/" + this.state.project + "/default/"}/>
+          <Route exact path="/app/edit/:project/distraction/" render={ (props) => (
+            <DistractionEditor onChange={ this.handleChange.bind(this) }
+                               project={ this.state.project } {...props}/>
+          )} />
+
+          {/* <Redirect to={"/app/edit/" + this.state.project + "/default/"}/> */}
         </Switch>
 
       </div>

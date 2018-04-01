@@ -7,6 +7,5 @@ for(var bp in style.breakpoints) {
     breakpoints[bp] = "@media only screen and (max-width : " + style.breakpoints[bp] + ")";
   }
 }
-console.log(breakpoints)
 
 export { themes, breakpoints }
