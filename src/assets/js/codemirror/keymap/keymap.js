@@ -56,6 +56,42 @@ const keymaps = [
     },
   },
   {
+    name: "Ctrl-Y",
+    description: "toggles strikethrough",
+    cm: true,
+    toolbar: true,
+    icon: "format_strikethrough",
+    action: (cm) => {
+      let selection = cm.getSelection(),
+          curActive = selection.slice(0, 2) === '~~' && selection.slice(-2) === '~~';
+      cm.replaceSelection(curActive ? selection.slice(2, -2) : '~~' + selection + '~~', 'around');
+      if(selection.length === 0) {
+        cm.setCursor({
+          line: cm.getCursor().line,
+          ch: cm.getCursor().ch - 2
+        })
+      }
+    },
+  },
+  {
+    name: "Ctrl-/",
+    description: "toggles comments",
+    cm: true,
+    toolbar: true,
+    icon: "strikethrough_s",
+    action: (cm) => {
+      let selection = cm.getSelection(),
+          curActive = selection.slice(0, 4) === "<!--" && selection.slice(-3) === "-->"
+      cm.replaceSelection(curActive ? selection.slice(4, -3) : "<!--" + selection + "-->", 'around');
+      if(selection.length === 0) {
+        cm.setCursor({
+          line: cm.getCursor().line,
+          ch: cm.getCursor().ch - 3
+        })
+      }
+    },
+  },
+  {
     name: "ctrl+s",
     description: "saves the document",
     cm: false,
