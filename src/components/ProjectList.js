@@ -129,7 +129,7 @@ export default class ProjectList extends Component {
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "50%",
-
+        cursor: "pointer"
       },
       addIcon: {
         color: themes[this.state.theme].color,
