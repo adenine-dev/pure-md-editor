@@ -202,7 +202,7 @@ export default class ProjectList extends Component {
                      theme={ this.state.theme }
                      style={{ ...style.searchBar }} />
           {(list.length > 0 && list) || (
-            <EmoteError className={ css(style.placeholder) }>
+            <EmoteError style={ style.placeholder }>
               <p className={ css(style.placeholder) }>no projects found</p>
               <br />
               <Link to="/app/edit/new/default">

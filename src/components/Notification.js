@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-import { themes } from "../assets/js/theme.js"
+import { themes, breakpoints } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
 
 export default class Notification extends Component {
@@ -25,6 +25,11 @@ export default class Notification extends Component {
         zIndex: "1000",
         overflow: "hidden",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        [breakpoints.phone]: {
+          maxWidth: "100%",
+          width: "100%",
+          left: "0"
+        }
       },
       hide: {
         opacity: "0",
