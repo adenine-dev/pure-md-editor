@@ -110,7 +110,7 @@ export default class Editor extends Component {
   componentWillMount() {
     for(let i = 0; i < keymaps.length; i++) {
       if(!keymaps[i].cm) {
-        Mousetrap.bindGlobal(keymaps[i].name, (e, c) => keymaps[i].action(e, c, this.state, this))
+        Mousetrap.bindGlobal(keymaps[i].name, (e, c) => keymaps[i].action(null, this.state, this, e, c))
       }
     }
   }

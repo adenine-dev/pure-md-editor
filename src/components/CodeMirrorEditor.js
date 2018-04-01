@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
-import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 import { StyleSheet, css } from 'aphrodite/no-important';
 
 import '../assets/js/codemirror/mode/gfm.js';
@@ -14,6 +13,7 @@ import 'codemirror/mode/javascript/javascript.js';
 // import 'codemirror/mode/clike/clike.js';
 // import 'codemirror/mode/css/css.js';
 
+import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 
 
 
@@ -71,7 +71,13 @@ export default class CodeMirrorEditor extends Component {
     editor.addKeyMap( keymap );
     this.setState({ editor })
 
+    if(this.props.onMount) {
+      this.props.onMount(this.state, editor)
+    }
+
   }
+
+
   render() {
     return (
       <div className={ css([this.style.editorWrapperStyle, this.props.style]) + " editor"} >
