@@ -150,7 +150,9 @@ export default class Menu extends Component {
                 <ul>
                   <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
+                      <Link to="/app/settings/">
                         Settings
+                      </Link>
                   </li>
                   <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>

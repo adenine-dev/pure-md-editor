@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import ProjectList from "./ProjectList.js"
 import Editor from "./Editor.js"
 import Menu from "./Menu.js"
+import Settings from "./Settings.js"
+
 import { themes } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
 
@@ -31,7 +33,7 @@ export default class AppContainer extends Component {
         <Switch>
           <Route exact path="/app/edit/:project/:editorType?/" component={ Editor } />
           <Route exact path="/app/projects/" component={ ProjectList } />
-
+          <Route exact path="/app/settings/" component={ Settings } />
           <Redirect to="/app/projects/" />
         </Switch>
       </div>

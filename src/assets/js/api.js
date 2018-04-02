@@ -65,7 +65,8 @@ const api = {
       api.settings = JSON.parse(localStorage.getItem("settings"))
     } else {
       api.settings = {
-        theme: "dark"
+        theme: "dark",
+        fontSize: ""
       }
     }
     localStorage.setItem("settings", JSON.stringify(api.settings))
