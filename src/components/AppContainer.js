@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import { injectGlobals } from 'hepha';
+import { injectStyleOnce } from 'aphrodite/src/inject';
+
 import ProjectList from "./ProjectList.js"
 import Editor from "./Editor.js"
 import Menu from "./Menu.js"
@@ -17,6 +20,12 @@ export default class AppContainer extends Component {
         theme: api.getSetting("theme"),
       },
     }
+    this.style = {
+      ".CodeMirror": {
+        fontSize: api.getSetting("fontSize") + "px",
+      },
+
+    }
   }
 
   componentWillMount() {
@@ -26,6 +35,10 @@ export default class AppContainer extends Component {
   }
 
   render() {
+
+    injectGlobals(injectStyleOnce, this.style);
+
+
     return (
       <div className="app-container" className={ this.state.settings.theme }
            style={{ position: "relaitve" }}>

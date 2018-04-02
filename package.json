@@ -6,6 +6,7 @@
   "dependencies": {
     "aphrodite": "^2.1.0",
     "codemirror": "^5.35.0",
+    "hepha": "0.0.1",
     "material-design-icons": "^3.0.1",
     "mousetrap": "^1.6.1",
     "node-sass-chokidar": "^1.2.2",
