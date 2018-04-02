@@ -10,6 +10,24 @@ import EmoteError from "./EmoteError.js"
 import Notification from "./Notification.js"
 
 
+// TODO: maybe seperate this out into its own file?
+function download(filename, text) {
+  const pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  if (document.createEvent) {
+    const event = document.createEvent('MouseEvents');
+    event.initEvent('click', true, true);
+    pom.dispatchEvent(event);
+  }
+  else {
+    pom.click();
+  }
+}
+
+
+
 export default class ProjectList extends Component {
   constructor(props) {
     super(props)
@@ -180,9 +198,15 @@ export default class ProjectList extends Component {
   }
 
   modalClose(e) {
-    let notification = {...this.state.notification};
+    let notification = { ...this.state.notification };
     notification.show = false
     this.setState({ notification })
+  }
+
+  downloadProject(e, name) {
+    const content = api.getProject(name).value
+    download(name + ".md", content)
+
   }
 
   render() {
@@ -201,6 +225,11 @@ export default class ProjectList extends Component {
                     className={ css(this.style.button) }
                     key={ list.length }>
               <i className={"material-icons " + css(this.style.icon) }>delete_forever</i>
+            </button>
+            <button onClick={ (e) => this.downloadProject(e, key) }
+                    className={ css(this.style.button) }
+                    key={ list.length }>
+              <i className={"material-icons " + css(this.style.icon) }>file_download</i>
             </button>
           </div>
         </div>
