@@ -86,6 +86,7 @@ export default class AppContainer extends Component {
         bottom: "16px",
         right: "16px",
         padding: "8px 16px",
+        border: themes[theme].color
       },
       input: {
         borderBottom: "4px solid " + themes[theme].accent,

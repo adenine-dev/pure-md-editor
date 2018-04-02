@@ -505,9 +505,6 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-render
     text-decoration: underline;
     color: white !important; }
 
-.CodeMirror {
-  font-size: 24px; }
-
 .cm-header {
   font-weight: 800;
   line-height: 1.1em; }

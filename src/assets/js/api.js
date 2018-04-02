@@ -66,7 +66,7 @@ const api = {
     } else {
       api.settings = {
         theme: "dark",
-        fontSize: "16",
+        fontSize: "24",
       }
     }
     localStorage.setItem("settings", JSON.stringify(api.settings))
