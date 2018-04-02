@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import api from "../assets/js/api.js"
 import { themes } from "../assets/js/theme.js"
@@ -21,11 +22,14 @@ export default class AppContainer extends Component {
   handleSave(e) {
     api.setSettings(this.state.settings);
     this.setState({shouldRedirect: true})
+    console.log("hellow world");
   }
 
   render() {
     if(this.state.shouldRedirect) {
-      
+      return (
+        <Redirect to="/app/projects/" />
+      )
     }
     const themeOptions = []
     for(let theme in themes) {
