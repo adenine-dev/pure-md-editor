@@ -135,7 +135,7 @@ export default class ProjectList extends Component {
         color: themes[this.state.theme].color,
         verticalAlign: "middle",
         fontSize: "32px",
-
+        opacity: "0.8"
       }
     })
   }
