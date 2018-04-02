@@ -118,10 +118,10 @@ export default class Menu extends Component {
           top: "60%",
           left: "0",
           backgroundColor: themes[this.state.theme].accent,
-          transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+          transition: "all 0.3s 0.05s cubic-bezier(.25,.8,.25,1)",
           width: "0",
           zIndex: "-1",
-          
+
         },
         ":hover": {
           ":after": {

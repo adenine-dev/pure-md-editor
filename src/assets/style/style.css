@@ -505,61 +505,61 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-render
     text-decoration: underline;
     color: white !important; }
 
-.cm-header {
+.CodeMirror-lines .cm-header {
   font-weight: 800;
   line-height: 1.1em; }
 
-.cm-header-1 {
+.CodeMirror-lines .cm-header-1 {
   font-size: 2.4em;
   line-height: 1.6em; }
 
-.cm-header-2 {
+.CodeMirror-lines .cm-header-2 {
   font-size: 2em;
   line-height: 1.4em; }
 
-.cm-header-3 {
+.CodeMirror-lines .cm-header-3 {
   font-size: 1.8em;
   line-height: 1.2em; }
 
-.cm-header-4 {
+.CodeMirror-lines .cm-header-4 {
   font-size: 1.4em; }
 
-.cm-header-5 {
+.CodeMirror-lines .cm-header-5 {
   font-size: 1.2em; }
 
-.cm-header-6 {
+.CodeMirror-lines .cm-header-6 {
   font-size: 1em; }
 
-.cm-formatting:not(.cm-formatting-header):not(.cm-formatting-quote) {
+.CodeMirror-lines .cm-formatting:not(.cm-formatting-header):not(.cm-formatting-quote) {
   font-size: 0.6em;
   opacity: 0.8; }
 
-.CodeMirror *:not(.cm-m-markdown) {
+.CodeMirror-lines .CodeMirror span *:not(.cm-m-markdown) {
   font-family: 'Roboto Mono', monospace; }
 
-.CodeMirror-placeholder {
+.CodeMirror-lines .CodeMirror-placeholder {
   font-family: "Roboto", sans-serif !important;
   opacity: 0.2; }
 
-.cm-em {
+.CodeMirror-lines .cm-em {
   font-style: italic; }
 
-.cm-strong {
+.CodeMirror-lines .cm-strong {
   font-weight: 800; }
 
-.cm-strikethrough {
+.CodeMirror-lines .cm-strikethrough {
   text-decoration: line-through; }
 
-.cm-underline {
+.CodeMirror-lines .cm-underline {
   text-decoration: underline; }
 
-.cm-formatting-list {
+.CodeMirror-lines .cm-formatting-list {
   padding: 0 8px 0 32px; }
 
-.cm-code {
+.CodeMirror-lines .cm-code {
   font-family: 'Roboto Mono', monospace; }
 
-.cm-hr::after {
+.CodeMirror-lines .cm-hr::after {
   content: "";
   position: absolute;
   height: 1px;
@@ -568,7 +568,7 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-render
   right: 16px;
   top: 50%; }
 
-.cm-formatting-quote {
+.CodeMirror-lines .cm-formatting-quote {
   padding-right: 16px; }
 
 .markdown-renderer {
