@@ -90,7 +90,6 @@ export default class ProjectList extends Component {
         [breakpoints.phone]: {
           height: "auto",
           width: "auto",
-          padding: "4px",
         }
       },
       actionsToggler: {
@@ -103,6 +102,7 @@ export default class ProjectList extends Component {
         borderLeft: "1px solid " + themes[this.state.theme].accent,
         flex: "1",
         margin: "0 16px",
+        padding: "4px",
         [breakpoints.phone]: {
           flex: "0",
         }
@@ -113,6 +113,8 @@ export default class ProjectList extends Component {
         opacity: "0.4",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
         cursor: "pointer",
+        marginBottom: "8px",
+        textAlign: "center",
         ":hover": {
           opacity: "0.8"
         }
@@ -193,7 +195,7 @@ export default class ProjectList extends Component {
         color: themes[this.state.theme].color,
         padding: "8px",
         fontSize: "16px",
-        flexGrow: "1",
+        // flexGrow: "1",
         display: "inline-block",
         borderBottom: "1px solid " + themes[this.state.theme].accent,
 
@@ -288,7 +290,11 @@ export default class ProjectList extends Component {
   }
 
   toggleActions(e, name) {
-    this.setState(prev => ( prev.showActions ? { showActions: null } : { showActions: name } ))
+    if(name === this.state.showActions) {
+      this.setState({showActions: null})
+    } else {
+      this.setState({showActions: name})
+    }
   }
 
   render() {
