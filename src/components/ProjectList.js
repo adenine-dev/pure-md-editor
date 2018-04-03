@@ -69,6 +69,7 @@ export default class ProjectList extends Component {
         whiteSpace: "nowrap",
         overflow: "hidden",
         textOverflow: "ellipsis",
+        display: "flex",
         ":hover": {
           opacity: "1"
         }
@@ -160,6 +161,21 @@ export default class ProjectList extends Component {
         verticalAlign: "middle",
         fontSize: "32px",
         opacity: "0.8"
+      },
+      nameInput: {
+        backgroundColor: "transparent",
+        color: themes[this.state.theme].color,
+        padding: "8px",
+        fontSize: "16px",
+        flexGrow: "1",
+        display: "inline-block",
+        borderBottom: "1px solid " + themes[this.state.theme].accent,
+
+      },
+      submitIcon: {
+        verticalAlign: "middle",
+        width: "32px",
+        marginRight: "32px"
       }
     })
   }
@@ -237,6 +253,13 @@ export default class ProjectList extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if(this.state.renameTarget) {
+      this["ref" + this.state.renameTarget].focus()
+    }
+  }
+
+
   render() {
     const list = [];
     for(let key in this.state.filteredList) {
@@ -244,11 +267,11 @@ export default class ProjectList extends Component {
         <div key={ list.length }
              className={ css(this.style.listItem) + " list-item" } >
           <span className={ css(this.style.li)}>
-            <div style={{ display: this.state.renameTarget === key ? "block" : "none" }}>
+            <div style={{ display: this.state.renameTarget === key ? "flex" : "none" }}>
               <input type="text" defaultValue={ key }
                      ref={ (input) => {this["ref" + key] = input} }
-                />
-                <button className={ css(this.style.button) }
+                     className={ css(this.style.nameInput) } />
+                <button className={ css([this.style.button, this.style.submitIcon]) }
                         onClick={ (e) => this.renameProject(e, key) }>
 
                   <i className={"material-icons " + css(this.style.icon) }>check</i>
