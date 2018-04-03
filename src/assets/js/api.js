@@ -1,3 +1,6 @@
+const adjectives = ["unprecedented", "gay", "draconian", "elderly", "erect", "fertile", "hellish", "hospitable", "jolly", "knowledgeable", "needy", "noxious", "obscene", "organic", "horny", "petite", "periodic", "prickly", "puny", "rambunctious", "rare", "ruthless", "scientific", "skillful", "squeamish", "sulky", "talented", "tangy", "unsightly", "vacuous", "voiceless", "yummy" ]
+const nouns = ["zoology", "aluminium", "anethesiologist", "appendix", "bacon", "yogurt", "xylophone", "windshield", "aftermath", "airplane", "vulture", "vegetarian", "typhoon", "midwife", "supermarket", "squirrel", "squirrel", "rugby", "lasagna", "equipment", "diploma", "dedication", "customer", "cocktail", "chimpanzee", "mudkip", "crab", "canadian", "bra", "blizzard", "gay", "aardvark"]
+
 const api = {
   projects: {},
   getProjects: () => {
@@ -38,8 +41,21 @@ const api = {
     api.setLocalProjects()
   },
   getNewProject: (newName) => {
+    const newProjectName = () => {
+      let adjective = adjectives[Math.floor(Math.random() * adjectives.length)]
+      let noun = nouns[Math.floor(Math.random() * nouns.length)]
+      let name = adjective + " " + noun
+      while(api.getProject(name)) {
+        adjective = adjectives[Math.floor(Math.random() * adjectives.length)]
+        noun = nouns[Math.floor(Math.random() * nouns.length)]
+        name = adjective + " " + noun
+      }
+      return name
+    }
+
+
     // TODO: make this generate an unused project name better
-    let name = newName || "new project" + Math.random();
+    let name = newName || newProjectName()
     let projects = api.getProjects()
     let project = {
       name: name,
