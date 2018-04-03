@@ -61,13 +61,15 @@ const api = {
   },
   settings: {},
   initSettings: () => {
+    const defaultSettings = {
+      theme: "dark",
+      fontSize: "24",
+    }
     if(localStorage.getItem("settings")) {
-      api.settings = JSON.parse(localStorage.getItem("settings"))
+      api.settings = { ...defaultSettings,
+                       ...JSON.parse(localStorage.getItem("settings")) }
     } else {
-      api.settings = {
-        theme: "dark",
-        fontSize: "24",
-      }
+      api.settings = defaultSettings
     }
     localStorage.setItem("settings", JSON.stringify(api.settings))
     return api.settings

@@ -116,15 +116,24 @@ export default class AppContainer extends Component {
   }
 
   handleSave(e) {
-    api.setSettings(this.state.settings);
+    const settings = this.state.settings
+    for(let setting in settings) {
+      if(settings[setting] === "") {
+        settings[setting] = api.getSetting(setting)
+      }
+    }
+    api.setSettings(settings);
     this.setState({shouldRedirect: true})
   }
 
-  handleFontNumChange(e) {
+  handleNumChange(e) {
     const settings = {...this.state.settings}
     if(e.target.value >= e.target.min && e.target.value <= e.target.max) {
       settings[e.target.name] = e.target.value
       this.setState({ settings })
+    } else if(e.target.value === "") {
+      // TODO: find something to do here
+      //       i think something has to be done here but i'm not sure what
     } else {
       e.target.value = settings[e.target.name]
     }
@@ -169,9 +178,10 @@ export default class AppContainer extends Component {
           <input type="number"
                  min="1"
                  max="Infinity"
+                 name="fontSize"
                  className={ css(this.style.input) }
                  defaultValue={ this.state.settings.fontSize }
-                 onChange={ this.handleFontNumChange.bind(this) }/><p className={ css(this.style.p) }>px</p>
+                 onChange={ this.handleNumChange.bind(this) }/><p className={ css(this.style.p) }>px</p>
           <br/>
           <p className={ css(this.style.p) }>Different Fonts may have different sizes regardless of if they have the same px size</p>
         </div>
