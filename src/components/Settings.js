@@ -130,13 +130,12 @@ export default class AppContainer extends Component {
     const settings = {...this.state.settings}
     if(e.target.value >= e.target.min && e.target.value <= e.target.max) {
       settings[e.target.name] = e.target.value
-      this.setState({ settings })
     } else if(e.target.value === "") {
-      // TODO: find something to do here
-      //       i think something has to be done here but i'm not sure what
+      settings[e.target.name] = ""
     } else {
       e.target.value = settings[e.target.name]
     }
+    this.setState({ settings })
   }
 
   render() {
