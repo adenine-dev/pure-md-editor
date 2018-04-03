@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import { injectGlobals } from 'hepha';
-import { injectStyleOnce } from 'aphrodite/src/inject';
+import { StyleSheet } from "aphrodite";
+import cssGlobal from '../assets/js/css-global.js';
 
 import ProjectList from "./ProjectList.js"
 import Editor from "./Editor.js"
@@ -36,7 +36,7 @@ export default class AppContainer extends Component {
 
   render() {
 
-    injectGlobals(injectStyleOnce, this.style);
+    cssGlobal(this.style);
 
 
     return (
