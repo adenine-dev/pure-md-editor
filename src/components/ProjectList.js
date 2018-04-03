@@ -57,6 +57,8 @@ export default class ProjectList extends Component {
       },
       li: {
         flex: "3",
+        minWidth: "0",
+
       },
       a: {
         color: themes[this.state.theme].color,
@@ -64,6 +66,9 @@ export default class ProjectList extends Component {
         opacity: "0.8",
         display: "block",
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
         ":hover": {
           opacity: "1"
         }
@@ -140,8 +145,8 @@ export default class ProjectList extends Component {
       addButton: {
         backgroundColor: themes[this.state.theme].accent,
         position: "fixed",
-        bottom: "8px",
-        right: "8px",
+        bottom: "16px",
+        right: "16px",
         height: "52px",
         width: "52px",
         display: "flex",
