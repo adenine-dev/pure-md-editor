@@ -70,7 +70,6 @@ export default class ProjectList extends Component {
         whiteSpace: "nowrap",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        display: "flex",
         ":hover": {
           opacity: "1"
         }
@@ -195,15 +194,16 @@ export default class ProjectList extends Component {
         color: themes[this.state.theme].color,
         padding: "8px",
         fontSize: "16px",
-        // flexGrow: "1",
+        flexGrow: "1",
         display: "inline-block",
         borderBottom: "1px solid " + themes[this.state.theme].accent,
+        minWidth: "0",
 
       },
       submitIcon: {
         verticalAlign: "middle",
         width: "32px",
-        marginRight: "32px"
+        padding: "4px"
       }
     })
   }
