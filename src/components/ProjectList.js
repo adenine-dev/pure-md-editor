@@ -41,6 +41,7 @@ export default class ProjectList extends Component {
         name: "warning",
         timeout: false
       },
+      renameTarget: null,
     }
     this.style = StyleSheet.create({
       noteList: {
@@ -206,29 +207,66 @@ export default class ProjectList extends Component {
   downloadProject(e, name) {
     const content = api.getProject(name).value
     download(name + ".md", content)
+  }
 
+  setRenameTarget(e, name) {
+    this.setState({renameTarget: name});
+  }
+
+  renameProject(e, name) {
+    this.setState({renameTarget: null});
+    const input = this["ref" + name]
+    if(this.state.list[name].name !== input.value) {
+      if(api.renameProject(this.state.list[name].name, input.value)) {
+        const list = {...this.state.list}
+        list[input.value] = api.getProject(input.value)
+        this.setState({ list })
+      } else {
+        this.setState({notification: {
+          value: "the project failed to be renamed",
+          show: true,
+          name: "error"
+        }})
+        input.value = this.state.list[name].name
+      }
+    }
   }
 
   render() {
-    let list = [];
+    const list = [];
     for(let key in this.state.filteredList) {
       list.push((
         <div key={ list.length }
              className={ css(this.style.listItem) + " list-item" } >
-             <span className={ css(this.style.li)}>
-               <Link to={ "/app/edit/" + key + "/default/" } >
-                 <span className={ css(this.style.a) }>{ key }</span>
-               </Link>
-             </span>
+          <span className={ css(this.style.li)}>
+            <div style={{ display: this.state.renameTarget === key ? "block" : "none" }}>
+              <input type="text" defaultValue={ key }
+                     ref={ (input) => {this["ref" + key] = input} }
+                />
+                <button className={ css(this.style.button) }
+                        onClick={ (e) => this.renameProject(e, key) }>
+
+                  <i className={"material-icons " + css(this.style.icon) }>check</i>
+                </button>
+            </div>
+
+            <Link to={ "/app/edit/" + key + "/default/" }
+                  style={{ display: this.state.renameTarget !== key ? "block" : "none" }}>
+              <span className={ css(this.style.a) }>{ key }</span>
+            </Link>
+          </span>
+
           <div className={"actions " + css(this.style.actions) }>
             <button onClick={ (e) => this.promptDeleteProject(e, key) }
-                    className={ css(this.style.button) }
-                    key={ list.length }>
+                    className={ css(this.style.button) } >
               <i className={"material-icons " + css(this.style.icon) }>delete_forever</i>
             </button>
+            <button onClick={ (e) => this.setRenameTarget(e, key) }
+                    className={ css(this.style.button) } >
+              <i className={"material-icons " + css(this.style.icon) }>create</i>
+            </button>
             <button onClick={ (e) => this.downloadProject(e, key) }
-                    className={ css(this.style.button) }
-                    key={ list.length }>
+                    className={ css(this.style.button) } >
               <i className={"material-icons " + css(this.style.icon) }>file_download</i>
             </button>
           </div>
