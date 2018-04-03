@@ -42,6 +42,7 @@ export default class ProjectList extends Component {
         timeout: false
       },
       renameTarget: null,
+
     }
     this.style = StyleSheet.create({
       noteList: {
@@ -75,11 +76,36 @@ export default class ProjectList extends Component {
         }
       },
       actions: {
-        flex: "1",
-        padding: "0 16px",
-        borderLeft: "1px solid " + themes[this.state.theme].accent,
         display: "flex",
         justifyContent: "space-around",
+        overflow: "hidden",
+        [breakpoints.phone]: {
+          width: "0",
+          height: "0",
+          display: "inline-flex",
+          flexDirection: "column",
+        },
+      },
+      showActions: {
+        [breakpoints.phone]: {
+          height: "auto",
+          width: "auto",
+          padding: "4px",
+        }
+      },
+      actionsToggler: {
+        display: "none",
+        [breakpoints.phone]: {
+          display: "inline-block",
+        }
+      },
+      actionsContainer: {
+        borderLeft: "1px solid " + themes[this.state.theme].accent,
+        flex: "1",
+        margin: "0 16px",
+        [breakpoints.phone]: {
+          flex: "0",
+        }
       },
       button: {
         background: "transparent",
@@ -201,6 +227,7 @@ export default class ProjectList extends Component {
   }
 
   promptDeleteProject(e, name) {
+
     let notification = {...this.state.notification};
     notification.show = true
     notification.name = "warning"
@@ -215,7 +242,7 @@ export default class ProjectList extends Component {
                 onClick={ this.modalClose.bind(this) }>No</button>
       </div>
     )
-    this.setState({ notification })
+    this.setState({ notification, showActions: null })
 
   }
 
@@ -228,10 +255,11 @@ export default class ProjectList extends Component {
   downloadProject(e, name) {
     const content = api.getProject(name).value
     download(name + ".md", content)
+    this.setState({ showActions: null })
   }
 
   setRenameTarget(e, name) {
-    this.setState({renameTarget: name});
+    this.setState({renameTarget: name, showActions: null});
   }
 
   renameProject(e, name) {
@@ -259,6 +287,9 @@ export default class ProjectList extends Component {
     }
   }
 
+  toggleActions(e, name) {
+    this.setState(prev => ( prev.showActions ? { showActions: null } : { showActions: name } ))
+  }
 
   render() {
     const list = [];
@@ -283,20 +314,25 @@ export default class ProjectList extends Component {
               <span className={ css(this.style.a) }>{ key }</span>
             </Link>
           </span>
-
-          <div className={"actions " + css(this.style.actions) }>
-            <button onClick={ (e) => this.promptDeleteProject(e, key) }
-                    className={ css(this.style.button) } >
-              <i className={"material-icons " + css(this.style.icon) }>delete_forever</i>
+          <div className={ css([this.style.actionsContainer]) }>
+            <button onClick={ (e) => this.toggleActions(e, key) }
+              className={ css([this.style.button, this.style.actionsToggler]) } >
+              <i className={"material-icons " + css(this.style.icon) }>more_vert</i>
             </button>
-            <button onClick={ (e) => this.setRenameTarget(e, key) }
-                    className={ css(this.style.button) } >
-              <i className={"material-icons " + css(this.style.icon) }>create</i>
-            </button>
-            <button onClick={ (e) => this.downloadProject(e, key) }
-                    className={ css(this.style.button) } >
-              <i className={"material-icons " + css(this.style.icon) }>file_download</i>
-            </button>
+            <div className={"actions " + css([this.style.actions, this.state.showActions === key && this.style.showActions]) }>
+              <button onClick={ (e) => this.promptDeleteProject(e, key) }
+                className={ css(this.style.button) } >
+                <i className={"material-icons " + css(this.style.icon) }>delete_forever</i>
+              </button>
+              <button onClick={ (e) => this.setRenameTarget(e, key) }
+                className={ css(this.style.button) } >
+                <i className={"material-icons " + css(this.style.icon) }>create</i>
+              </button>
+              <button onClick={ (e) => this.downloadProject(e, key) }
+                className={ css(this.style.button) } >
+                <i className={"material-icons " + css(this.style.icon) }>file_download</i>
+              </button>
+            </div>
           </div>
         </div>
       ))
