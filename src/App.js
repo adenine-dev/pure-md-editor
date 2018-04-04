@@ -5,7 +5,7 @@ import AppContainer from "./components/AppContainer.js"
 import api from "./assets/js/api.js"
 
 class App extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     api.initSettings()
   }
   render() {

@@ -29,7 +29,7 @@ export default class DistractionEditor extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({project: nextProps.project})
   }
 

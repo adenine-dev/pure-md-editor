@@ -79,7 +79,7 @@ export default class Notification extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ show: !!nextProps.show })
     this.setState({ timedHide: !!nextProps.timedHide })
 

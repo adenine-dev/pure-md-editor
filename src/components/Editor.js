@@ -95,7 +95,7 @@ export default class Editor extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState(this.getProject(nextProps))
   }
 
@@ -126,7 +126,7 @@ export default class Editor extends Component {
     this.setState({ project })
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     for(let i = 0; i < keymaps.length; i++) {
       if(!keymaps[i].cm) {
         Mousetrap.bindGlobal(keymaps[i].name, (e, c) => keymaps[i].action(null, this.state, this, e, c))

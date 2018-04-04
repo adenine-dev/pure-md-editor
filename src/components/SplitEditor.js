@@ -83,7 +83,7 @@ export default class SplitEditor extends Component {
     this.setState({ cm: editor })
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({project: nextProps.project})
   }
 

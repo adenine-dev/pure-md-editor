@@ -36,7 +36,7 @@ export default class MarkdownRenderer extends Component {
     })
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if(nextProps.markdown !== this.props.markdown) {
       this.setState({markdown: nextProps.markdown})
       this.setState({renderedMD: this.state.converter.makeHtml(nextProps.markdown)})
@@ -51,7 +51,7 @@ export default class MarkdownRenderer extends Component {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let converter = {...this.state.converter}
     converter.setFlavor('github');
     this.setState({ converter })
