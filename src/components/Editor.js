@@ -143,9 +143,9 @@ export default class Editor extends Component {
   }
 
   getCount() {
-    if(api.getSetting("countType") === "word") {
-      return "words: " + (this.state.project.value === "") ? 0 : this.state.project.value.split(' ').length - ((this.state.project.value.substr(-1) === " ") ? 1 : 0)
-    } else if(api.getSetting("countType") === "char") {
+    if(api.getSetting("countType") === "words") {
+      return "words: " + ((this.state.project.value === "") ? 0 : this.state.project.value.split(' ').length - ((this.state.project.value.substr(-1) === " ") ? 1 : 0))
+    } else if(api.getSetting("countType") === "characters") {
       return "characters: " + this.state.project.value.length
     } else {
       return ""
