@@ -23,6 +23,6 @@ ul:not(.CodeMirror *)
 @each $name, $value in $themes
   body.#{$name}
     *::selection
-      background-color: getTheme($name, accent)
+      background-color: rgba(getTheme($name, accent), 0.2)
   body.#{$name} *::-webkit-scrollbar-thumb
       background-color: getTheme($name, accent)

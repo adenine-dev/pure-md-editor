@@ -30,6 +30,15 @@ export default class Editor extends Component {
 
     }
     this.style = StyleSheet.create({
+      header: {
+        backgroundColor: themes[this.state.theme].bg,
+        top: 0,
+        left: 0,
+        width: "100%",
+        position: "fixed",
+        zIndex: "200",
+        padding: "8px 16px",
+      },
       headerTitle: {
         color: themes[this.state.theme].color,
         textAlign: "center",
@@ -189,7 +198,7 @@ export default class Editor extends Component {
       <div>
         { notification }
 
-        <header>
+        <header className= {css(this.style.header) }>
           <p className={ css(this.style.countP) }>
             { this.getCount() }
           </p>
@@ -212,7 +221,7 @@ export default class Editor extends Component {
                                project={ this.state.project } {...props}/>
           )} />
 
-          {/* <Redirect to={"/app/edit/" + this.state.project + "/default/"}/> */}
+          <Redirect to={"/app/edit/" + this.state.project + "/default/"}/>
         </Switch>
 
       </div>

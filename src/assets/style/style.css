@@ -21,13 +21,13 @@ ul:not(.CodeMirror *) {
   list-style: none; }
 
 body.dark *::selection {
-  background-color: #89aec6; }
+  background-color: rgba(137, 174, 198, 0.2); }
 
 body.dark *::-webkit-scrollbar-thumb {
   background-color: #89aec6; }
 
 body.light *::selection {
-  background-color: #c68989; }
+  background-color: rgba(198, 137, 137, 0.2); }
 
 body.light *::-webkit-scrollbar-thumb {
   background-color: #c68989; }
@@ -341,32 +341,8 @@ div.CodeMirror-dragcursors {
 .CodeMirror-focused div.CodeMirror-cursors {
   visibility: visible; }
 
-.CodeMirror-selected {
-  background: #d9d9d9; }
-
-.CodeMirror-focused .CodeMirror-selected {
-  background: #d7d4f0; }
-
 .CodeMirror-crosshair {
   cursor: crosshair; }
-
-.CodeMirror-line::-moz-selection {
-  background: #d7d4f0; }
-
-.CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection {
-  background: #d7d4f0; }
-
-.CodeMirror-line::selection {
-  background: #d7d4f0; }
-
-.CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection {
-  background: #d7d4f0; }
-
-.CodeMirror-line::-moz-selection {
-  background: #d7d4f0; }
-
-.CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection {
-  background: #d7d4f0; }
 
 .cm-searching {
   background-color: #ffa;
@@ -393,11 +369,11 @@ body.dark .CodeMirror {
   background-color: #222;
   color: rgba(255, 255, 255, 0.85); }
 
-body.dark .CodeMirror-cursor {
-  border-left: 2px solid rgba(204, 204, 204, 0.85); }
+body.dark div.CodeMirror-cursor {
+  border-left: 2px solid #89aec6; }
 
 body.dark .CodeMirror div.CodeMirror-secondarycursor {
-  border-left: 2px solid rgba(153, 153, 153, 0.85); }
+  border-left: 2px solid #89aec6; }
 
 body.dark .CodeMirror-selected, body.dark .CodeMirror-focused .CodeMirror-selected {
   background-color: rgba(137, 174, 198, 0.1); }
@@ -451,11 +427,11 @@ body.light .CodeMirror {
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.85); }
 
-body.light .CodeMirror-cursor {
-  border-left: 2px solid rgba(0, 0, 0, 0.85); }
+body.light div.CodeMirror-cursor {
+  border-left: 2px solid #c68989; }
 
 body.light .CodeMirror div.CodeMirror-secondarycursor {
-  border-left: 2px solid rgba(0, 0, 0, 0.85); }
+  border-left: 2px solid #c68989; }
 
 body.light .CodeMirror-selected, body.light .CodeMirror-focused .CodeMirror-selected {
   background-color: rgba(198, 137, 137, 0.1); }

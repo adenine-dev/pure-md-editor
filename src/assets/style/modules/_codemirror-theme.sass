@@ -6,10 +6,10 @@
     .CodeMirror
       background-color: getTheme($name, "bg")
       color: getTheme($name, "color")
-    .CodeMirror-cursor
-      border-left: 2px solid darken(getTheme($name, "color"), 20%)
+    div.CodeMirror-cursor
+      border-left: 2px solid getTheme($name, "accent")
     .CodeMirror div.CodeMirror-secondarycursor
-        border-left: 2px solid darken(getTheme($name, "color"), 40%)
+      border-left: 2px solid getTheme($name, "accent")
     .CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected
       background-color: rgba(getTheme($name, "accent"), 0.1)
 

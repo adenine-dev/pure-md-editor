@@ -30,7 +30,7 @@ export default class CodeMirrorEditor extends Component {
     this.style = StyleSheet.create({
       editorWrapperStyle: {
         width: "90%",
-        margin: "32px auto",
+        margin: "64px auto",
         maxWidth: "960px",
       }
     })
