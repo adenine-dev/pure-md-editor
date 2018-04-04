@@ -53,6 +53,7 @@ export default class CodeMirrorEditor extends Component {
       tabSize: 2,
       autoCloseBrackets: true,
       lineWrapping: true,
+      inputStyle: "contenteditable",
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
       },
@@ -71,6 +72,8 @@ export default class CodeMirrorEditor extends Component {
 
     editor.addKeyMap( keymap );
     this.setState({ editor })
+
+    window.mc = editor
 
     if(this.props.onMount) {
       this.props.onMount(this.state, editor)
