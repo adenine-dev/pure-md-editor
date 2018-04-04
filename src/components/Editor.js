@@ -79,6 +79,11 @@ export default class Editor extends Component {
         backgroundColor: themes[this.state.theme].success,
         color: themes[this.state.theme].color,
       },
+      countP: {
+        color: themes[this.state.theme].color,
+        opacity: "0.6",
+        position: "absolute"
+      }
     })
   }
 
@@ -134,6 +139,10 @@ export default class Editor extends Component {
     }
   }
 
+  getWordCount() {
+    return (this.state.project.value === "") ? 0 : this.state.project.value.split(' ').length - ((this.state.project.value.substr(-1) === " ") ? 1 : 0)
+  }
+
   render() {
     if(!this.state.project) {
       return (
@@ -172,8 +181,11 @@ export default class Editor extends Component {
         { notification }
 
         <header>
-          <p>characters: { this.state.project.value.length }
-             words: { this.state.project.value.split(' ').length }</p>
+          <p className={ css(this.style.countP) }>
+            characters: { this.state.project.value.length }
+            <br/>
+            words: { this.getWordCount() }
+          </p>
           <input type="text"
                  defaultValue={ this.state.project.name }
                  className={ css(this.style.headerTitle) }
