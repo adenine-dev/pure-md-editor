@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
 
+import RadioCluster from "./RadioCluster.js"
+
 import api from "../assets/js/api.js"
 import { themes } from "../assets/js/theme.js"
 
@@ -103,9 +105,11 @@ export default class AppContainer extends Component {
     })
   }
 
-  handleThemeChange(e) {
+  handleOptionChange(e, name) {
+    console.log(name)
+    console.log(e.target.name);
     const settings = {...this.state.settings}
-    settings.theme = e.target.name
+    settings[name] = e.target.name
     this.setState({ settings })
   }
 
@@ -148,28 +152,23 @@ export default class AppContainer extends Component {
       )
     }
 
-    const themeOptions = []
-    for(let theme in themes) {
-      themeOptions.push(
-        <div key={ themeOptions.length }
-             className={ css(this.style.radioContainer) }>
-          <input type="radio"
-                 className={ css(this.style.radio) }
-                 checked={ theme === this.state.settings.theme }
-                 name={ theme }
-                 onChange={ this.handleThemeChange.bind(this) }/>
-          <p className={ css(this.style.radioLabel) }>{ theme }</p>
-        </div>
-      )
-    }
-
     return (
       <div className={ css(this.style.container) }>
         <h1 className={ css(this.style.headers) }>Settings</h1>
         <div className={ css(this.style.option) }>
           <h2 className={ css(this.style.headers) }>Theme</h2>
           <div>
-            { themeOptions }
+            <RadioCluster onChange={ (e) => this.handleOptionChange(e, "theme") }
+                          options={ Object.keys(themes) }
+                          defaultValue={ this.state.settings.theme }/>
+          </div>
+        </div>
+        <div className={ css(this.style.option) }>
+          <h2 className={ css(this.style.headers) }>Word Count</h2>
+          <div>
+            <RadioCluster onChange={ (e) => this.handleOptionChange(e, "countType") }
+                          options={ ["words", "characters", "none"] }
+                          defaultValue={ this.state.settings.countType }/>
           </div>
         </div>
         <div className={ css(this.style.option) }>

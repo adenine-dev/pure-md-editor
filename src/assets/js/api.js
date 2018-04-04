@@ -45,7 +45,7 @@ const api = {
       let adjective = adjectives[Math.floor(Math.random() * adjectives.length)]
       let noun = nouns[Math.floor(Math.random() * nouns.length)]
       let name = adjective + " " + noun
-      
+
       // TODO: don't make this loop forever
       while(api.getProject(name)) {
         adjective = adjectives[Math.floor(Math.random() * adjectives.length)]
@@ -82,6 +82,7 @@ const api = {
     const defaultSettings = {
       theme: "dark",
       fontSize: "24",
+      countType: "words"
     }
     if(localStorage.getItem("settings")) {
       api.settings = { ...defaultSettings,
