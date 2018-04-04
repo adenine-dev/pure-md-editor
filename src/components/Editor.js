@@ -81,8 +81,11 @@ export default class Editor extends Component {
       },
       countP: {
         color: themes[this.state.theme].color,
-        opacity: "0.6",
-        position: "absolute"
+        opacity: "0.3",
+        position: "absolute",
+        padding: "4px",
+        lineHeight: "1.6em",
+
       }
     })
   }
@@ -139,8 +142,14 @@ export default class Editor extends Component {
     }
   }
 
-  getWordCount() {
-    return (this.state.project.value === "") ? 0 : this.state.project.value.split(' ').length - ((this.state.project.value.substr(-1) === " ") ? 1 : 0)
+  getCount() {
+    if(api.getSetting("countType") === "word") {
+      return "words: " + (this.state.project.value === "") ? 0 : this.state.project.value.split(' ').length - ((this.state.project.value.substr(-1) === " ") ? 1 : 0)
+    } else if(api.getSetting("countType") === "char") {
+      return "characters: " + this.state.project.value.length
+    } else {
+      return ""
+    }
   }
 
   render() {
@@ -182,9 +191,7 @@ export default class Editor extends Component {
 
         <header>
           <p className={ css(this.style.countP) }>
-            characters: { this.state.project.value.length }
-            <br/>
-            words: { this.getWordCount() }
+            { this.getCount() }
           </p>
           <input type="text"
                  defaultValue={ this.state.project.name }
