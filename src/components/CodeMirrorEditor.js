@@ -9,6 +9,7 @@ import '../assets/js/codemirror/addon/overlay.js';
 import '../assets/js/codemirror/addon/closebrackets.js';
 import '../assets/js/codemirror/addon/placeholder.js';
 
+
 import 'codemirror/mode/javascript/javascript.js';
 // import 'codemirror/mode/clike/clike.js';
 // import 'codemirror/mode/css/css.js';
@@ -53,6 +54,7 @@ export default class CodeMirrorEditor extends Component {
       tabSize: 2,
       autoCloseBrackets: true,
       lineWrapping: true,
+      enableCompositionMod: true,
       inputStyle: "contenteditable",
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",

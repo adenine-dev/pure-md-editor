@@ -171,12 +171,14 @@ export default class Editor extends Component {
       <div>
         { notification }
 
-        <div>
+        <header>
+          <p>characters: { this.state.project.value.length }
+             words: { this.state.project.value.split(' ').length }</p>
           <input type="text"
                  defaultValue={ this.state.project.name }
                  className={ css(this.style.headerTitle) }
                  onBlur={ this.handleTitleChange.bind(this) }/>
-        </div>
+        </header>
         <Switch>
           <Route exact path="/app/edit/:project/default/" render={ (props) => (
             <DefaultEditor onChange={ this.handleChange.bind(this) }
