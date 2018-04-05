@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-import "../assets/js/codemirror/addon/composition-mod.js"
+// import "../assets/js/codemirror/addon/composition-mod.js"
 // import "codemirror-composition-mod/  lib/codemirror-composition-mod.css"
 
 import '../assets/js/codemirror/mode/gfm.js';
@@ -57,7 +57,7 @@ export default class CodeMirrorEditor extends Component {
       enableCompositionMod: true,
       autoCloseBrackets: true,
       lineWrapping: true,
-      enableCompositionMod: true,
+      // enableCompositionMod: true,
       inputStyle: "contenteditable",
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
