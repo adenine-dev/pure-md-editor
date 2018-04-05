@@ -106,8 +106,6 @@ export default class AppContainer extends Component {
   }
 
   handleOptionChange(e, name) {
-    console.log(name)
-    console.log(e.target.name);
     const settings = {...this.state.settings}
     settings[name] = e.target.name
     this.setState({ settings })

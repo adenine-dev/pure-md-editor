@@ -29,7 +29,7 @@ export default class MarkdownRenderer extends Component {
     this.style = StyleSheet.create({
       renderer: {
         width: "90%",
-        margin: "32px auto",
+        margin: "64px auto",
         maxWidth: "960px",
         height: "auto",
       }

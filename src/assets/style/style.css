@@ -23,13 +23,13 @@ ul:not(.CodeMirror *) {
 body.dark *::selection {
   background-color: rgba(137, 174, 198, 0.2); }
 
-body.dark *::-webkit-scrollbar-thumb {
+body.dark::-webkit-scrollbar-thumb {
   background-color: #89aec6; }
 
 body.light *::selection {
   background-color: rgba(198, 137, 137, 0.2); }
 
-body.light *::-webkit-scrollbar-thumb {
+body.light::-webkit-scrollbar-thumb {
   background-color: #c68989; }
 
 .ham {

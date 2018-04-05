@@ -21,7 +21,7 @@ export default class AppContainer extends Component {
       },
     }
     this.style = {
-      ".CodeMirror": {
+      ".CodeMirror, .markdown-renderer": {
         fontSize: api.getSetting("fontSize") + "px",
       },
 
