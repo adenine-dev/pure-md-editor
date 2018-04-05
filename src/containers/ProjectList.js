@@ -5,9 +5,9 @@ import { StyleSheet, css } from 'aphrodite/no-important';
 import api from "../assets/js/api.js"
 import { themes, breakpoints } from "../assets/js/theme.js"
 
-import SearchBar from "./SearchBar.js"
-import EmoteError from "./EmoteError.js"
-import Notification from "./Notification.js"
+import SearchBar from "../components/SearchBar.js"
+import EmoteError from "../components/EmoteError.js"
+import Notification from "../components/Notification.js"
 
 
 // TODO: maybe seperate this out into its own file?

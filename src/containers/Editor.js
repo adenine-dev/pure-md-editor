@@ -3,12 +3,12 @@ import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Mousetrap from "mousetrap"
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-import DefaultEditor from "./DefaultEditor.js"
-import SplitEditor from "./SplitEditor.js"
-import DistractionEditor from "./DistractionEditor.js"
+import DefaultEditor from "../components/DefaultEditor.js"
+import SplitEditor from "../components/SplitEditor.js"
+import DistractionEditor from "../components/DistractionEditor.js"
 
-import Notification from "./Notification.js"
-import EmoteError from "./EmoteError.js"
+import Notification from "../components/Notification.js"
+import EmoteError from "../components/EmoteError.js"
 
 import { themes, breakpoints } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"

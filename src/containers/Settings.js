@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-import RadioCluster from "./RadioCluster.js"
+import RadioCluster from "../components/RadioCluster.js"
 
 import api from "../assets/js/api.js"
 import { themes } from "../assets/js/theme.js"

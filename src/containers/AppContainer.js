@@ -6,8 +6,9 @@ import cssGlobal from '../assets/js/css-global.js';
 
 import ProjectList from "./ProjectList.js"
 import Editor from "./Editor.js"
-import Menu from "./Menu.js"
 import Settings from "./Settings.js"
+
+import Menu from "../components/Menu.js"
 
 import { themes } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
@@ -41,7 +42,7 @@ export default class AppContainer extends Component {
 
     return (
       <div className="app-container" className={ this.state.settings.theme }
-           style={{ position: "relaitve" }}>
+           style={{ position: "relative" }}>
         <Menu theme={ this.state.settings.theme }/>
         <Switch>
           <Route exact path="/app/edit/:project/:editorType?/" component={ Editor } />
