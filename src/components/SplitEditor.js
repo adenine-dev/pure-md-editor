@@ -4,7 +4,7 @@ import Mousetrap from "mousetrap"
 import { StyleSheet, css } from 'aphrodite/no-important';
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync"
 
-import CodeMirrorEditor from "./CodeMirrorEditor.js"
+import CleditEditor from "./CleditEditor.js"
 import MarkdownRenderer from "./MarkdownRenderer.js"
 import Toolbar from "./Toolbar.js"
 
@@ -118,7 +118,7 @@ export default class SplitEditor extends Component {
           <div className={"spit-view " + css(this.style.splitter) }>
             <ScrollSyncPane>
               <div className={ "syncscroll " + css(this.style.splitItem) } >
-                <CodeMirrorEditor defaultValue={ this.state.project.value }
+                <CleditEditor defaultValue={ this.state.project.value }
                                   onChange={ this.handleCmChange.bind(this) }
                                   onMount={ this.getCMEditor.bind(this) } />
               </div>

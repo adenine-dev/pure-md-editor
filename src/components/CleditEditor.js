@@ -22,7 +22,7 @@ import keymaps from "../assets/js/codemirror/keymap/keymap.js"
 
 
 
-export default class CodeMirrorEditor extends Component {
+export default class CleditEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {

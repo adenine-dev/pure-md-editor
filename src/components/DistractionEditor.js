@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-import CodeMirrorEditor from "./CodeMirrorEditor.js"
+import CleditEditor from "./CleditEditor.js"
 
 import api from "../assets/js/api.js"
 
@@ -40,7 +40,7 @@ export default class DistractionEditor extends Component {
   render() {
     return (
       <div className={"distraction-editor "}>
-        <CodeMirrorEditor defaultValue={ this.state.project.value }
+        <CleditEditor defaultValue={ this.state.project.value }
                           onChange={ this.handleCmChange.bind(this) }
                           onMount={ this.getCMEditor.bind(this) }/>
       </div>
