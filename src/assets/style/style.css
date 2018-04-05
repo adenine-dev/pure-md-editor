@@ -23,13 +23,13 @@ ul:not(.CodeMirror *) {
 body.dark *::selection {
   background-color: rgba(137, 174, 198, 0.2); }
 
-body.dark::-webkit-scrollbar-thumb {
+body.dark *::-webkit-scrollbar-thumb, body.dark::-webkit-scrollbar-thumb {
   background-color: #89aec6; }
 
 body.light *::selection {
   background-color: rgba(198, 137, 137, 0.2); }
 
-body.light::-webkit-scrollbar-thumb {
+body.light *::-webkit-scrollbar-thumb, body.light::-webkit-scrollbar-thumb {
   background-color: #c68989; }
 
 .ham {
@@ -364,6 +364,27 @@ div.CodeMirror-dragcursors {
 /* Help users use markselection to safely style text background */
 span.CodeMirror-selectedtext {
   background: none; }
+
+.cm-in-composition .CodeMirror-input-wrapper {
+  overflow: visible !important; }
+  .cm-in-composition .CodeMirror-input-wrapper textarea {
+    resize: none;
+    background-color: transparent;
+    border: none;
+    font-size: 16px !important;
+    min-width: 500px;
+    z-index: 10;
+    top: -2px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    transition: none; }
+
+.cm-in-composition .CodeMirror-scroll .CodeMirror-cursor {
+  display: none; }
+
+.cm-text-in-composition {
+  color: transparent; }
 
 body.dark .CodeMirror {
   background-color: #222;

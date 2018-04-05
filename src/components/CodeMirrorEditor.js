@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
 import { StyleSheet, css } from 'aphrodite/no-important';
-import "codemirror-composition-mod"
+
+import "../assets/js/codemirror/addon/composition-mod.js"
+// import "codemirror-composition-mod/  lib/codemirror-composition-mod.css"
 
 import '../assets/js/codemirror/mode/gfm.js';
 
@@ -60,9 +62,6 @@ export default class CodeMirrorEditor extends Component {
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
       },
-    })
-    editor.display.input.div.addEventListener("compositionupdate", e => {
-      alert("hi")
     })
 
     let keymap = {};
