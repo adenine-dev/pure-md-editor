@@ -84,6 +84,7 @@ const api = {
       fadeFormatting: true,
       wrapLine: true,
       tabSize: 2,
+      lineHeight: "1.6"
     }
     if(localStorage.getItem("settings")) {
       api.settings = { ...defaultSettings,

@@ -163,6 +163,16 @@ export default class AppContainer extends Component {
                    defaultValue={ this.state.settings.tabSize }
                    onChange={ this.handleNumChange.bind(this) }/>
           </div>
+          <div>
+            <h3>Line Height</h3>
+            <input type="number"
+                   min="1"
+                   max="Infinity"
+                   name="lineHeight"
+                   className={ css(this.style.input) }
+                   defaultValue={ this.state.settings.lineHeight }
+                   onChange={ this.handleNumChange.bind(this) }/><p className={ css(this.style.p) }>em</p>
+          </div>
         </div>
         <div className={ css(this.style.option) }>
           <h2 className={ css(this.style.headers) }>Markdown Options</h2>
