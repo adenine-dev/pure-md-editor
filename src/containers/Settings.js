@@ -61,7 +61,7 @@ export default class AppContainer extends Component {
       toggleContainer: {
         display: "flex",
         alignItems: "center",
-
+        marginBottom: "8px"
       },
       toggleLabel: {
         marginRight: "32px"
@@ -154,14 +154,14 @@ export default class AppContainer extends Component {
         <div className={ css(this.style.option) }>
           <h2 className={ css(this.style.headers) }>Markdown Options</h2>
           <div className={ css(this.style.toggleContainer) }>
-            <p className={ css(this.style.toggleLabel) }>Fade formatting</p>
+            <p className={ css(this.style.toggleLabel) }>Fade Formatting</p>
             <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
               onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
           </div>
           <div className={ css(this.style.toggleContainer) }>
-            <p className={ css(this.style.toggleLabel) }>Fade formatting</p>
-            <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
-              onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
+            <p className={ css(this.style.toggleLabel) }>Line Wrap</p>
+            <ToggleButton defaultValue={ this.state.settings.wrapLine }
+              onChange={ (e) => this.handleToggleChange(e, "wrapLine") }/>
           </div>
         </div>
         <button onClick={ this.handleSave.bind(this) }

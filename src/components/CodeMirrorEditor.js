@@ -55,7 +55,7 @@ export default class CodeMirrorEditor extends Component {
       indentUnit: 2,
       tabSize: 2,
       autoCloseBrackets: true,
-      lineWrapping: true,
+      lineWrapping: api.getSetting("wrapLine"),
       inputStyle: "contenteditable",
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
