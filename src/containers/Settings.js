@@ -28,6 +28,9 @@ export default class AppContainer extends Component {
       h2: {
         fontSize: "32px"
       },
+      h3: {
+        fontSize: "16px"
+      },
       container: {
         color: themes[theme].color,
         padding: "16px",
@@ -65,6 +68,9 @@ export default class AppContainer extends Component {
       },
       toggleLabel: {
         marginRight: "32px"
+      },
+      innerContainer: {
+        marginBottom: "16px",
       }
     })
   }
@@ -141,8 +147,8 @@ export default class AppContainer extends Component {
         </div>
         <div className={ css(this.style.option) }>
           <h2 className={ css(this.style.headers) }>Sizing</h2>
-          <div>
-            <h3>Font Size</h3>
+          <div className={ css(this.style.innerContainer) }>
+            <h3 className={ css([this.style.h3, this.style.headers]) }>Font Size</h3>
             <input type="number"
                    min="1"
                    max="Infinity"
@@ -153,8 +159,8 @@ export default class AppContainer extends Component {
             <br/>
             <p className={ css(this.style.p) }>Different Fonts may have different sizes regardless of if they have the same px size</p>
           </div>
-          <div>
-            <h3>Tab Size</h3>
+          <div className={ css(this.style.innerContainer) }>
+            <h3 className={ css([this.style.h3, this.style.headers]) }>Tab Size</h3>
             <input type="number"
                    min="1"
                    max="Infinity"
@@ -163,8 +169,8 @@ export default class AppContainer extends Component {
                    defaultValue={ this.state.settings.tabSize }
                    onChange={ this.handleNumChange.bind(this) }/>
           </div>
-          <div>
-            <h3>Line Height</h3>
+          <div className={ css(this.style.innerContainer) }>
+            <h3 className={ css([this.style.h3, this.style.headers]) }>Line Height</h3>
             <input type="number"
                    min="1"
                    max="Infinity"
