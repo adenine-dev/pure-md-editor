@@ -44,12 +44,18 @@ export default class AppContainer extends Component {
       <div className="app-container" className={ this.state.settings.theme }
            style={{ position: "relative" }}>
         <Menu theme={ this.state.settings.theme }/>
+
         <Switch>
           <Route exact path="/app/edit/:project/:editorType?/" component={ Editor } />
           <Route exact path="/app/projects/" component={ ProjectList } />
           <Route exact path="/app/settings/" component={ Settings } />
           <Redirect to="/app/projects/" />
         </Switch>
+        {/* TODO: make this not feel so wrong */}
+        <Route pattern="/" render={() => {
+          window.scrollTo(0, 0)
+          return null
+        }} />
       </div>
     )
   }

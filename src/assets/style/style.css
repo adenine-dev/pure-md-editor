@@ -38,7 +38,7 @@ body.light *::-webkit-scrollbar-thumb, body.light::-webkit-scrollbar-thumb {
   right: 16px;
   height: 48px;
   width: 48px;
-  z-index: 1000;
+  z-index: 100000;
   cursor: pointer; }
   .ham span {
     height: 2px;

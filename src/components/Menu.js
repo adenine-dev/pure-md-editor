@@ -21,7 +21,7 @@ export default class Menu extends Component {
         backgroundColor: themes[this.state.theme].bg,
         borderTop: "8px solid " + themes[this.state.theme].accent,
         overflow: "hidden",
-        zIndex: "100",
+        zIndex: "10000",
       },
       active: {
         left: "0",
