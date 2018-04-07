@@ -13,7 +13,43 @@ export default class RadioCluster extends Component {
     }
     const theme = api.getSetting("theme")
     this.style = StyleSheet.create({
-
+      wrapper: {
+        position: "relative",
+        border: "1px solid " + themes[theme].accent,
+        height: "32px",
+        width: "64px",
+        display: "inline-block"
+      },
+      input: {
+        opacity: "0",
+        position: "absolute",
+        height: "100%",
+        width: "100%",
+        cursor: "pointer",
+        ":checked + span": {
+          backgroundColor: themes[theme].accent,
+          ":after": {
+            left: "34px"
+          }
+        }
+      },
+      slider: {
+        height: "100%",
+        width: "100%",
+        pointerEvents: "none",
+        position: "absolute",
+        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+        ":after": {
+          content: "''",
+          position: "absolute",
+          height: "24px",
+          width: "24px",
+          top: "3px",
+          left: "3px",
+          transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+          backgroundColor: themes[theme].color
+        }
+      }
     })
   }
 
@@ -26,11 +62,12 @@ export default class RadioCluster extends Component {
 
   render() {
     return (
-      <div>
+      <div className={ css(this.style.wrapper) }>
         <input type="checkbox"
                onChange={ this.handleChange.bind(this) }
-               checked={ this.state.enabled }/>
-        <span></span>
+               checked={ this.state.enabled }
+               className={ css(this.style.input) }/>
+        <span className={ css(this.style.slider) }></span>
       </div>
     )
   }
