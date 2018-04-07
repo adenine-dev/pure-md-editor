@@ -12,6 +12,7 @@ export default class RadioCluster extends Component {
       enabled: props.defaultValue
     }
     const theme = api.getSetting("theme")
+    // TODO: maybe make the styles better idk if it is clear if the toggle is actually enabled or not
     this.style = StyleSheet.create({
       wrapper: {
         position: "relative",

@@ -63,6 +63,38 @@
         "tag": "rgba(255, 83, 112, 1)",
         "error": "#EC5F67"
       }
+    },
+    "trueDark": {
+      "bg": "#111",
+      "bgAlt": "#010101",
+      "color": "rgba(255,255,255,0.70)",
+      "accent": "#666",
+      "error": "#820e17",
+      "success": "#0d8223",
+      "code": {
+        "base": "rgba(233, 237, 237, 1)",
+        "keyword": "rgba(199, 146, 234, 1)",
+        "operator": "rgba(233, 237, 237, 1)",
+        "variable-2": "#80CBC4",
+        "variable-3": "#82B1FF",
+        "type": "#82B1FF",
+        "builtin": "#DECB6B",
+        "atom": "#F77669",
+        "number": "#F77669",
+        "string": "#C3E88D",
+        "string-2": "#80CBC4",
+        "comment": "#546E7A",
+        "variable": "#82B1FF",
+        "def": "#82B1FF",
+        "property": "#82B1FF",
+        "tag": "#80CBC4",
+        "meta": "#80CBC4",
+        "attribute": "#FFCB6B",
+        "qualifier": "#DECB6B",
+        "type": "DECB6B",
+        "tag": "rgba(255, 83, 112, 1)",
+        "error": "#EC5F67"
+      }
     }
   },
 

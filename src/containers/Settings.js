@@ -57,6 +57,14 @@ export default class AppContainer extends Component {
         opacity: "0.6",
         fontSize: "12px",
         display: "inline-block"
+      },
+      toggleContainer: {
+        display: "flex",
+        alignItems: "center",
+
+      },
+      toggleLabel: {
+        marginRight: "32px"
       }
     })
   }
@@ -145,9 +153,16 @@ export default class AppContainer extends Component {
         </div>
         <div className={ css(this.style.option) }>
           <h2 className={ css(this.style.headers) }>Markdown Options</h2>
-          <p>Fade formatting</p>
-          <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
-                        onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
+          <div className={ css(this.style.toggleContainer) }>
+            <p className={ css(this.style.toggleLabel) }>Fade formatting</p>
+            <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
+              onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
+          </div>
+          <div className={ css(this.style.toggleContainer) }>
+            <p className={ css(this.style.toggleLabel) }>Fade formatting</p>
+            <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
+              onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
+          </div>
         </div>
         <button onClick={ this.handleSave.bind(this) }
                 className={ css(this.style.saveButton) }>Save</button>

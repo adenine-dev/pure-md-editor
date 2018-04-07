@@ -32,6 +32,12 @@ body.light *::selection {
 body.light *::-webkit-scrollbar-thumb, body.light::-webkit-scrollbar-thumb {
   background-color: #c68989; }
 
+body.trueDark *::selection {
+  background-color: rgba(102, 102, 102, 0.2); }
+
+body.trueDark *::-webkit-scrollbar-thumb, body.trueDark::-webkit-scrollbar-thumb {
+  background-color: #666; }
+
 .ham {
   position: fixed;
   top: 16px;
@@ -502,6 +508,64 @@ body.light .CodeMirror-line * *:not(.cm-m-markdown), body.light .markdown-render
     text-decoration: underline;
     color: white !important; }
 
+body.trueDark .CodeMirror {
+  background-color: #111;
+  color: rgba(255, 255, 255, 0.7); }
+
+body.trueDark div.CodeMirror-cursor {
+  border-left: 2px solid #666; }
+
+body.trueDark .CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 2px solid #666; }
+
+body.trueDark .CodeMirror-selected, body.trueDark .CodeMirror-focused .CodeMirror-selected {
+  background-color: rgba(102, 102, 102, 0.1); }
+
+body.trueDark .cm-hr::after {
+  background-color: rgba(255, 255, 255, 0.4); }
+
+body.trueDark .cm-formatting {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none; }
+
+body.trueDark .CodeMirror-line * *:not(.cm-m-markdown), body.trueDark .markdown-renderer.trueDark .token {
+  color: #e9eded; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-activeline-background, body.trueDark .markdown-renderer.trueDark .token.CodeMirror-activeline-background {
+    background: transparent; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-keyword, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).keyword, body.trueDark .markdown-renderer.trueDark .token.cm-keyword, body.trueDark .markdown-renderer.trueDark .token.keyword {
+    color: #c792ea; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-operator, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).operator, body.trueDark .markdown-renderer.trueDark .token.cm-operator, body.trueDark .markdown-renderer.trueDark .token.operator {
+    color: #e9eded; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-2, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).variable-2, body.trueDark .markdown-renderer.trueDark .token.cm-variable-2, body.trueDark .markdown-renderer.trueDark .token.variable-2 {
+    color: #80CBC4; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-type, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).variable-3, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).type, body.trueDark .markdown-renderer.trueDark .token.cm-variable-3, body.trueDark .markdown-renderer.trueDark .token.cm-type, body.trueDark .markdown-renderer.trueDark .token.variable-3, body.trueDark .markdown-renderer.trueDark .token.type {
+    color: DECB6B; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-builtin, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).builtin, body.trueDark .markdown-renderer.trueDark .token.cm-builtin, body.trueDark .markdown-renderer.trueDark .token.builtin {
+    color: #DECB6B; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-atom, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-number, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).atom, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).number, body.trueDark .markdown-renderer.trueDark .token.cm-atom, body.trueDark .markdown-renderer.trueDark .token.cm-number, body.trueDark .markdown-renderer.trueDark .token.atom, body.trueDark .markdown-renderer.trueDark .token.number {
+    color: #F77669; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-string, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).string, body.trueDark .markdown-renderer.trueDark .token.cm-string, body.trueDark .markdown-renderer.trueDark .token.string {
+    color: #C3E88D; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-string-2, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).string-2, body.trueDark .markdown-renderer.trueDark .token.cm-string-2, body.trueDark .markdown-renderer.trueDark .token.string-2 {
+    color: #80CBC4; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-comment, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).comment, body.trueDark .markdown-renderer.trueDark .token.cm-comment, body.trueDark .markdown-renderer.trueDark .token.comment {
+    color: #546E7A; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-def, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-property, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).variable, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).def, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).property, body.trueDark .markdown-renderer.trueDark .token.cm-variable, body.trueDark .markdown-renderer.trueDark .token.cm-def, body.trueDark .markdown-renderer.trueDark .token.cm-property, body.trueDark .markdown-renderer.trueDark .token.variable, body.trueDark .markdown-renderer.trueDark .token.def, body.trueDark .markdown-renderer.trueDark .token.property {
+    color: #82B1FF; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-meta, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).tag, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).meta, body.trueDark .markdown-renderer.trueDark .token.cm-tag, body.trueDark .markdown-renderer.trueDark .token.cm-meta, body.trueDark .markdown-renderer.trueDark .token.tag, body.trueDark .markdown-renderer.trueDark .token.meta {
+    color: #ff5370; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-attribute, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).attribute, body.trueDark .markdown-renderer.trueDark .token.cm-attribute, body.trueDark .markdown-renderer.trueDark .token.attribute {
+    color: #FFCB6B; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-qualifier, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-variable-3, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-type, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).qualifier, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).variable-3, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).type, body.trueDark .markdown-renderer.trueDark .token.cm-qualifier, body.trueDark .markdown-renderer.trueDark .token.cm-variable-3, body.trueDark .markdown-renderer.trueDark .token.cm-type, body.trueDark .markdown-renderer.trueDark .token.qualifier, body.trueDark .markdown-renderer.trueDark .token.variable-3, body.trueDark .markdown-renderer.trueDark .token.type {
+    color: #DECB6B; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-tag, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).tag, body.trueDark .markdown-renderer.trueDark .token.cm-tag, body.trueDark .markdown-renderer.trueDark .token.tag {
+    color: #ff5370; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).cm-error, body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).error, body.trueDark .markdown-renderer.trueDark .token.cm-error, body.trueDark .markdown-renderer.trueDark .token.error {
+    color: #EC5F67; }
+  body.trueDark .CodeMirror-line * *:not(.cm-m-markdown).CodeMirror-matchingbracket, body.trueDark .markdown-renderer.trueDark .token.CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important; }
+
 .CodeMirror-lines .cm-header {
   font-weight: 800;
   line-height: 1.1em; }
@@ -623,3 +687,13 @@ body.light .markdown-renderer.light {
       color: #2196f3; }
   body.light .markdown-renderer.light hr {
     background-color: rgba(0, 0, 0, 0.4); }
+
+body.trueDark .markdown-renderer.trueDark {
+  color: rgba(255, 255, 255, 0.7); }
+  body.trueDark .markdown-renderer.trueDark pre, body.trueDark .markdown-renderer.trueDark blockquote {
+    background-color: #010101;
+    border-left: 4px solid #666; }
+    body.trueDark .markdown-renderer.trueDark pre code, body.trueDark .markdown-renderer.trueDark blockquote code {
+      color: #82B1FF; }
+  body.trueDark .markdown-renderer.trueDark hr {
+    background-color: rgba(255, 255, 255, 0.4); }
