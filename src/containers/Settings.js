@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
 import RadioCluster from "../components/RadioCluster.js"
+import ToggleButton from "../components/ToggleButton.js"
 
 import api from "../assets/js/api.js"
 import { themes } from "../assets/js/theme.js"
@@ -36,51 +37,6 @@ export default class AppContainer extends Component {
       },
       option: {
         marginBottom: "48px"
-      },
-      radio: {
-        opacity: 0,
-        height: "100%",
-        width: "100%",
-        position: "absolute",
-        top: "0",
-        left: "0",
-        cursor: "pointer",
-        ":checked + p": {
-          backgroundColor: themes[theme].accent,
-          ":after": {
-            // backgroundColor: themes[theme].accent
-          }
-        },
-        ":hover + p": {
-          ":after": {
-            backgroundColor: themes[theme].accent
-          }
-        }
-      },
-      radioContainer: {
-        position: "relative",
-        marginBottom: "4px",
-        maxWidth: "120px",
-        border: "1px solid " + themes[theme].accent
-      },
-      radioLabel: {
-        padding: "8px 16px",
-        backgroundColor: "transparent",
-        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-        position: "relative",
-        pointerEvents: "none",
-        ":after": {
-          content: "''",
-          position: "absolute",
-          display: "block",
-          height: "12px",
-          width: "12px",
-          border: "4px solid " + themes[theme].bg,
-          borderRadius: "50%",
-          top: "calc(50% - 10px)",
-          right: "8px",
-          transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-        }
       },
       saveButton: {
         backgroundColor: themes[theme].accent,
@@ -140,6 +96,12 @@ export default class AppContainer extends Component {
     this.setState({ settings })
   }
 
+  handleToggleChange(e, name) {
+    const settings = {...this.state.settings}
+    settings[name] = e.target.checked;
+    this.setState({ settings })
+  }
+
   render() {
     if(this.state.shouldRedirect) {
       // TODO: make this better and not make a bunch of half rendered garbage
@@ -180,6 +142,12 @@ export default class AppContainer extends Component {
                  onChange={ this.handleNumChange.bind(this) }/><p className={ css(this.style.p) }>px</p>
           <br/>
           <p className={ css(this.style.p) }>Different Fonts may have different sizes regardless of if they have the same px size</p>
+        </div>
+        <div className={ css(this.style.option) }>
+          <h2 className={ css(this.style.headers) }>Markdown Options</h2>
+          <p>Fade formatting</p>
+          <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
+                        onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
         </div>
         <button onClick={ this.handleSave.bind(this) }
                 className={ css(this.style.saveButton) }>Save</button>

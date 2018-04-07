@@ -36,9 +36,7 @@ export default class AppContainer extends Component {
   }
 
   render() {
-
     cssGlobal(this.style);
-
 
     return (
       <div className="app-container" className={ this.state.settings.theme }

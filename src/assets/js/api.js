@@ -55,8 +55,6 @@ const api = {
       return name
     }
 
-
-    // TODO: make this generate an unused project name better
     let name = newName || newProjectName()
     let projects = api.getProjects()
     let project = {
@@ -82,7 +80,9 @@ const api = {
     const defaultSettings = {
       theme: "dark",
       fontSize: "24",
-      countType: "words"
+      countType: "words",
+      fadeFormatting: true,
+      
     }
     if(localStorage.getItem("settings")) {
       api.settings = { ...defaultSettings,

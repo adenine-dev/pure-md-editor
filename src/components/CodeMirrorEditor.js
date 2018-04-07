@@ -18,7 +18,7 @@ import 'codemirror/mode/javascript/javascript.js';
 // import 'codemirror/mode/css/css.js';
 
 import keymaps from "../assets/js/codemirror/keymap/keymap.js"
-
+import api from "../assets/js/api.js"
 
 
 
@@ -42,7 +42,7 @@ export default class CodeMirrorEditor extends Component {
     let editor = CodeMirror(this.cm, {
       mode: {
         name: "gfm",
-        highlightFormatting: true,
+        highlightFormatting: api.getSetting("fadeFormatting"),
         ignoreUnderscore: true,
         taskLists: true,
         fencedCodeBlocks: true,
