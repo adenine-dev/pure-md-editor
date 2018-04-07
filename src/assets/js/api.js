@@ -83,6 +83,7 @@ const api = {
       countType: "words",
       fadeFormatting: true,
       wrapLine: true,
+      tabSize: 2,
     }
     if(localStorage.getItem("settings")) {
       api.settings = { ...defaultSettings,

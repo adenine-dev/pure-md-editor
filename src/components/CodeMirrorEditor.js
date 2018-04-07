@@ -53,7 +53,7 @@ export default class CodeMirrorEditor extends Component {
       autofocus: true,
       addModeClass: true,
       indentUnit: 2,
-      tabSize: 2,
+      tabSize: api.getSetting("tabSize"),
       autoCloseBrackets: true,
       lineWrapping: api.getSetting("wrapLine"),
       inputStyle: "contenteditable",

@@ -140,16 +140,29 @@ export default class AppContainer extends Component {
           </div>
         </div>
         <div className={ css(this.style.option) }>
-          <h2 className={ css(this.style.headers) }>Font Size</h2>
-          <input type="number"
-                 min="1"
-                 max="Infinity"
-                 name="fontSize"
-                 className={ css(this.style.input) }
-                 defaultValue={ this.state.settings.fontSize }
-                 onChange={ this.handleNumChange.bind(this) }/><p className={ css(this.style.p) }>px</p>
-          <br/>
-          <p className={ css(this.style.p) }>Different Fonts may have different sizes regardless of if they have the same px size</p>
+          <h2 className={ css(this.style.headers) }>Sizing</h2>
+          <div>
+            <h3>Font Size</h3>
+            <input type="number"
+                   min="1"
+                   max="Infinity"
+                   name="fontSize"
+                   className={ css(this.style.input) }
+                   defaultValue={ this.state.settings.fontSize }
+                   onChange={ this.handleNumChange.bind(this) }/><p className={ css(this.style.p) }>px</p>
+            <br/>
+            <p className={ css(this.style.p) }>Different Fonts may have different sizes regardless of if they have the same px size</p>
+          </div>
+          <div>
+            <h3>Tab Size</h3>
+            <input type="number"
+                   min="1"
+                   max="Infinity"
+                   name="tabSize"
+                   className={ css(this.style.input) }
+                   defaultValue={ this.state.settings.tabSize }
+                   onChange={ this.handleNumChange.bind(this) }/>
+          </div>
         </div>
         <div className={ css(this.style.option) }>
           <h2 className={ css(this.style.headers) }>Markdown Options</h2>
