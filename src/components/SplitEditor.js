@@ -39,6 +39,9 @@ export default class SplitEditor extends Component {
         margin: "0 auto",
         flex: "1",
         height: "calc(100vh - 24px)",
+        [breakpoints.tablet]: {
+          width: "100%",
+        }
       },
       splitItem: {
         width: "50%",
@@ -94,6 +97,7 @@ export default class SplitEditor extends Component {
           width: "24px",
           height: "116px",
           cursor: "pointer",
+          zIndex: "10",
           color: themes[this.state.theme].color,
         }
       }
@@ -118,6 +122,7 @@ export default class SplitEditor extends Component {
   }
 
   togglePane(e) {
+    console.log("hi")
     this.setState({ activePane: this.state.activePane === PANES.EDITOR ? PANES.PREVIEW : PANES.EDITOR })
   }
 

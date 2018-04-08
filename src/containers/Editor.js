@@ -153,7 +153,8 @@ export default class Editor extends Component {
 
   getCount() {
     if(api.getSetting("countType") === "words") {
-      return "words: " + ((this.state.project.value === "") ? 0 : this.state.project.value.split(' ').length - ((this.state.project.value.substr(-1) === " ") ? 1 : 0))
+      const wordCount = this.state.project.value.trim().replace(/\s+/gi, ' ').split(' ').length;
+      return "words: " + (this.state.project.value === "" ? wordCount - 1 : wordCount)
     } else if(api.getSetting("countType") === "characters") {
       return "characters: " + this.state.project.value.length
     } else {
