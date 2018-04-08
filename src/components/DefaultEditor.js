@@ -19,6 +19,7 @@ export default class DefaultEditor extends Component {
       project: props.project,
       theme: api.getSetting("theme"),
       cm: null,
+      showToolbar: api.getSetting("showToolbar")
     }
     this.style = StyleSheet.create({
       toobarButton: {
@@ -57,23 +58,30 @@ export default class DefaultEditor extends Component {
   }
 
   render() {
-    const actions = keymaps.map((action, i) => (
-      <button key={ i }
-              onClick={ (e) => {
-                this.state.cm.focus();
-                action.action(this.state.cm, this.state, this, {}, {})
-              } }
-              className={ css(this.style.toobarButton) }>
-        <i className={"material-icons " + css(this.style.toobarIcon)}>
-          { action.icon }
-        </i>
-      </button>
-    ))
-    return (
-      <div className="default-editor">
+    let toolbar;
+    if(api.isMobile() && this.state.showToolbar) {
+      const actions = keymaps.map((action, i) => (
+        <button key={ i }
+                onClick={ (e) => {
+                  this.state.cm.focus();
+                  action.action(this.state.cm, this.state, this, {}, {})
+                } }
+                className={ css(this.style.toobarButton) }>
+          <i className={"material-icons " + css(this.style.toobarIcon)}>
+            { action.icon }
+          </i>
+        </button>
+      ))
+      toolbar = (
         <Toolbar>
           { actions }
         </Toolbar>
+      )
+    }
+
+    return (
+      <div className="default-editor">
+        { toolbar }
         <CodeMirrorEditor defaultValue={ this.state.project.value }
                           onChange={ this.handleCmChange.bind(this) }
                           onMount={ this.getCMEditor.bind(this) }/>

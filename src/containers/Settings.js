@@ -192,6 +192,13 @@ export default class AppContainer extends Component {
             <ToggleButton defaultValue={ this.state.settings.wrapLine }
               onChange={ (e) => this.handleToggleChange(e, "wrapLine") }/>
           </div>
+          { api.isMobile() && (
+            <div className={ css(this.style.toggleContainer) }>
+              <p className={ css(this.style.toggleLabel) }>Show Toolbar</p>
+              <ToggleButton defaultValue={ this.state.settings.showToolbar }
+                onChange={ (e) => this.handleToggleChange(e, "showToolbar") }/>
+            </div>
+          ) }
         </div>
         <button onClick={ this.handleSave.bind(this) }
                 className={ css(this.style.saveButton) }>Save</button>
