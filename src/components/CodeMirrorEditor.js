@@ -12,6 +12,7 @@ import '../assets/js/codemirror/addon/overlay.js';
 import '../assets/js/codemirror/addon/closebrackets.js';
 import '../assets/js/codemirror/addon/placeholder.js';
 import '../assets/js/codemirror/addon/active-line.js';
+import '../assets/js/codemirror/addon/loadmode.js';
 
 
 import 'codemirror/mode/javascript/javascript.js';
@@ -84,7 +85,8 @@ export default class CodeMirrorEditor extends Component {
     if(this.props.onMount) {
       this.props.onMount(this.state, editor)
     }
-
+    console.log(editor)
+    // CodeMirror.autoLoadMode(editor, editor);
   }
 
 
