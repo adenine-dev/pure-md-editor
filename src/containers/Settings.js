@@ -185,12 +185,22 @@ export default class AppContainer extends Component {
           <div className={ css(this.style.toggleContainer) }>
             <p className={ css(this.style.toggleLabel) }>Fade Formatting</p>
             <ToggleButton defaultValue={ this.state.settings.fadeFormatting }
-              onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
+                          onChange={ (e) => this.handleToggleChange(e, "fadeFormatting") }/>
           </div>
           <div className={ css(this.style.toggleContainer) }>
             <p className={ css(this.style.toggleLabel) }>Line Wrap</p>
             <ToggleButton defaultValue={ this.state.settings.wrapLine }
-              onChange={ (e) => this.handleToggleChange(e, "wrapLine") }/>
+                          onChange={ (e) => this.handleToggleChange(e, "wrapLine") }/>
+          </div>
+          <div className={ css(this.style.toggleContainer) }>
+            <p className={ css(this.style.toggleLabel) }>Focus Active Line</p>
+            <ToggleButton defaultValue={ this.state.settings.focusLine }
+                          onChange={ (e) => this.handleToggleChange(e, "focusLine") }/>
+          </div>
+          <div className={ css(this.style.toggleContainer) }>
+            <p className={ css(this.style.toggleLabel) }>Enlarge Headings</p>
+            <ToggleButton defaultValue={ this.state.settings.EnlargeHeaders }
+                          onChange={ (e) => this.handleToggleChange(e, "EnlargeHeaders") }/>
           </div>
           { api.isMobile() && (
             <div className={ css(this.style.toggleContainer) }>

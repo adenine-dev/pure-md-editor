@@ -89,6 +89,12 @@ body.trueDark *::-webkit-scrollbar-thumb, body.trueDark::-webkit-scrollbar-thumb
     width: 0px;
     background: transparent; }
 
+.active-line-focus .CodeMirror-code > .CodeMirror-line {
+  opacity: 0.4; }
+
+.active-line-focus .CodeMirror-code > *:not(.CodeMirror-activeline) .CodeMirror-line {
+  opacity: 0.4; }
+
 /* PADDING */
 .CodeMirror-lines {
   padding: 4px 0;
@@ -567,29 +573,7 @@ body.trueDark .CodeMirror-line * *:not(.cm-m-markdown), body.trueDark .markdown-
     color: white !important; }
 
 .CodeMirror-lines .cm-header {
-  font-weight: 800;
-  line-height: 1.1em; }
-
-.CodeMirror-lines .cm-header-1 {
-  font-size: 2.4em;
-  line-height: 1.6em; }
-
-.CodeMirror-lines .cm-header-2 {
-  font-size: 2em;
-  line-height: 1.4em; }
-
-.CodeMirror-lines .cm-header-3 {
-  font-size: 1.8em;
-  line-height: 1.2em; }
-
-.CodeMirror-lines .cm-header-4 {
-  font-size: 1.4em; }
-
-.CodeMirror-lines .cm-header-5 {
-  font-size: 1.2em; }
-
-.CodeMirror-lines .cm-header-6 {
-  font-size: 1em; }
+  font-weight: 800; }
 
 .CodeMirror-lines .cm-formatting:not(.cm-formatting-header):not(.cm-formatting-quote) {
   font-size: 0.6em;

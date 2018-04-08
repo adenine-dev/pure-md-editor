@@ -84,6 +84,8 @@ const api = {
       fadeFormatting: true,
       wrapLine: true,
       showToolbar: true,
+      focusLine: true,
+      EnlargeHeaders: true,
       tabSize: 2,
       lineHeight: "1.6",
     }

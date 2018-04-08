@@ -21,12 +21,38 @@ export default class AppContainer extends Component {
         theme: api.getSetting("theme"),
       },
     }
+    const headerStyle = api.getSetting("EnlargeHeaders") ? {
+      ".cm-header": {
+        lineHeight: "1.1em",
+      },
+      ".cm-header-1": {
+        fontSize: "2.4em",
+        lineHeight: "1.6em",
+      },
+      ".cm-header-2": {
+        fontSize: "2em",
+        lineHeight: "1.4em",
+      },
+      ".cm-header-3": {
+        fontSize: "1.8em",
+        lineHeight: "1.2em",
+      },
+      ".cm-header-4": {
+        fontSize: "1.4em",
+      },
+      ".cm-header-5": {
+        fontSize: "1.2em",
+      },
+      ".cm-header-6": {
+        fontSize: "1em",
+      }
+    } : {}
     this.style = {
       ".CodeMirror, .markdown-renderer": {
         fontSize: api.getSetting("fontSize") + "px",
         lineHeight: api.getSetting("lineHeight") + "em"
       },
-
+      ...headerStyle
     }
   }
 

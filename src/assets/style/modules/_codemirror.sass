@@ -13,8 +13,13 @@
     width: 0px
     background: transparent
 
-
-
+.active-line-focus
+  .CodeMirror-code
+    >.CodeMirror-line
+      opacity: 0.4
+    >*:not(.CodeMirror-activeline)
+      .CodeMirror-line
+        opacity: 0.4
 /* PADDING
 
 .CodeMirror-lines

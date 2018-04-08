@@ -11,6 +11,7 @@ import '../assets/js/codemirror/addon/continuelist.js';
 import '../assets/js/codemirror/addon/overlay.js';
 import '../assets/js/codemirror/addon/closebrackets.js';
 import '../assets/js/codemirror/addon/placeholder.js';
+import '../assets/js/codemirror/addon/active-line.js';
 
 
 import 'codemirror/mode/javascript/javascript.js';
@@ -28,14 +29,14 @@ export default class CodeMirrorEditor extends Component {
     this.state = {
       editor: null,
       value: props.defaultValue,
-      theme: props.theme
+      theme: api.getSetting("theme")
     }
     this.style = StyleSheet.create({
       editorWrapperStyle: {
         width: "90%",
         margin: "64px auto",
         maxWidth: "960px",
-      }
+      },
     })
   }
   componentDidMount() {
@@ -53,6 +54,7 @@ export default class CodeMirrorEditor extends Component {
       autofocus: true,
       addModeClass: true,
       indentUnit: 2,
+      styleActiveLine: api.getSetting("focusLine"),
       tabSize: api.getSetting("tabSize"),
       autoCloseBrackets: true,
       lineWrapping: api.getSetting("wrapLine"),
@@ -90,7 +92,7 @@ export default class CodeMirrorEditor extends Component {
     return (
       <div className={ css([this.style.editorWrapperStyle, this.props.style]) + " editor"} >
         <div id="main-editor"
-             className={ this.state.theme }
+             className={ this.state.theme + (api.getSetting("focusLine") ? " active-line-focus" : "")}
              ref={(cm) => { this.cm = cm }}></div>
       </div>
     );
