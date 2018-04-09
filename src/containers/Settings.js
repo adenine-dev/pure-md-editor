@@ -67,7 +67,8 @@ export default class AppContainer extends Component {
         marginBottom: "8px"
       },
       toggleLabel: {
-        marginRight: "32px"
+        marginRight: "32px",
+        width: "300px"
       },
       innerContainer: {
         marginBottom: "16px",

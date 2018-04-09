@@ -80,7 +80,7 @@ body.trueDark *::-webkit-scrollbar-thumb, body.trueDark::-webkit-scrollbar-thumb
   /* Set height, width, borders, and global font properties here */
   font-family: "Roboto", sans-serif;
   height: auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   overflow: visible;
   color: inherit;
   direction: ltr;
@@ -376,27 +376,6 @@ div.CodeMirror-dragcursors {
 /* Help users use markselection to safely style text background */
 span.CodeMirror-selectedtext {
   background: none; }
-
-.cm-in-composition .CodeMirror-input-wrapper {
-  overflow: visible !important; }
-  .cm-in-composition .CodeMirror-input-wrapper textarea {
-    resize: none;
-    background-color: transparent;
-    border: none;
-    font-size: 16px !important;
-    min-width: 500px;
-    z-index: 10;
-    top: -2px;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    transition: none; }
-
-.cm-in-composition .CodeMirror-scroll .CodeMirror-cursor {
-  display: none; }
-
-.cm-text-in-composition {
-  color: transparent; }
 
 body.dark .CodeMirror {
   background-color: #222;
