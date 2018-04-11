@@ -178,16 +178,10 @@ export default class Editor extends Component {
     }
   }
 
-<<<<<<< HEAD
-
-  setCM(cm) {
-    this.setState({ cm })
-=======
   componentDidMount() {
     this.syncSave = setInterval(() => {
       api.setProject(this.state.project.name, this.state.project)
     }, api.getSetting("saveInterval"))
->>>>>>> d3617e660b287dde8485441ff27f66cb2ef96bf3
   }
 
   render() {
