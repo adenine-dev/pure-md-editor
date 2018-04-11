@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CodeMirror from 'codemirror';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
-// import "../assets/js/codemirror/addon/composition-mod.js"
 // import "codemirror-composition-mod/  lib/codemirror-composition-mod.css"
 
 import '../assets/js/codemirror/mode/gfm.js';
@@ -12,7 +11,7 @@ import '../assets/js/codemirror/addon/overlay.js';
 import '../assets/js/codemirror/addon/closebrackets.js';
 import '../assets/js/codemirror/addon/placeholder.js';
 import '../assets/js/codemirror/addon/active-line.js';
-import '../assets/js/codemirror/addon/loadmode.js';
+// import '../assets/js/codemirror/addon/composition-mod.js';
 
 
 import 'codemirror/mode/javascript/javascript.js';
@@ -51,7 +50,7 @@ export default class CodeMirrorEditor extends Component {
         underline: true,
       },
       value: this.state.value,
-      placeholder: "write something",
+      placeholder: "write something...",
       autofocus: true,
       addModeClass: true,
       indentUnit: 2,
@@ -60,6 +59,7 @@ export default class CodeMirrorEditor extends Component {
       autoCloseBrackets: true,
       lineWrapping: api.getSetting("wrapLine"),
       inputStyle: "contenteditable",
+      // enableCompositionMod: true,
       extraKeys: {
         "Enter": "newlineAndIndentContinueMarkdownList",
       },

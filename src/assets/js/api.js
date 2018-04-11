@@ -9,7 +9,7 @@ const api = {
     } else if(localStorage.getItem("projects")) {
       return api.setProjects(JSON.parse(localStorage.getItem("projects")))
     } else {
-      return null
+      return {}
     }
   },
   setLocalProjects: (projects) => {
@@ -88,6 +88,7 @@ const api = {
       EnlargeHeaders: true,
       tabSize: 2,
       lineHeight: "1.6",
+      saveInterval: 30000
     }
     if(localStorage.getItem("settings")) {
       api.settings = { ...defaultSettings,
