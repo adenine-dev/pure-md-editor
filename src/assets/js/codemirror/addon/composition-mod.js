@@ -1,6 +1,15 @@
-import CodeMirror from 'codemirror';
-import { applyTextInput } from "codemirror/src/input/input.js"
-import { operation } from "codemirror/src/display/operations.js"
+/*
+ * Composition Mod for CodeMirror
+ * v5.0.0
+ * mizchi <miz404@gmail.com>
+ * Zhusee <zhusee2@gmail.com>
+ *
+ * Additional instance properties added to CodeMirror:
+ *   - cm.display.inCompositionMode (Boolen)
+ *   - cm.display.textMarkerInComposition (TextMarker)
+ */
+
+ import CodeMirror from 'codemirror';
 
 
 const modInitialized = false;
@@ -39,8 +48,79 @@ const clearCompositionTextMarkers = function(cm){
   return true;
 };
 
-(function(CodeMirror) {
   let initCompositionMode;
+
+  initCompositionMode = function(cm) {
+    const inputField = cm.display.input.div;
+    const inputWrapper = cm.display.input.div.parentElement;
+    const cmWrapper = cm.display.wrapper;
+
+    inputWrapper.classList.add('CodeMirror-input-wrapper');
+    CodeMirror.on(inputField, 'compositionstart', function(event) {
+      if (!cm.options.enableCompositionMod) { return; }
+
+      cm.display.inCompositionMode = true;
+      cm.setOption('readOnly', true);
+
+      if (cm.somethingSelected()) { cm.replaceSelection(""); } // Clear the selected text first
+
+      cm.display.compositionHead = cm.getCursor();
+
+      inputField.value = "";
+
+      inputWrapper.classList.add('in-composition');
+      return cmWrapper.classList.add('cm-in-composition');
+    });
+
+    CodeMirror.on(inputField, 'compositionupdate', function(event) {
+      if (!cm.options.enableCompositionMod) { return; }
+      const headPos = cm.display.compositionHead;
+
+      if (cm.display.textMarkerInComposition) {
+        const markerRange = cm.display.textMarkerInComposition.find();
+        cm.replaceRange(event.data, headPos, markerRange.to);
+        cm.display.textMarkerInComposition.clear();
+        cm.display.textMarkerInComposition = undefined;
+      } else {
+        cm.replaceRange(event.data, headPos, headPos);
+      }
+
+      const endPos = cm.getCursor();
+      cm.display.textMarkerInComposition = cm.markText(headPos, endPos, TEXT_MARKER_OPTIONS);
+
+    });
+
+    return CodeMirror.on(inputField, 'compositionend', function(event) {
+      if (!cm.options.enableCompositionMod) { return; }
+      cmWrapper.classList.remove('cm-in-composition');
+
+      const textLeftComposition = event.data;
+      const headPos = cm.display.compositionHead;
+      const endPos = cm.getCursor();
+
+      cm.display.inCompositionMode = false;
+      cm.display.compositionHead = undefined;
+      if (cm.display.textMarkerInComposition != null) {
+        cm.display.textMarkerInComposition.clear();
+      }
+      cm.display.textMarkerInComposition = undefined;
+      cm.setOption('readOnly', false);
+
+      inputWrapper.classList.remove('in-composition');
+
+      clearCompositionTextMarkers(cm);
+
+      var postCompositionEnd = function() {
+        if (cm.display.inCompositionMode) { return false; }
+        inputField.value = "";
+        return CodeMirror.off(inputField, 'input', postCompositionEnd);
+      };
+
+      return CodeMirror.on(inputField, 'input', postCompositionEnd);
+    });
+  };
+
+
   CodeMirror.defineOption('enableCompositionMod', false, function(cm, newVal, oldVal) {
     if (newVal && !modInitialized) {
       if (window.CompositionEvent != null) {
@@ -51,26 +131,3 @@ const clearCompositionTextMarkers = function(cm){
       }
     }
   });
-
-  return initCompositionMode = function(cm) {
-    const inputField = cm.display.input.div;
-    const inputWrapper = cm.display.input.div.parentElement;
-    const cmWrapper = cm.display.wrapper;
-
-    inputWrapper.classList.add('CodeMirror-input-wrapper');
-    CodeMirror.on(inputField, 'compositionstart', function(event) {
-
-
-    });
-
-    CodeMirror.on(inputField, 'compositionupdate', function(event) {
-      operation(cm, applyTextInput)(cm, event.data, 0)
-
-    });
-
-    return CodeMirror.on(inputField, 'compositionend', function(event) {
-      // alert("end")
-
-    });
-  };
-})(CodeMirror)
