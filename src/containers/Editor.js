@@ -184,6 +184,10 @@ export default class Editor extends Component {
     }, api.getSetting("saveInterval"))
   }
 
+  setCM(cm) {
+    this.setState({ cm })
+  }
+
   render() {
     if(!this.state.project) {
       return (
