@@ -17,7 +17,6 @@ export default class DistractionEditor extends Component {
       theme: api.getSetting("theme"),
       cm: null,
     }
-    console.log(this.state);
   }
 
   handleCmChange(cm) {
