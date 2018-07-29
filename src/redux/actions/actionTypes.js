@@ -1,9 +1,0 @@
-// Settings
-const SET_SETTING =  "SET_SETTING"
-const SET_SETTINGS = "SET_SETTINGS"
-
-
-// projects
-const SET_PROJECT = "SET_PROJECT"
-const SET_PROJECTS = "SET_PROJECTS"
-const RENAME_PROJECT = "RENAME_PROJECT"

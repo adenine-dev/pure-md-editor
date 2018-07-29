@@ -59,7 +59,6 @@ export default class ProjectList extends Component {
       li: {
         flex: "3",
         minWidth: "0",
-
       },
       a: {
         color: themes[this.state.theme].color,
@@ -144,7 +143,9 @@ export default class ProjectList extends Component {
       },
       placeholderLink: {
         transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
-        border: "3px solid " + themes[this.state.theme].color,
+        backgroundColor: themes[this.state.theme].accent,
+        color: themes[this.state.theme].color,
+        opacity: "0.8",
         padding: "8px 16px",
         display: "table",
         margin: "0 auto",
@@ -233,7 +234,7 @@ export default class ProjectList extends Component {
     let notification = {...this.state.notification};
     notification.show = true
     notification.name = "warning"
-    notification.timeout = true
+    notification.timeout = false
     notification.value = (
       <div>
         <p>Are you sure you want to delete { name }</p>
