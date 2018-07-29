@@ -73,7 +73,7 @@ export default class Notification extends Component {
           this.props.onClose(false)
         }
         this.setState({displayTimer: null})
-      }, 4000)})
+      }, this.state.hideTime || 4000)})
     } else {
       this.setState({displayTimer: null})
     }

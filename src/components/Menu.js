@@ -158,15 +158,11 @@ export default class Menu extends Component {
                   </li>
                   <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
-                        Markdown cheetsheet
+                      <a href="https://daringfireball.net/projects/markdown/syntax" target="_blank">TF is Markdown‽</a>
                   </li>
                   <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
                         Hotkeys
-                  </li>
-                  <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
-                      onClick={ this.toggleNav.bind(this)}>
-                        here
                   </li>
                 </ul>
               </div>
