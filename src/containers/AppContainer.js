@@ -51,6 +51,8 @@ export default class AppContainer extends Component {
     this.style = {
       ".CodeMirror, .markdown-renderer": {
         fontSize: api.getSetting("fontSize") + "px",
+      },
+      ".cm-m-markdown": {
         lineHeight: api.getSetting("lineHeight") + "em"
       },
       ...headerStyle

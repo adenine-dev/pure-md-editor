@@ -9,6 +9,7 @@ import DistractionEditor from "../components/DistractionEditor.js"
 
 import Notification from "../components/Notification.js"
 import EmoteError from "../components/EmoteError.js"
+import Toolbar from "../components/Toolbar.js"
 
 import { themes, breakpoints } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
@@ -95,7 +96,22 @@ export default class Editor extends Component {
         padding: "4px",
         lineHeight: "1.6em",
 
-      }
+      },
+      toobarButton: {
+        color: themes[this.state.theme].color,
+        width: "56px",
+        backgroundColor: "transparent",
+        verticalAlign: "middle",
+        height: "100%",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+
+      },
+      toobarIcon: {
+        verticalAlign: "middle",
+        height: "100%"
+      },
     })
   }
 
@@ -168,6 +184,10 @@ export default class Editor extends Component {
     }, api.getSetting("saveInterval"))
   }
 
+  setCM(cm) {
+    this.setState({ cm })
+  }
+
   render() {
     if(!this.state.project) {
       return (
@@ -201,10 +221,32 @@ export default class Editor extends Component {
         </Notification>
       )
     }
+
+    let toolbar;
+    if(api.getSetting("showToolbar")) {
+      const actions = keymaps.map((action, i) => (
+        <button key={ i }
+                onClick={ (e) => {
+                  this.state.cm.focus();
+                  action.action(this.state.cm, this.state, this, {}, {})
+                } }
+                className={ css(this.style.toobarButton) }>
+          <i className={"material-icons " + css(this.style.toobarIcon)}>
+            { action.icon }
+          </i>
+        </button>
+      ))
+      toolbar = (
+        <Toolbar>
+          { actions }
+        </Toolbar>
+      )
+    }
+
     return (
       <div>
         { notification }
-
+        { toolbar }
         <header className= {css(this.style.header) }>
           <p className={ css(this.style.countP) }>
             { this.getCount() }
@@ -217,20 +259,22 @@ export default class Editor extends Component {
         <Switch>
           <Route exact path="/app/edit/:project/default/" render={ (props) => (
             <DefaultEditor onChange={ this.handleChange.bind(this) }
-                           project={ this.state.project } {...props}/>
+                           project={ this.state.project }
+                           onMount={ this.setCM.bind(this) } {...props}/>
           )} />
           <Route exact path="/app/edit/:project/split/" render={ (props) => (
             <SplitEditor onChange={ this.handleChange.bind(this) }
-                         project={ this.state.project } {...props}/>
+                         project={ this.state.project }
+                         onMount={ this.setCM.bind(this) } {...props}/>
           )} />
           <Route exact path="/app/edit/:project/distraction/" render={ (props) => (
             <DistractionEditor onChange={ this.handleChange.bind(this) }
-                               project={ this.state.project } {...props}/>
+                               project={ this.state.project }
+                               onMount={ this.setCM.bind(this) } {...props}/>
           )} />
 
           <Redirect to={"/app/edit/" + this.state.project + "/default/"}/>
         </Switch>
-
       </div>
     )
   }

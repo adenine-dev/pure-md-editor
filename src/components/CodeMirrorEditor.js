@@ -85,7 +85,6 @@ export default class CodeMirrorEditor extends Component {
     if(this.props.onMount) {
       this.props.onMount(this.state, editor)
     }
-    console.log(editor)
     // CodeMirror.autoLoadMode(editor, editor);
   }
 
