@@ -9,6 +9,7 @@ import Editor from "./Editor.js"
 import Settings from "./Settings.js"
 
 import Menu from "../components/Menu.js"
+import Hotkeys from "../components/Hotkeys.js"
 
 import { themes } from "../assets/js/theme.js"
 import api from "../assets/js/api.js"
@@ -74,6 +75,7 @@ export default class AppContainer extends Component {
           <Route exact path="/app/edit/:project/:editorType?/" component={ Editor } />
           <Route exact path="/app/projects/" component={ ProjectList } />
           <Route exact path="/app/settings/" component={ Settings } />
+          <Route exact path="/app/hotkeys/" component={ Hotkeys } />
           <Redirect to="/app/projects/" />
         </Switch>
         {/* TODO: make this not feel so wrong */}

@@ -2,7 +2,7 @@
   "name": "pure-md-editor",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alex-griffin.github.io/pure-md-editor/",
+  "homepage": "https://alexa-griffin.github.io/pure-md-editor/",
   "dependencies": {
     "aphrodite": "^2.1.0",
     "codemirror": "^5.36.0",

@@ -146,7 +146,7 @@ export default class Menu extends Component {
           <span className={ css(this.style.hamIcoSpans) }></span>
         </div>
         <div className={ css([this.style.menu, (this.state.showNav ? this.style.active : this.style.hidden)])} >
-          {this.state.showNav && (
+          { this.state.showNav && (
             <div className={ "menu-option-container " + css(this.style.menuContentContainer)}>
               <div className={"side " + css(this.style.side)}>
                 <ul>
@@ -162,7 +162,9 @@ export default class Menu extends Component {
                   </li>
                   <li className={"hover-effect " + css(this.style.hoverItem, this.style.li)}
                       onClick={ this.toggleNav.bind(this)}>
+                      <Link to="/app/hotkeys/">
                         Hotkeys
+                      </Link>
                   </li>
                 </ul>
               </div>

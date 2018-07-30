@@ -63,9 +63,6 @@ export default class Notification extends Component {
   }
 
   createTimer() {
-    // console.log(!this.state.timedHide && !this.state.displayTimer);
-    // console.log(!this.state.timedHide)
-    // console.log(!this.state.displayTimer)
     if(this.state.timedHide && !this.state.displayTimer) {
       this.setState({displayTimer: setTimeout(() => {
         this.setState({ show: false })
